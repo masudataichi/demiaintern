@@ -1,4 +1,12 @@
+from django.db import models
+from django.http import request
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from .models import Submission
+from .forms import SubmissionForm
+from django.views.generic import CreateView
+from django.contrib import messages
+
 
 # Create your views here.
 def top(request):
@@ -26,8 +34,22 @@ def home(request):
 def friends(request):
     return render(request, 'cookapp/friends.html')
 
-def submission(request):
-    return render(request, 'cookapp/submission.html')
+class SubmissionView(CreateView):
+    model = Submission
+    template_name = 'submission.html'
+    form_class = SubmissionForm
+    success_url = reverse_lazy('cookapp:home')
+    def form_valid(self, form):
+        submmision = form.save(commit=False)
+        submmision.user = self.request.user
+        submmision.save()
+        messages.success(self.request, '投稿完了しました。')
+        return super().form_valid(form)
+    def form_invalid(self, form):
+        messages.error(self.request, '投稿失敗しました。')
+        return super().form_invalid(form)
+
+
 
 def friends_content(request):
     return render(request, 'cookapp/friends_content.html')
