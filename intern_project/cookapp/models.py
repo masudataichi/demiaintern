@@ -5,4 +5,7 @@ class User(AbstractUser):
     #アイコン画像
     icon = models.ImageField(blank=True, null=True)
 
+class Submission(AbstractUser):
+
+
 # Create your models here.
