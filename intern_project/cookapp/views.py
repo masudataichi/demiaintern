@@ -1,4 +1,12 @@
+from django.contrib.auth import authenticate, login
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import AuthenticationForm
+from django.views.generic.edit import CreateView
+from .forms import SignupForm
 
 # Create your views here.
 def top(request):
@@ -8,14 +16,23 @@ def top(request):
     }
     return render(request, 'cookapp/top.html', params)
 
-def login(request):
-    return render(request, 'cookapp/login.html')
+class login_view(LoginView):
+    authentication_form = AuthenticationForm
+    template_name = "cookapp/login.html"
 
 def logout(request):
     return render(request, 'cookapp/logout.html')
 
-def signup(request):
-    return render(request, 'cookapp/signup.html')
+class signup_view(CreateView):
+    form_class = SignupForm
+    template_name = "cookapp/signup.html"
+    success_url = reverse_lazy('signup_complete')
+
+    def form_valid(self,form):
+        user = form.save()
+        login(self.request,user)
+        self.object = user
+        return HttpResponseRedirect(self.get_success_url())
 
 def signup_complete(request):
     return render(request, 'cookapp/signup_complete.html')

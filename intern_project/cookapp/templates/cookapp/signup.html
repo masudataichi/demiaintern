@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>サインアップ</h1>
+    <form method = "post" enctype = "multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <button type = "submit">ユーザー登録</button>
+    </form>
+</body>
+</html>
