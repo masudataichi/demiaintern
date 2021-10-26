@@ -2,7 +2,11 @@ from django.shortcuts import render
 
 # Create your views here.
 def top(request):
-    return render(request, 'cookapp/top.html')
+    params = {
+        'login':'login',
+        'signup':'signup'
+    }
+    return render(request, 'cookapp/top.html', params)
 
 def login(request):
     return render(request, 'cookapp/login.html')
