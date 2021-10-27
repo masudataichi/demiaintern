@@ -7,13 +7,14 @@ from django.db.models.fields import related
 
 class User(AbstractUser):
     #アイコン画像
-    #変更しました、コンフリクト対策
     icon = models.ImageField(blank=True, null=True)
   
 
 
 class Submission(models.Model):
+    #外部キー
     submissionconnection = models.ForeignKey(User, on_delete=models.CASCADE, related_name='submissionconnection')
+    #画像
     image = models.ImageField(blank=True, null=True)
     CATEGORY = (
         (11, '和食'),
@@ -29,14 +30,19 @@ class Submission(models.Model):
         (21, '飲食'),
         (22, 'その他'),
     )
+    #カテゴリー
     category = models. IntegerField(max_length=50, choices=CATEGORY)
     PUBLIC_PRIVATE = (
         (11, '公開'),
         (12, '非公開'),
     )
+    #公開/非公開
     public_private = models.IntegerField(max_length=3, choices=PUBLIC_PRIVATE)
-    date = models.DateTimeField(blank=True, null=True)
+    #日付時間
+    date = models.DateField(blank=True, null=True)
+    #場所
     place = models.CharField(max_length=50)
+    #コメント
     comment = models.CharField(max_length=2000)
 
 # Create your models here.
