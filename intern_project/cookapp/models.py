@@ -7,6 +7,7 @@ class User(AbstractUser):
     #アイコン画像
     icon = models.ImageField(blank=True, null=True)
 
+
 class Submission(AbstractUser):
     submissionconnection = models.Foreignkey(User, on_delete=models.CASCADE)
     image = models.ImageField(blank=True, null=True),
