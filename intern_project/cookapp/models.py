@@ -40,3 +40,4 @@ class Submission(models.Model):
     comment = models.CharField(max_length=2000)
 
 # Create your models here.
+
