@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.fields import related
-
+from django.contrib.auth.validators import UnicodeUsernameValidator
 
 
 
@@ -9,6 +9,17 @@ class User(AbstractUser):
     #アイコン画像
     #変更しました、コンフリクト対策
     icon = models.ImageField(blank=True, null=True)
+    username_validator = UnicodeUsernameValidator()
+
+    username = models.CharField(
+        verbose_name='名前(20文字まで)',
+        max_length=20,
+        unique=True,
+        validators=[username_validator],
+        error_messages={
+            'unique':("A user with that username already exists."),
+        },
+    )
   
 
 
