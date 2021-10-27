@@ -9,7 +9,7 @@ from .models import User
 class SubmissionForm(forms.ModelForm):
     class Meta:
         model = Submission
-        fields = ['image', 'category', 'public_private', 'date', 'place', 'comment']
+        fields = ['image','category','public_private','date','place','comment']
 
 
 class SignupForm(UserCreationForm):

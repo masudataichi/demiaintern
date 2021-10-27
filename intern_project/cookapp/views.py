@@ -56,7 +56,7 @@ def friends(request):
 
 class SubmissionView(CreateView):
     model = Submission
-    template_name = 'submission.html'
+    template_name = 'cookapp/submission.html'
     form_class = SubmissionForm
     success_url = reverse_lazy('cookapp:home')
     def form_valid(self, form):
