@@ -61,7 +61,7 @@ class SubmissionView(CreateView):
     success_url = reverse_lazy('cookapp:home')
     def form_valid(self, form):
         submmision = form.save(commit=False)
-        submmision.user = self.request.user
+        submmision.submissionconnection = self.request.user
         submmision.save()
         messages.success(self.request, '投稿完了しました。')
         return super().form_valid(form)
