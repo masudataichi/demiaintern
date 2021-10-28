@@ -49,6 +49,10 @@ def signup_complete(request):
     return render(request, 'cookapp/signup_complete.html')
 
 def home(request):
+    user = request.user
+    params = {
+        'user': user 
+    }
     return render(request, 'cookapp/home.html')
 
 def friends(request):
