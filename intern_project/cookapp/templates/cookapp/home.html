@@ -8,8 +8,8 @@
     <img src={{user.icon.url}} alt="サンプル" width="96" height="65">
     {{user.username}}
     <p><a href="{% url 'setting' %}">{{'設定'}}</a></p>
-    {% for contents1 in contents %}
-        <img src={{contents1.image.url}} alt="サンプル" width="96" height="65">
+    {% for contents in contents %}
+        {{contents.place}}
     {% endfor %}
 </body>
 <footer>

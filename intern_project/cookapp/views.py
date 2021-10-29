@@ -51,8 +51,8 @@ def signup_complete(request):
 @login_required
 def home(request):
     user = request.user
-    contents = Submission.objects.exclude(submissionconnection=user)
-    print(contents)
+    contents = Submission.objects.filter(submissionconnection=user)
+    
     params = {
         'user': user,
         'setting':'setting',
@@ -71,7 +71,7 @@ class SubmissionView(CreateView):
     model = Submission
     template_name = 'cookapp/submission.html'
     form_class = SubmissionForm
-    success_url = reverse_lazy('cookapp:home')
+    success_url = reverse_lazy('home')
     def form_valid(self, form):
         submmision = form.save(commit=False)
         submmision.submissionconnection = self.request.user
