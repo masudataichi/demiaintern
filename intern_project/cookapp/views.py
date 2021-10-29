@@ -3,7 +3,7 @@ from django.db import models
 from django.http import request
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from .models import Submission
+from .models import Submission, User
 from .forms import SubmissionForm
 from django.views.generic import CreateView
 from django.contrib import messages
@@ -18,6 +18,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
 from .forms import SignupForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def top(request):
@@ -47,11 +48,19 @@ class signup_view(CreateView):
 
 def signup_complete(request):
     return render(request, 'cookapp/signup_complete.html')
-
+@login_required
 def home(request):
     user = request.user
+    contents = Submission.objects.exclude(submissionconnection=user)
+    print(contents)
     params = {
-        'user': user 
+        'user': user,
+        'setting':'setting',
+        'friends':'friends',
+        'home':'home',
+        'submission':'submission',
+        'contents': contents
+
     }
     return render(request, 'cookapp/home.html')
 
