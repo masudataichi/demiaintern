@@ -48,13 +48,19 @@ def signup_complete(request):
 def home(request):
     user = request.user
     content = Submission.objects.filter(submissionconnection=user)
-    randomcontent = content.order_by('?')[0]
-    content = content.exclude(id = randomcontent.id)
-    params = {
-        'user': user,
-        'content': content,
-        'randomcontent': randomcontent,
-        }
+    if content.exists():
+        randomcontent = content.order_by('?')[0]
+        content = content.exclude(id = randomcontent.id)
+        params = {
+            'user': user,
+            'content': content,
+            'randomcontent': randomcontent,
+            }
+    else:
+        params = {
+            'user': user,
+            }
+
     return render(request, 'cookapp/home.html', params)
 
 def friends(request):
