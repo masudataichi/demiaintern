@@ -52,35 +52,53 @@ def signup_complete(request):
 def home(request):
     user = request.user
     contents = Submission.objects.filter(submissionconnection=user)
-    
+    randomcontents = contents.order_by('?')[0]
+    contents = contents.exclude(id = randomcontents.id)
     params = {
         'user': user,
         'setting':'setting',
         'friends':'friends',
         'home':'home',
         'submission':'submission',
-        'contents': contents
-
-    }
-    return render(request, 'cookapp/home.html')
+        'contents': contents,
+        'randomcontents': randomcontents,
+        }
+    return render(request, 'cookapp/home.html', params)
 
 def friends(request):
     return render(request, 'cookapp/friends.html')
 
-class SubmissionView(CreateView):
-    model = Submission
-    template_name = 'cookapp/submission.html'
-    form_class = SubmissionForm
-    success_url = reverse_lazy('home')
-    def form_valid(self, form):
-        submmision = form.save(commit=False)
-        submmision.submissionconnection = self.request.user
-        submmision.save()
-        messages.success(self.request, '投稿完了しました。')
-        return super().form_valid(form)
-    def form_invalid(self, form):
-        messages.error(self.request, '投稿失敗しました。')
-        return super().form_invalid(form)
+def SubmissionView(request):
+    params = {
+        'form': SubmissionForm(),
+    }
+    if request.method == 'POST':
+        form = SubmissionForm(request.POST, request.FILES)
+        if form.is_valid():
+            submission = form.save(commit=False)
+            submission.submissionconnection = request.user
+            submission.save()
+        else:
+            params['form'] = form
+            return render(request, 'cookapp/submission.html', params)
+
+    return render(request, 'cookapp/submission.html', params)
+
+#class SubmissionView(CreateView):
+    #model = Submission
+    #template_name = 'cookapp/submission.html'
+    #form_class = SubmissionForm
+    #success_url = reverse_lazy('home')
+    #def form_valid(self, form):
+        #submission = form.save(commit=False)
+        #submission.submissionconnection = self.request.user
+        #submission.image = request.FILES
+        #submission.save()
+        #messages.success(self.request, '投稿完了しました。')
+        #return super().form_valid(form)
+    #def form_invalid(self, form):
+        #messages.error(self.request, '投稿失敗しました。')
+        #return super().form_invalid(form)
 
 
 

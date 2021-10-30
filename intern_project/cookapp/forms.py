@@ -1,6 +1,7 @@
 
 from django import forms
 from .models import Submission
+from django.forms import ImageField
 
 from django.contrib.auth.forms import UserCreationForm
 from .models import User
@@ -10,6 +11,7 @@ class SubmissionForm(forms.ModelForm):
     class Meta:
         model = Submission
         fields = ['image','category','public_private','date','place','comment']
+
 
 
 class SignupForm(UserCreationForm):

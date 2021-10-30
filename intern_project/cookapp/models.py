@@ -26,7 +26,7 @@ class Submission(models.Model):
     #外部キー
     submissionconnection = models.ForeignKey(User, on_delete=models.CASCADE, related_name='submissionconnection')
     #画像
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='media', blank=True, null=True)
     CATEGORY = (
         (11, '和食'),
         (12, '洋食'),
@@ -42,7 +42,7 @@ class Submission(models.Model):
         (22, 'その他'),
     )
     #カテゴリー
-    category = models. IntegerField(max_length=50, choices=CATEGORY)
+    category = models.IntegerField(max_length=50, choices=CATEGORY)
     PUBLIC_PRIVATE = (
         (11, '公開'),
         (12, '非公開'),
