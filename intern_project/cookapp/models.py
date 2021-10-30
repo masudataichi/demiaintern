@@ -42,19 +42,24 @@ class Submission(models.Model):
         (22, 'その他'),
     )
     #カテゴリー
-    category = models.IntegerField(choices=CATEGORY)
+    category = models.IntegerField(choices=CATEGORY, null=True)
     PUBLIC_PRIVATE = (
         (11, '公開'),
         (12, '非公開'),
     )
     #公開/非公開
-    public_private = models.IntegerField(choices=PUBLIC_PRIVATE)
+    public_private = models.IntegerField(choices=PUBLIC_PRIVATE, null=True)
     #日付時間
     date = models.DateField(blank=True, null=True)
     #場所
-    place = models.CharField(max_length=50)
+    place = models.CharField(max_length=50, null=True)
     #コメント
-    comment = models.CharField(max_length=2000)
+    comment = models.CharField(max_length=2000, null=True)
+
+class Thread(models.Model):
+    threadconnection_image = models.ForeignKey(Submission, on_delete=models.CASCADE, related_name='threadconnection_image', null=True)
+    threadconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadconnection_user', null=True)
+    thread = models.CharField(max_length=150, null=True)
 
 # Create your models here.
 
