@@ -22,11 +22,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def top(request):
-    params = {
-        'login':'login',
-        'signup':'signup'
-    }
-    return render(request, 'cookapp/top.html', params)
+    return render(request, 'cookapp/top.html')
 
 class login_view(LoginView):
     authentication_form = AuthenticationForm
@@ -51,17 +47,13 @@ def signup_complete(request):
 @login_required
 def home(request):
     user = request.user
-    contents = Submission.objects.filter(submissionconnection=user)
-    randomcontents = contents.order_by('?')[0]
-    contents = contents.exclude(id = randomcontents.id)
+    content = Submission.objects.filter(submissionconnection=user)
+    randomcontent = content.order_by('?')[0]
+    content = content.exclude(id = randomcontent.id)
     params = {
         'user': user,
-        'setting':'setting',
-        'friends':'friends',
-        'home':'home',
-        'submission':'submission',
-        'contents': contents,
-        'randomcontents': randomcontents,
+        'content': content,
+        'randomcontent': randomcontent,
         }
     return render(request, 'cookapp/home.html', params)
 
@@ -84,29 +76,43 @@ def SubmissionView(request):
 
     return render(request, 'cookapp/submission.html', params)
 
-#class SubmissionView(CreateView):
-    #model = Submission
-    #template_name = 'cookapp/submission.html'
-    #form_class = SubmissionForm
-    #success_url = reverse_lazy('home')
-    #def form_valid(self, form):
-        #submission = form.save(commit=False)
-        #submission.submissionconnection = self.request.user
-        #submission.image = request.FILES
-        #submission.save()
-        #messages.success(self.request, '投稿完了しました。')
-        #return super().form_valid(form)
-    #def form_invalid(self, form):
-        #messages.error(self.request, '投稿失敗しました。')
-        #return super().form_invalid(form)
-
-
-
 def friends_content(request):
     return render(request, 'cookapp/friends_content.html')
 
-def my_content(request):
-    return render(request, 'cookapp/my_content.html')
+def my_content(request, id):
+    content = Submission.objects.get(id = id)
+    if content.category == 11:
+        content.category = '和食'
+    if content.category == 12:
+        content.category = '洋食'
+    if content.category == 13:
+        content.category = '中華'
+    if content.category == 14:
+        content.category = 'アジア'
+    if content.category == 15:
+        content.category = 'カレー'
+    if content.category == 16:
+        content.category = '焼肉'
+    if content.category == 17:
+        content.category = '鍋'
+    if content.category == 18:
+        content.category = '麺類'
+    if content.category == 19:
+        content.category = '軽食'
+    if content.category == 20:
+        content.category = 'スイーツ'
+    if content.category == 21:
+        content.category = '飲食'
+    if content.category == 22:
+        content.category = 'その他'
+    if content.public_private == 11:
+        content.public_private = '公開'
+    if content.public_private == 12:
+        content.public_private = '非公開'
+    params = {
+        'content': content,
+    }
+    return render(request, 'cookapp/my_content.html', params)
 
 def friends_list(request):
     return render(request, 'cookapp/friends_list.html')
@@ -121,10 +127,10 @@ def friends_add_before(request):
     return render(request, 'cookapp/friends_add_before.html')
 
 def my_content_update(request):
-    return render(request, 'cookappp/my_content_update.html')
+    return render(request, 'cookapp/my_content_update.html')
 
 def my_content_delete(request):
-    return render(request, 'cookapp/mycontent_delete.html')
+    return render(request, 'cookapp/my_content_delete.html')
 
 def friends_add_after(request):
     return render(request, 'cookapp/friends_add_after.html')
