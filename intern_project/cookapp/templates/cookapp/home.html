@@ -5,18 +5,20 @@
     
 </head>
 <body>
+    <div class="DivLink">
     <img src={{user.icon.url}} alt="サンプル" width="96" height="65">
     {{user.username}}
     <p><a href="{% url 'setting' %}">{{'設定'}}</a></p>
-        <img src={{randomcontents.image.url}} alt="画像" width="96" height="65">
-
-    {% for contents in contents %}
-        <img src={{contents.image.url}} alt="サンプル" width="96" height="65">
+        <a class ="Link" href="{% url 'my_content' randomcontent.id %}"><img src={{randomcontent.image.url}} alt="画像" width="96" height="65"></a>
+    {% for content in content %}
+        <a class ="Link" href="{% url 'my_content' content.id %}"><img src={{content.image.url}} alt="サンプル" width="96" height="65"></a>
     {% endfor %}
+    </div>
 </body>
 <footer>
     <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
     <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
     <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
+    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
 </footer>
 </html>

@@ -42,13 +42,13 @@ class Submission(models.Model):
         (22, 'その他'),
     )
     #カテゴリー
-    category = models.IntegerField(max_length=50, choices=CATEGORY)
+    category = models.IntegerField(choices=CATEGORY)
     PUBLIC_PRIVATE = (
         (11, '公開'),
         (12, '非公開'),
     )
     #公開/非公開
-    public_private = models.IntegerField(max_length=3, choices=PUBLIC_PRIVATE)
+    public_private = models.IntegerField(choices=PUBLIC_PRIVATE)
     #日付時間
     date = models.DateField(blank=True, null=True)
     #場所
