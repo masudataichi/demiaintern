@@ -516,6 +516,8 @@ form {
 
 .button {
     margin-top: 10%;
+    position: relative;
+    z-index: 15;
 }
 
 button {
@@ -533,7 +535,8 @@ button {
     box-shadow: 1px 1px 1px #757575;
 }
 
-footer {
-    position: fixed;
-    z-index: 0;
+.footer-image {
+    position: relative;
+    margin-top: -6%;
+    z-index: 8;
 }
