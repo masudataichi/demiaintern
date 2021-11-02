@@ -25,4 +25,8 @@ class ThreadForm(forms.ModelForm):
         model = Thread
         fields = ['thread']
 
+class FriendsForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['userID']
 
