@@ -13,6 +13,18 @@
     <p><a href="{% url 'my_content_update' %}">{{'編集'}}</a></p>
     <p><a href="{% url 'my_content_delete' %}">{{'削除'}}</a></p>
     <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+    {{content.talk}}
+    {% for threadlist in threadlist %}
+    {{threadlist.threadconnection_user.username}}
+    {{threadlist.thread}}
+    {% endfor %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">投稿</button>
+    </form>
 </body>
 <footer>
     <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>

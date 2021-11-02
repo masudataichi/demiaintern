@@ -3,7 +3,7 @@ from django.db import models
 from django.http import request
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from .models import Submission, User
+from .models import Submission, User, Thread
 from .forms import SubmissionForm
 from django.views.generic import CreateView
 from django.contrib import messages
@@ -17,7 +17,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
-from .forms import SignupForm
+from .forms import SignupForm, ThreadForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -48,13 +48,19 @@ def signup_complete(request):
 def home(request):
     user = request.user
     content = Submission.objects.filter(submissionconnection=user)
-    randomcontent = content.order_by('?')[0]
-    content = content.exclude(id = randomcontent.id)
-    params = {
-        'user': user,
-        'content': content,
-        'randomcontent': randomcontent,
-        }
+    if content.exists():
+        randomcontent = content.order_by('?')[0]
+        content = content.exclude(id = randomcontent.id)
+        params = {
+            'user': user,
+            'content': content,
+            'randomcontent': randomcontent,
+            }
+    else:
+        params = {
+            'user': user,
+            }
+
     return render(request, 'cookapp/home.html', params)
 
 def friends(request):
@@ -81,6 +87,14 @@ def friends_content(request):
 
 def my_content(request, id):
     content = Submission.objects.get(id = id)
+    threadlist = Thread.objects.filter(threadconnection_image = content)
+    if request.method == 'POST':
+        form = ThreadForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.threadconnection_image = content
+            form.threadconnection_user = request.user
+            form.save()
     if content.category == 11:
         content.category = '和食'
     if content.category == 12:
@@ -111,6 +125,8 @@ def my_content(request, id):
         content.public_private = '非公開'
     params = {
         'content': content,
+        'form': ThreadForm(),
+        'threadlist': threadlist,
     }
     return render(request, 'cookapp/my_content.html', params)
 
