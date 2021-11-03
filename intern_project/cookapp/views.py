@@ -1,17 +1,17 @@
 
 from django.db import models
+from django.forms.utils import to_current_timezone
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from .models import Submission, User, Thread
-from .forms import SubmissionForm
+from .models import Friends_Request, Submission, User, Thread
+from .forms import SubmissionForm, FriendsForm
 from django.views.generic import CreateView
 from django.contrib import messages
 from django.utils.crypto import get_random_string
 
-
 from django.contrib.auth import authenticate, login
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -48,7 +48,6 @@ class signup_view(CreateView):
     def form_invalid(self,form):
         messages.error(self.request,"失敗")
         return super().form_invalid(form)
-
 
 def signup_complete(request):
     return render(request, 'cookapp/signup_complete.html')
@@ -87,6 +86,7 @@ def SubmissionView(request):
         else:
             params['form'] = form
             return render(request, 'cookapp/submission.html', params)
+        return redirect('home')
 
     return render(request, 'cookapp/submission.html', params)
 
@@ -148,7 +148,25 @@ def setting(request):
     return render(request, 'cookapp/setting.html')
 
 def friends_add_before(request):
-    return render(request, 'cookapp/friends_add_before.html')
+    myuserID = request.user.userID
+    params = {
+        'myuserID': myuserID,
+        'form': FriendsForm(),
+    }
+    if request.method == 'POST':
+        form = FriendsForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            if User.objects.filter(userID = form.userID).exists():
+                print(form)
+                userID = form.userID
+                return redirect('friends_add_after', userID)
+            else:
+                return render(request, 'cookapp/friends_add_before.html', params)
+        else:
+            params['form'] = form
+            return render(request, 'cookapp/friends_add_before.html', params)
+    return render(request, 'cookapp/friends_add_before.html', params)
 
 def my_content_update(request):
     return render(request, 'cookapp/my_content_update.html')
@@ -156,6 +174,28 @@ def my_content_update(request):
 def my_content_delete(request):
     return render(request, 'cookapp/my_content_delete.html')
 
-def friends_add_after(request):
+
+
+def friends_add_after(request, userID):
     return render(request, 'cookapp/friends_add_after.html')
+
+@login_required
+def send_friends_request(request, userID):
+    from_user = request.user
+    to_user = User.objects.get(id=userID)
+    friends_request, created = Friends_Request.objects.get_or_create(from_user=from_user, to_user=to_user)
+    if created:
+        return HttpResponse('friend request sent')
+    else:
+        return HttpResponse('friend request was already sent')
+
+@login_required
+def accept_friends_request(requuest, requestID):
+    friends_request = Friends_Request.objects.get(id=requestID)
+    if friends_request.to_user == request.user:
+        friends_request.to_user.friends.add(friends_request.from_user)
+        friends_request.from_user.friends.add(friends_request.tp_user)
+        return HttpResponse('friend request accepted')
+    else:
+        return HttpResponse('friends request not accepte')
 
