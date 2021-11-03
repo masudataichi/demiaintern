@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from .models import Submission, User, Thread, Friends
 from .forms import SubmissionForm, FriendsForm
-from django.views.generic import CreateView
+from django.views.generic import CreateView,UpdateView
 from django.contrib import messages
 from django.utils.crypto import get_random_string
 
@@ -20,6 +20,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
 from .forms import SignupForm, ThreadForm
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def top(request):
@@ -41,16 +42,18 @@ class signup_view(CreateView):
     def form_valid(self,form):
         user = form.save(commit = False)
         user.userID = get_random_string(15)
-        user.user = self.request.user
         user.save()
-        messages.success(self.request,"完了")
-        return super().form_valid(form)
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=password)
+        login(self.request, user)
+        return HttpResponseRedirect(self.success_url)
+
     def form_invalid(self,form):
         messages.error(self.request,"失敗")
         return super().form_invalid(form)
 
-def signup_complete(request):
-    return render(request, 'cookapp/signup_complete.html')
+
 @login_required
 def home(request):
     user = request.user
@@ -170,8 +173,19 @@ def friends_add_before(request):
             return render(request, 'cookapp/friends_add_before.html', params)
     return render(request, 'cookapp/friends_add_before.html', params)
 
-def my_content_update(request):
-    return render(request, 'cookapp/my_content_update.html')
+class ContentUpdateView(LoginRequiredMixin,UpdateView):
+    model = Submission
+    template_name = 'my_content_update.html'
+    form_class = SubmissionForm
+    success_url = 'home'
+
+    def form_valid(self,form):
+        return super().form_valid(form)
+
+    def form_invalid(self,form):
+        messages.error(self.request,"投稿の更新に失敗しました。")
+        return super().form_valid(form)
+
 
 def my_content_delete(request):
     return render(request, 'cookapp/my_content_delete.html')
