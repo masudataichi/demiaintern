@@ -19,6 +19,4 @@ urlpatterns = [
     path('my_content_update', views.my_content_update, name='my_content_update'),
     path('my_content_delete', views.my_content_delete, name='my_content_delete'),
     path('friends_add_after/<str:userID>', views.friends_add_after, name="friends_add_after"),    
-    path('send_friends_request/<int:userID>/', views.send_friends_request, name='send_friends_request'),
-    path('accept_friends_request/<int:requestID>', views.accept_friends_request, name='accept_friends_request'),
 ]
