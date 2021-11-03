@@ -7,6 +7,7 @@ from .models import Submission, User, Thread
 from .forms import SubmissionForm
 from django.views.generic import CreateView
 from django.contrib import messages
+from django.utils.crypto import get_random_string
 
 
 from django.contrib.auth import authenticate, login
@@ -32,15 +33,22 @@ def logout(request):
     return render(request, 'cookapp/logout.html')
 
 class signup_view(CreateView):
+    model = User
     form_class = SignupForm
     template_name = "cookapp/signup.html"
     success_url = reverse_lazy('signup_complete')
 
     def form_valid(self,form):
-        user = form.save()
-        login(self.request,user)
-        self.object = user
-        return HttpResponseRedirect(self.get_success_url())
+        user = form.save(commit = False)
+        user.userID = get_random_string(15)
+        user.user = self.request.user
+        user.save()
+        messages.success(self.request,"完了")
+        return super().form_valid(form)
+    def form_invalid(self,form):
+        messages.error(self.request,"失敗")
+        return super().form_invalid(form)
+
 
 def signup_complete(request):
     return render(request, 'cookapp/signup_complete.html')
