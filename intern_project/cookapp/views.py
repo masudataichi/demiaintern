@@ -194,6 +194,7 @@ def friends_add_after(request, userID):
             current_user = from_user,
         )
         friends.users.add(to_user)
+        return redirect('home')
 
     return render(request, 'cookapp/friends_add_after.html', params)
 
