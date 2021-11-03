@@ -39,8 +39,7 @@ class signup_view(CreateView):
     success_url = reverse_lazy('signup_complete')
 
     def form_valid(self,form):
-        user = form.save(commit=False)
-        print(user)
+        user = form.save(commit = False)
         user.userID = get_random_string(15)
         user.user = self.request.user
         user.save()

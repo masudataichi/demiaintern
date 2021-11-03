@@ -9,7 +9,8 @@ class User(AbstractUser):
     #アイコン画像
     icon = models.ImageField(blank=True, null=True)
     username_validator = UnicodeUsernameValidator()
-    userID = models.CharField(max_length=15, null=True, blank=True)
+    userID = models.CharField(max_length = 15,null = True, blank = True)
+
     username = models.CharField(
         verbose_name='名前(20文字まで)',
         max_length=20,
