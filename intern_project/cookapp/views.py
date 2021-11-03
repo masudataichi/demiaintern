@@ -139,7 +139,14 @@ def my_content(request, id):
     return render(request, 'cookapp/my_content.html', params)
 
 def friends_list(request):
-    return render(request, 'cookapp/friends_list.html')
+    friendslist = Friends.objects.get(current_user = request.user)
+    friendslist = friendslist.users.all()
+    # friendslist = request.user.friends
+    
+    params = {
+        'friendslist': friendslist,
+    }
+    return render(request, 'cookapp/friends_list.html', params)
 
 def friends_profile(request):
     return render(request, 'cookapp/friends_profile.html')
