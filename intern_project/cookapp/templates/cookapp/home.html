@@ -6,7 +6,9 @@
 </head>
 <body>
     <div class="DivLink">
-    <img src={{user.icon.url}} alt="サンプル" width="96" height="65">
+    {% if user.icon %}
+        <img src={{user.icon.url}} alt="サンプル" width="96" height="65">]
+    {% endif %}
     {{user.username}}
     <p><a href="{% url 'setting' %}">{{'設定'}}</a></p>
     {% if randomcontent %}
