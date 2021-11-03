@@ -63,10 +63,8 @@ class Thread(models.Model):
     thread = models.CharField(max_length=150, null=True)
 
 class Friends(models.Model):
-    friends = models.ManyToManyField(User, null=True, blank=True)
+    users = models.ManyToManyField(User, default='users', blank=True, related_name='users')
+    current_user = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE, null=True)
 
-class Friends_Request(models.Model):
-    from_user = models.ForeignKey(User, related_name='from_user', on_delete=models.CASCADE, null=True, blank=True)
-    to_user = models.ForeignKey(User, related_name='to_user', on_delete=models.CASCADE, null=True, blank=True)
 # Create your models here.
 
