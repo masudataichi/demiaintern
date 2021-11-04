@@ -420,6 +420,7 @@ th {
   font-weight: bold;
 }
 
+
 /* ------------------------------ ここから記入 -------------------------------------------*/
 html {
     width: 376px;
@@ -429,20 +430,16 @@ html {
 
 /* font指定 */
 @font-face {
-  font-family: '源泉丸ゴシック';
-  src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+    font-family: '源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
-
 
 body {
     width: 376px;
     height: 812px;
-    width: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 源泉丸ゴシック;
     position: relative;
+    margin: 0;
+    font-family: 源泉丸ゴシック;
 }
 
 .container {
@@ -450,57 +447,3 @@ body {
     width: 95%;
 }
 
-main {
-  flex: 1;
-}
-
-.complete-image,.complete-message {
-    margin: 0 auto;
-    text-align: center;
-    
-}
-
-.complete-image {
-    margin-top: 12rem;
-}
-
-.complete-message {
-    margin-top: 1.5rem;
-    font-size: 20px;
-    color: #212121;
-}
-
-
-.button {
-    margin-top: 20%;
-    margin-bottom: 30%;
-    position: relative;
-    z-index: 15;
-}
-
-button {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-
-    padding: 0.8rem;
-    background-color: #ea730c;
-    font-size: 20px;
-    color: #fff;
-    width: 95%;
-    border-radius: 3rem;
-    text-align: center;
-    box-shadow: 1px 1px 1px #757575;
-}
-
-footer {
-    margin-top: auto;
-    position: absolute;
-    bottom: 0;
-
-}
-
-
-.footer-image {
-    z-index: 8;
-}

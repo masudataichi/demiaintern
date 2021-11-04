@@ -420,6 +420,7 @@ th {
   font-weight: bold;
 }
 
+
 /* ------------------------------ ここから記入 -------------------------------------------*/
 html {
     width: 376px;
@@ -429,20 +430,16 @@ html {
 
 /* font指定 */
 @font-face {
-  font-family: '源泉丸ゴシック';
-  src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+    font-family: '源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
-
 
 body {
     width: 376px;
     height: 812px;
-    width: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 源泉丸ゴシック;
     position: relative;
+    margin: 0;
+    font-family: 源泉丸ゴシック;
 }
 
 .container {
@@ -450,30 +447,71 @@ body {
     width: 95%;
 }
 
+.header-wrapper {
+    background-color: #ea730c;
+    height: 20%;
+    padding: 15px;
+    padding-bottom: 20%;
+    position: relative;
+    z-index: 10;
+}
+
+.header-arrow {
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-size: 26px;
+    color: #fff;
+}
+
 main {
-  flex: 1;
+    border-top-left-radius: 50%;
 }
 
-.complete-image,.complete-message {
-    margin: 0 auto;
-    text-align: center;
-    
+.main-wrapper {
+    border-top-left-radius: 3rem;
+    position: relative;
+    z-index: 10;
+    margin-top: -10%;
+    background-color: #fff;
 }
 
-.complete-image {
-    margin-top: 12rem;
+form {
+    padding-top: 80px;
 }
 
-.complete-message {
-    margin-top: 1.5rem;
-    font-size: 20px;
-    color: #212121;
+.login-form {
+    margin-top: 20px;
 }
 
+.form-hidden {
+    display: none;
+}
+
+.form-font {
+    color: #757575;
+    font-size: 1rem;
+}
+
+.form-label {
+    margin-top: 5px;
+    width: 95%;
+    background-color: #e4e4e4;
+    border-color: #fff;
+    border-radius: 5px;
+    box-shadow: none;
+    height: 1.7rem;
+
+}
+
+.required-mark {
+    color: #e10000;
+    font-size: 10px;
+}
 
 .button {
-    margin-top: 20%;
-    margin-bottom: 30%;
+    margin-top: 80px;
     position: relative;
     z-index: 15;
 }
@@ -494,12 +532,9 @@ button {
 }
 
 footer {
-    margin-top: auto;
-    position: absolute;
+    position: absolute;  /*　フッターをbodyの下に固定 */
     bottom: 0;
-
 }
-
 
 .footer-image {
     z-index: 8;

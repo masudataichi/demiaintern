@@ -1,7 +1,8 @@
 
 from django.db import models
+from django.forms.utils import pretty_name
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from .models import Submission, User, Thread
 from .forms import SubmissionForm
@@ -27,6 +28,14 @@ def top(request):
 class login_view(LoginView):
     authentication_form = AuthenticationForm
     template_name = "cookapp/login.html"
+    success_url = reverse_lazy('home')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = SignupForm
+        print(context['form'])
+        print(context)
+        return context
 
 def logout(request):
     return render(request, 'cookapp/logout.html')
@@ -44,6 +53,8 @@ class signup_view(CreateView):
 
 def signup_complete(request):
     return render(request, 'cookapp/signup_complete.html')
+
+
 @login_required
 def home(request):
     user = request.user
