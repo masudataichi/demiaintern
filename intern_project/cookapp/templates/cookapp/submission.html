@@ -1,16 +1,55 @@
+{% load static %}
+{% load widget_tweaks %}
 <!doctype html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/submission.css' %}" />
+    <script type="text/javascript" src="{% static 'js/submission.js' %}"></script>
 </head>
 <body>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <button type="submit">投稿</button>
+        <div class="forms">
+            <div class="header">
+               <h1>写真を追加</h1>
+               <div class="add_button">
+                <button type="submit">追加</button>
+               </div>
+            </div>
+            <div class="image-field">
+                <div class="image_document">
+                        <img id="image-display_origin" src="{% static 'media/グループ 3 (1).svg' %}"/>
+                        <p id='doc'>写真を選択</p>
+                </div>
+                <div class="image-display">
+                    {{ form.image }}
+                </div>
+            </div>
+            <div class="public_private-field">
+                <p class="public_private_label">公開</p>
+                <div class="public_private">
+                    {{ form.public_private }}
+                </div>
+            </div>
+            <div class="date-field">
+                <p class="date_label">日付</p>
+                {{ form.date }}
+            </div>
+            <div class="category-field">
+                <p class="category_label">ジャンル</p>
+                {{ form.category }}
+            </div>
+            <div class="place-field">
+                <p class="place_label">場所</p>
+                {{ form.place }}
+            </div>
+            <div class="comment-field">
+                <p class="comment_label">コメント</p>
+                {{ form.comment }}
+            </div>
+        </div>
     </form>
-
 </body>
 </html>
