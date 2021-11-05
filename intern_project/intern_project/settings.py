@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cookapp.apps.CookappConfig',
-    'widget_tweaks',#臼杵が追加
+    'widget_tweaks',
+
 
 ]
 

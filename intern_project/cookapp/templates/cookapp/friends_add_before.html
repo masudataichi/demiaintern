@@ -2,13 +2,19 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    {{'友達'}}
+    {{'友だち追加'}}
 </head>
 <body>
-        {% for f in friendslist%}
-        <img src="{{f.icon.url}}" alt="サンプル" width="96" height="65">
-        {{f.username}}
-        {% endfor %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{'ID検索'}}
+            {{ form.as_table }}
+        </table>
+        <button type="submit">検索</button>
+    </form>
+    {{'あなたのID'}}
+    {{myuserID}}
 </body>
 <footer>
     <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>

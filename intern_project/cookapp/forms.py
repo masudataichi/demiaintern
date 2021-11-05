@@ -1,7 +1,7 @@
 
 from django import forms
 from django.db.models import fields
-from .models import Submission, Thread
+from .models import Friends, Submission, Thread
 from django.forms import ImageField
 
 from django.contrib.auth.forms import UserCreationForm
@@ -24,5 +24,12 @@ class ThreadForm(forms.ModelForm):
     class Meta:
         model = Thread
         fields = ['thread']
+
+class FriendsForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['userID']
+
+
 
 

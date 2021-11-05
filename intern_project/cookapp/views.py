@@ -1,16 +1,17 @@
 
 from django.db import models
+from django.forms.utils import to_current_timezone
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from .models import Submission, User, Thread
-from .forms import SubmissionForm
+from .models import Submission, User, Thread, Friends
+from .forms import SubmissionForm, FriendsForm
 from django.views.generic import CreateView
 from django.contrib import messages
-
+from django.utils.crypto import get_random_string
 
 from django.contrib.auth import authenticate, login
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -18,7 +19,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
 from .forms import SignupForm, ThreadForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
 def top(request):
@@ -32,15 +33,21 @@ def logout(request):
     return render(request, 'cookapp/logout.html')
 
 class signup_view(CreateView):
+    model = User
     form_class = SignupForm
     template_name = "cookapp/signup.html"
     success_url = reverse_lazy('signup_complete')
 
     def form_valid(self,form):
-        user = form.save()
-        login(self.request,user)
-        self.object = user
-        return HttpResponseRedirect(self.get_success_url())
+        user = form.save(commit = False)
+        user.userID = get_random_string(15)
+        user.user = self.request.user
+        user.save()
+        messages.success(self.request,"完了")
+        return super().form_valid(form)
+    def form_invalid(self,form):
+        messages.error(self.request,"失敗")
+        return super().form_invalid(form)
 
 def signup_complete(request):
     return render(request, 'cookapp/signup_complete.html')
@@ -79,6 +86,7 @@ def SubmissionView(request):
         else:
             params['form'] = form
             return render(request, 'cookapp/submission.html', params)
+        return redirect('home')
 
     return render(request, 'cookapp/submission.html', params)
 
@@ -131,7 +139,14 @@ def my_content(request, id):
     return render(request, 'cookapp/my_content.html', params)
 
 def friends_list(request):
-    return render(request, 'cookapp/friends_list.html')
+    friendslist = Friends.objects.get(current_user = request.user)
+    friendslist = friendslist.users.all()
+    # friendslist = request.user.friends
+    
+    params = {
+        'friendslist': friendslist,
+    }
+    return render(request, 'cookapp/friends_list.html', params)
 
 def friends_profile(request):
     return render(request, 'cookapp/friends_profile.html')
@@ -140,7 +155,27 @@ def setting(request):
     return render(request, 'cookapp/setting.html')
 
 def friends_add_before(request):
-    return render(request, 'cookapp/friends_add_before.html')
+    myuserID = request.user.userID
+    friends = Friends.objects.filter(current_user = request.user)
+    params = {
+        'myuserID': myuserID,
+        'form': FriendsForm(),
+        'friends': friends
+    }
+    if request.method == 'POST':
+        form = FriendsForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            if User.objects.filter(userID = form.userID).exists():
+                print(form)
+                userID = form.userID
+                return redirect('friends_add_after', userID)
+            else:
+                return render(request, 'cookapp/friends_add_before.html', params)
+        else:
+            params['form'] = form
+            return render(request, 'cookapp/friends_add_before.html', params)
+    return render(request, 'cookapp/friends_add_before.html', params)
 
 def my_content_update(request):
     return render(request, 'cookapp/my_content_update.html')
@@ -148,6 +183,25 @@ def my_content_update(request):
 def my_content_delete(request):
     return render(request, 'cookapp/my_content_delete.html')
 
-def friends_add_after(request):
-    return render(request, 'cookapp/friends_add_after.html')
+
+@login_required
+def friends_add_after(request, userID):
+    from_user = request.user
+    to_user = User.objects.get(userID = userID)
+    myuserID = request.user.userID
+    params = {
+        'myuserID': myuserID,
+        'friends': to_user,
+    }
+    
+    if request.method == 'POST':
+        print('OK')
+        friends, created = Friends.objects.get_or_create(
+            current_user = from_user,
+        )
+        friends.users.add(to_user)
+        return redirect('home')
+
+    return render(request, 'cookapp/friends_add_after.html', params)
+
 
