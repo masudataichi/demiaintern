@@ -93,8 +93,50 @@ def SubmissionView(request):
 
     return render(request, 'cookapp/submission.html', params)
 
-def friends_content(request):
-    return render(request, 'cookapp/friends_content.html')
+def friends_content(request,id):
+    content = Submission.object.get(id = id)
+    threadlist = Thread.objects.filter(threadconnection_image = content)
+    if request.method == 'POST':
+        form = ThreadForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.threadconnection_image = content
+            form.threadconnection_user = request.user
+            form.save()
+    if content.category == 11:
+        content.category = '和食'
+    if content.category == 12:
+        content.category = '洋食'
+    if content.category == 13:
+        content.category = '中華'
+    if content.category == 14:
+        content.category = 'アジア'
+    if content.category == 15:
+        content.category = 'カレー'
+    if content.category == 16:
+        content.category = '焼肉'
+    if content.category == 17:
+        content.category = '鍋'
+    if content.category == 18:
+        content.category = '麺類'
+    if content.category == 19:
+        content.category = '軽食'
+    if content.category == 20:
+        content.category = 'スイーツ'
+    if content.category == 21:
+        content.category = '飲食'
+    if content.category == 22:
+        content.category = 'その他'
+    if content.public_private == 11:
+        content.public_private = '公開'
+    if content.public_private == 12:
+        content.public_private = '非公開'
+    params = {
+        'content': content,
+        'form': ThreadForm(),
+        'threadlist': threadlist,
+    }
+    return render(request, 'cookapp/friends_content.html',params)
 
 def my_content(request, id):
     content = Submission.objects.get(id = id)
