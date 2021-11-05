@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    
+</head>
+<body>
+    <div class="DivLink">
+    {% if friend.icon %}
+        <img src={{friend.icon.url}} alt="サンプル" width="96" height="65">
+    {% endif %}
+    {{friend.username}}
+    {% for content in content %}
+        <a class ="Link" href="{% url 'friends_content' content.id %}"><img src={{content.image.url}} alt="サンプル" width="96" height="65"></a>
+    {% endfor %}
+    </div>
+</body>
+<footer>
+    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
+    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
+    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
+    <p><a href="{% url 'friends_list' %}">{{'友達一覧'}}</a></p>
+</footer>
+</html>

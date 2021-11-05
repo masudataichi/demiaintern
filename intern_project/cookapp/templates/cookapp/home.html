@@ -7,7 +7,7 @@
 <body>
     <div class="DivLink">
     {% if user.icon %}
-    <img src={{user.icon.url}} alt="サンプル" width="96" height="65">
+        <img src={{user.icon.url}} alt="サンプル" width="96" height="65">
     {% endif %}
     {{user.username}}
     <p><a href="{% url 'setting' %}">{{'設定'}}</a></p>
@@ -24,5 +24,6 @@
     <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
     <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
     <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
+    <p><a href="{% url 'friends_list' %}">{{'友達一覧'}}</a></p>
 </footer>
 </html>

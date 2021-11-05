@@ -142,17 +142,37 @@ def my_content(request, id):
     return render(request, 'cookapp/my_content.html', params)
 
 def friends_list(request):
-    return render(request, 'cookapp/friends_list.html')
+    friendslist = Friends.objects.get(current_user = request.user)
+    friendslist = friendslist.users.all()
+    # friendslist = request.user.friends
+    
+    params = {
+        'friendslist': friendslist,
+    }
+    return render(request, 'cookapp/friends_list.html', params)
 
-def friends_profile(request):
-    return render(request, 'cookapp/friends_profile.html')
+def friends_profile(request,id):
+    friend = User.objects.get(id = id)
+    content = Submission.objects.filter(submissionconnection = friend,public_private = 11)
+    if content.exists():
+        content = content.order_by('date')
+        params = {
+            'user': friend,
+            'content': content,
+            }
+    else:
+        params = {
+            'user':friend,
+            }
+
+    return render(request, 'cookapp/friends_profile.html',params)
 
 def setting(request):
     return render(request, 'cookapp/setting.html')
 
 def friends_add_before(request):
     myuserID = request.user.userID
-    friends = Friends.objects.filter(current_user = request.user)
+    friends = User.objects.filter(current_user = request.user)
     params = {
         'myuserID': myuserID,
         'form': FriendsForm(),

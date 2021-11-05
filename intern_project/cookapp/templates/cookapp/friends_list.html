@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    {{'友達'}}
+</head>
+<body>
+        {% for f in friendslist%}
+        <img src="{{f.icon.url}}" alt="サンプル" width="96" height="65">
+        <a href="{% url 'friends_profile' f.id %}" class="">{{f.username}}</a>>
+        {% endfor %}
+</body>
+<footer>
+    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
+    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
+    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
+</footer>
+</html>
