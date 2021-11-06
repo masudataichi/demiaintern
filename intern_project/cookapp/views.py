@@ -74,6 +74,21 @@ def home(request):
     return render(request, 'cookapp/home.html', params)
 
 def friends(request):
+    friendslist = Friends.objects.filter(current_user=request.user)
+    friend = friendslist.users.all()
+    content = Submission.objects.filter(submissionconnection=friend)
+    if content.exists():
+        randomcontent = content.order_by('?')
+        params = {
+            'user': user,
+            'randomcontent': randomcontent,
+            }
+    else:
+        params = {
+            'user': user,
+            }
+
+
     return render(request, 'cookapp/friends.html')
 
 def SubmissionView(request):
@@ -94,7 +109,7 @@ def SubmissionView(request):
     return render(request, 'cookapp/submission.html', params)
 
 def friends_content(request,id):
-    content = Submission.object.get(id = id)
+    content = Submission.objects.get(id = id)
     threadlist = Thread.objects.filter(threadconnection_image = content)
     if request.method == 'POST':
         form = ThreadForm(request.POST)
@@ -136,7 +151,7 @@ def friends_content(request,id):
         'form': ThreadForm(),
         'threadlist': threadlist,
     }
-    return render(request, 'cookapp/friends_content.html',params)
+    return render(request, 'cookapp/friends_contents.html',params)
 
 def my_content(request, id):
     content = Submission.objects.get(id = id)
