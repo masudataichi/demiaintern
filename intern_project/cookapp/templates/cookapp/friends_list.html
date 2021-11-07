@@ -7,7 +7,7 @@
 <body>
         {% for f in friendslist%}
         <img src="{{f.icon.url}}" alt="サンプル" width="96" height="65">
-        {{f.username}}
+        <a href="{% url 'friends_profile' f.id %}" class="">{{f.username}}</a>>
         {% endfor %}
 </body>
 <footer>
