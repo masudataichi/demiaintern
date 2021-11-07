@@ -12,17 +12,17 @@
         {% if f.users == user %}     
             {% if f.current_user.icon %}
                 <img src="{{f.current_user.icon.url}}" alt="サンプル" width="96" height="65">
+                <a href="{% url 'friends_profile' f.current_user.id %}" class="">{{f.current_user.username}}</a>
             {% endif %}
-            {{f.current_user.username}}
+
         {% else %}  
             {% if f.users.icon %}
                 <img src="{{f.users.icon.url}}" alt="サンプル" width="96" height="65">
+                <a href="{% url 'friends_profile' f.users.id %}" class="">{{f.users.username}}</a>
             {% endif %}
-            {{f.users.username}}
+            
         {% endif %}
 
-        <img src="{{f.icon.url}}" alt="サンプル" width="96" height="65">
-        <a href="{% url 'friends_profile' f.id %}" class="">{{f.username}}</a>>
         {% endfor %}
     {% endif %}
 </body>
