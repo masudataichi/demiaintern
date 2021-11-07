@@ -8,6 +8,7 @@
 
     {% if friendslist %}
         {% for f in friendslist%}
+
         {% if f.users == user %}     
             {% if f.current_user.icon %}
                 <img src="{{f.current_user.icon.url}}" alt="サンプル" width="96" height="65">
@@ -19,6 +20,9 @@
             {% endif %}
             {{f.users.username}}
         {% endif %}
+
+        <img src="{{f.icon.url}}" alt="サンプル" width="96" height="65">
+        <a href="{% url 'friends_profile' f.id %}" class="">{{f.username}}</a>>
         {% endfor %}
     {% endif %}
 </body>

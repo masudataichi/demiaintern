@@ -64,8 +64,10 @@ class Thread(models.Model):
     thread = models.CharField(max_length=150, null=True)
 
 class Friends(models.Model):
-    users = models.ForeignKey(User, related_name='friends', on_delete=models.CASCADE, null=True)
-    current_user = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE, null=True)
 
-# Create your models here.
+    users = models.ForeignKey(User, related_name='friends', on_delete=models.CASCADE, null=True)#友達
+    current_user = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE, null=True)#自分
+
+
+
 
