@@ -5,10 +5,22 @@
     {{'友達'}}
 </head>
 <body>
+
+    {% if friendslist %}
         {% for f in friendslist%}
-        <img src="{{f.icon.url}}" alt="サンプル" width="96" height="65">
-        {{f.username}}
+        {% if f.users == user %}     
+            {% if f.current_user.icon %}
+                <img src="{{f.current_user.icon.url}}" alt="サンプル" width="96" height="65">
+            {% endif %}
+            {{f.current_user.username}}
+        {% else %}  
+            {% if f.users.icon %}
+                <img src="{{f.users.icon.url}}" alt="サンプル" width="96" height="65">
+            {% endif %}
+            {{f.users.username}}
+        {% endif %}
         {% endfor %}
+    {% endif %}
 </body>
 <footer>
     <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>

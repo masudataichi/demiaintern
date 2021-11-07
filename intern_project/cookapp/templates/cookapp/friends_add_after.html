@@ -5,8 +5,10 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <p><img src={{friends.icon.url}} alt="サンプル" width="96" height="65"></p>
-    <p>{{friends.userID}}</p>
+    {% if friends.icon %}
+        <p><img src={{friends.icon.url}} alt="サンプル" width="96" height="65"></p>
+    {% endif %}
+    <p>{{friends.username}}</p>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <button type="submit">追加する</button>

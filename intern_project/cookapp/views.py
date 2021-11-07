@@ -20,7 +20,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
 from .forms import SignupForm, ThreadForm
 from django.contrib.auth.decorators import login_required, user_passes_test
-
+from django.db.models import Q
 # Create your views here.
 def top(request):
     return render(request, 'cookapp/top.html')
@@ -139,14 +139,18 @@ def my_content(request, id):
     return render(request, 'cookapp/my_content.html', params)
 
 def friends_list(request):
-    friendslist = Friends.objects.get(current_user = request.user)
-    friendslist = friendslist.users.all()
+    if Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user)).exists():
+        friendslist = Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user))
+        user = request.user
     # friendslist = request.user.friends
-    
-    params = {
-        'friendslist': friendslist,
-    }
-    return render(request, 'cookapp/friends_list.html', params)
+        params = {
+            'friendslist': friendslist,
+            'user': user,            
+        }
+        return render(request, 'cookapp/friends_list.html', params)
+
+    return render(request, 'cookapp/friends_list.html')
+
 
 def friends_profile(request):
     return render(request, 'cookapp/friends_profile.html')
@@ -189,6 +193,7 @@ def friends_add_after(request, userID):
     from_user = request.user
     to_user = User.objects.get(userID = userID)
     myuserID = request.user.userID
+    
     params = {
         'myuserID': myuserID,
         'friends': to_user,
@@ -198,8 +203,8 @@ def friends_add_after(request, userID):
         print('OK')
         friends, created = Friends.objects.get_or_create(
             current_user = from_user,
+            users = to_user,
         )
-        friends.users.add(to_user)
         return redirect('home')
 
     return render(request, 'cookapp/friends_add_after.html', params)
