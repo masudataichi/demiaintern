@@ -243,6 +243,9 @@ def user_update(request):
 def user_delete(request):
     return render(request,'cookapp/user_delete.html')
 
+def password_change(request):
+    return render(request,'cookapp/password_change.html')
+
 def friends_add_before(request):
     myuserID = request.user.userID
     friends = User.objects.filter(current_user = request.user)
