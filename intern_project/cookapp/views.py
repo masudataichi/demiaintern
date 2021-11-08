@@ -233,7 +233,15 @@ def friends_profile(request,id):
     return render(request, 'cookapp/friends_profile.html',params)
 
 def setting(request):
-    return render(request, 'cookapp/setting.html')
+    user = request.user
+    params = {'user':user}
+    return render(request, 'cookapp/setting.html',params)
+
+def user_update(request):
+    return render(request,'cookapp/user_update.html')
+
+def user_delete(request):
+    return render(request,'cookapp/user_delete.html')
 
 def friends_add_before(request):
     myuserID = request.user.userID

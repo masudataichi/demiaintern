@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    
+</head>
+<body>
+    <input type="button" value="戻る" onClick="javascript:history.go(-1);">
+    <p>設定</p>
+    <div class = container>
+        <p>アカウント情報</p>
+        <p>名前</p>
+        <p>{{user.username}}</p>
+        <p>メールアドレス</p>
+        <p>{{user.email}}</p>
+        <p><a href="{% url 'user_update' %}">編集</a></p>
+    </div>
+    <div class = url>
+        <p><a href="{% url 'logout' %}">ログアウト</a></p>
+        <p><a href="{% url 'user_delete' %}">アカウント削除</a></p>
+    </div>
+</body>
+<footer>
+    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
+    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
+    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
+    <p><a href="{% url 'friends_list' %}">{{'友達一覧'}}</a></p>
+</footer>
+</html>
