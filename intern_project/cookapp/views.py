@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from .models import Submission, User, Thread, Friends
 from .forms import SubmissionForm, FriendsForm
-from django.views.generic import CreateView,UpdateView
+from django.views.generic import CreateView,UpdateView,FormView
 from django.contrib import messages
 from django.utils.crypto import get_random_string
 
@@ -233,7 +233,22 @@ def friends_profile(request,id):
     return render(request, 'cookapp/friends_profile.html',params)
 
 def setting(request):
-    return render(request, 'cookapp/setting.html')
+    user = request.user
+    params = {'user':user}
+    return render(request, 'cookapp/setting.html',params)
+
+class UserUpdateView(LoginRequiredMixin,UpdateView):
+    model = User
+    template_name = 'cookapp/user_update.html'
+    fields = ['username','email','icon']
+    succes_url = reverse_lazy('home')
+
+
+def user_delete(request):
+    return render(request,'cookapp/user_delete.html')
+
+def password_change(request):
+    return render(request,'cookapp/password_change.html')
 
 def friends_add_before(request):
     myuserID = request.user.userID

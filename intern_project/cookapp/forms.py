@@ -1,8 +1,7 @@
-
 from django import forms
 from django.db.models import fields
 from .models import Friends, Submission, Thread
-from django.forms import ImageField
+from django.forms import ModelForm
 
 from django.contrib.auth.forms import UserCreationForm
 from .models import User
