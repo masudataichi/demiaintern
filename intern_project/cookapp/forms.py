@@ -3,7 +3,7 @@ from django.db.models import fields
 from .models import Friends, Submission, Thread
 from django.forms import ModelForm
 
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
 from .models import User
 
 
@@ -28,6 +28,18 @@ class FriendsForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['userID']
+
+class PasswordForm(PasswordChangeForm):
+    new_password1 = forms.CharField(
+        label=("新しいパスワード"),
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
+        strip=False,
+    )
+    new_password2 = forms.CharField(
+        label=("新しいパスワード　（確認）"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
+    )
 
 
 
