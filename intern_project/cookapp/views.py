@@ -241,7 +241,7 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = User
     template_name = 'cookapp/user_update.html'
     fields = ['username','email','icon']
-    succes_url = reverse_lazy('home')
+    succes_url = reverse_lazy('setting')
 
 
 def user_delete(request):
