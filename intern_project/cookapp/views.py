@@ -15,7 +15,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView,PasswordChangeView
+from django.contrib.auth.views import LoginView,PasswordChangeView,LogoutView
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
 from .forms import SignupForm, ThreadForm
@@ -34,10 +34,15 @@ class login_view(LoginView):
     authentication_form = AuthenticationForm
     template_name = "cookapp/login.html"
 
-def logout(request):
-    return render(request, 'cookapp/logout.html')
 
-class signup_view(CreateView):
+def logout(request):
+    return render(request,'cookapp/logout.html')
+
+
+
+
+
+class SignupView(CreateView):
     model = User
     form_class = SignupForm
     template_name = "cookapp/signup.html"
