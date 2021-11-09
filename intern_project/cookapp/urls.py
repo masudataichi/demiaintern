@@ -1,11 +1,12 @@
 from django.urls import path
 from . import views
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', views.top, name='top'),
     path('login/', views.login_view.as_view(), name='login'),
     path('logout/', views.logout, name='logout'),
-    path('signup', views.signup_view.as_view(), name='signup'),
+    path('signup', views.SignupView.as_view(), name='signup'),
     path('home', views.home, name='home'),
     path('friends', views.friends, name='friends'),
     path('submission', views.SubmissionView, name='submission'),
@@ -19,7 +20,7 @@ urlpatterns = [
     path('my_content_delete', views.my_content_delete, name='my_content_delete'),
     path('friends_add_after/<str:userID>', views.friends_add_after, name="friends_add_after"), 
     path('user_update/<int:pk>',views.UserUpdateView.as_view(),name='user_update'),
-    path('logout',views.logout,name='logout'),
+    path('logout2',LogoutView.as_view(),name='logout2'),
     path('user_delete',views.user_delete,name='user_delete'),
     path('password_change',views.PasswordView.as_view(),name='password_change'),
 ]
