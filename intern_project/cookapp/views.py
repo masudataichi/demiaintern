@@ -5,7 +5,7 @@ from django.http import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from .models import Submission, User, Thread, Friends
-from .forms import SubmissionForm, FriendsForm
+from .forms import PasswordForm, SubmissionForm, FriendsForm
 from django.views.generic import CreateView,UpdateView,FormView
 from django.contrib import messages
 from django.utils.crypto import get_random_string
@@ -15,7 +15,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView,PasswordChangeView
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
 from .forms import SignupForm, ThreadForm
@@ -247,8 +247,10 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
 def user_delete(request):
     return render(request,'cookapp/user_delete.html')
 
-def password_change(request):
-    return render(request,'cookapp/password_change.html')
+class PasswordView(LoginRequiredMixin,PasswordChangeView):
+    success_url = 'setting'
+    template_name = 'cookapp/password_change.html'
+    form_class = PasswordForm
 
 def friends_add_before(request):
     myuserID = request.user.userID
