@@ -33,8 +33,6 @@ class login_view(LoginView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = SignupForm
-        print(context['form'])
-        print(context)
         return context
 
 def logout(request):
