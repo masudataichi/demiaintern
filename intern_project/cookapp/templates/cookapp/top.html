@@ -1,9 +1,27 @@
+{% load static %}
 <!doctype html>
 <html lang="ja">
-<head>
+  <head>
     <meta charset="utf-8">
-</head>
-<body>
-    <p><a href="{% url 'signup' %}">{{'アカウントをつくる'}}</a></p>
-    <p><a href="{% url 'login' %}">{{'ログイン'}}</a></p>
-</body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/top.css' %}" />
+    <script type="text/javascript" src="{% static 'js/top.js' %}"></script>
+  </head>
+  <body>
+    <div class="elements">
+      <div class="logo">
+        <img class='logo-img' src="{% static 'media/welcomeロゴ.png' %}" />
+      </div>
+      <div class="buttons">
+        <div class="register">
+          <a class="register-link" href='{% url "signup" %}'></a>
+          <p class="register_doc">アカウントをつくる</p>
+        </div>
+        <div class="login">
+          <a class="login-link" href='{% url "login" %}'></a>
+          <p class="login_doc">ログイン</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

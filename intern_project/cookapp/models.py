@@ -9,6 +9,7 @@ class User(AbstractUser):
     #アイコン画像
     icon = models.ImageField(blank=True, null=True)
     username_validator = UnicodeUsernameValidator()
+    userID = models.CharField(max_length = 15,null = True, blank = True)
 
     username = models.CharField(
         verbose_name='名前(20文字まで)',
@@ -18,6 +19,7 @@ class User(AbstractUser):
         error_messages={
             'unique':("A user with that username already exists."),
         },
+        
     )
   
 
@@ -61,5 +63,11 @@ class Thread(models.Model):
     threadconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadconnection_user', null=True)
     thread = models.CharField(max_length=150, null=True)
 
-# Create your models here.
+class Friends(models.Model):
+
+    users = models.ForeignKey(User, related_name='friends', on_delete=models.CASCADE, null=True)#友達
+    current_user = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE, null=True)#自分
+
+
+
 

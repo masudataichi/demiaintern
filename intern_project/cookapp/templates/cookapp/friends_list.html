@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    {{'友達'}}
+</head>
+<body>
+
+    {% if friendslist %}
+        {% for f in friendslist%}
+
+        {% if f.users == user %}     
+            {% if f.current_user.icon %}
+                <img src="{{f.current_user.icon.url}}" alt="サンプル" width="96" height="65">
+                <a href="{% url 'friends_profile' f.current_user.id %}" class="">{{f.current_user.username}}</a>
+            {% endif %}
+
+        {% else %}  
+            {% if f.users.icon %}
+                <img src="{{f.users.icon.url}}" alt="サンプル" width="96" height="65">
+                <a href="{% url 'friends_profile' f.users.id %}" class="">{{f.users.username}}</a>
+            {% endif %}
+            
+        {% endif %}
+
+        {% endfor %}
+    {% endif %}
+</body>
+<footer>
+    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
+    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
+    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
+</footer>
+</html>

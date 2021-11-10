@@ -1,0 +1,32 @@
+{% load static %} 
+{% load widget_tweaks %} 
+<!doctype html>
+<html lang="ja">
+        <link rel="stylesheet" href="../static/css/base.css">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <header>
+    {% block header %}
+        <div class="header_container">
+            <div class="header_icon"><a href=""><img src="" alt=""></a></div>
+            <div class="header_name">{{friend}}<div>
+        </div>
+    {% endblock header %}
+    </header>
+    <main>
+    </main>
+    <footer>
+    {% block footer %}
+        <div class="footer_container">
+            <div class=""><a href=""><img src="{% static 'svg/' %}" alt=""></a></div>
+            <div class=""><a href=""><img src="{% static 'svg/' %}" alt=""></a></div>
+            <div class=""><a href=""><img src="{% static 'svg/' %}" alt=""></a></div>
+            <div class=""><a href=""><img src="{% static 'svg/' %}" alt=""></a></div>
+        </div>
+    {% endblock footer %}
+    </footer>
+</body>
+
+</html>
