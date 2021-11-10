@@ -21,6 +21,6 @@ urlpatterns = [
     path('friends_add_after/<str:userID>', views.friends_add_after, name="friends_add_after"), 
     path('user_update/<int:pk>',views.UserUpdateView.as_view(),name='user_update'),
     path('logout2',LogoutView.as_view(),name='logout2'),
-    path('user_delete',views.user_delete,name='user_delete'),
+    path('user_delete/<int:pk>',views.UserDeleteView.as_view(),name='user_delete'),
     path('password_change',views.PasswordView.as_view(),name='password_change'),
 ]
