@@ -62,6 +62,8 @@ class SignupView(CreateView):
         messages.error(self.request,"失敗")
         return super().form_invalid(form)
 
+def signup_complete(request):
+    return render(request,'cookapp/signup_complete.html')
 
 @login_required
 def home(request):
