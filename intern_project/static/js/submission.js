@@ -9,7 +9,6 @@ window.addEventListener('DOMContentLoaded', function(){
         reader.readAsDataURL(input);
     },true);
 });
-
 //　”写真を選択”　という文字がinputで消えるようにしました。
 window.addEventListener('DOMContentLoaded', function(){
     const doc =document.getElementById('doc');

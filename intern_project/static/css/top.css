@@ -1,39 +1,38 @@
-html{
-    height:100%;
-    width:100%;
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
 body{
-    width:100%;
-    height:100%;
+    font-family:'源泉丸ゴシック';
+    width:375px;
+    height:812px;
     background-color:#ea730c;
-    font-family:'https://github.com/ButTaiwan/gensen-font';
 }
 .elements{
-    margin-top:500px;
+    margin-top:200px;
 }
 .logo{
-
-    height:800px;
-    width:800px;
+    height:300px;
+    width:300px;
     margin:auto;
 }
 .logo-img{
     text-align:center;
-    width:800px;
-    height:800px;
+    width:300px;
+    height:300px;
 }
 .buttons{
     margin:auto;
-    width:60vw;
-    height:40vh;
+    width:200px;
+    height:100px;
 }
 .register{
     position:relative;
     margin:auto;
     background-color: #ffffff;
-    width:60vw;
-    margin-bottom:30px;
-    height:20%;
+    width:200px;
+    margin-bottom:20px;
+    height:10%;
     border-radius:80px;
     display:table;
     box-shadow:0px 3px 3px #00000029;
@@ -50,8 +49,8 @@ body{
     position:relative;
     margin:auto;
     background-color:#ffffff;
-    width:60vw;
-    height:20%;
+    width:200px;
+    height:10%;
     border-radius:80px;
     display:table;
     box-shadow:0px 3px 3px #00000029;
@@ -64,22 +63,21 @@ body{
     width: 100%;
     height: 100%;
 }
-
-
 .register_doc{
     display:table-cell;
     vertical-align:middle;
     text-align:center;
     color:#ea730c;
     font-weight:bold;
-    font-size:40px;
+    font-size:15px;
+    padding:10px;
 }
-
 .login_doc{
     display:table-cell;
     vertical-align:middle;
     color:#ea730c;
     text-align:center;
     font-weight:bold;
-    font-size:40px;
+    font-size:15px;
+    padding:10px;
 }
