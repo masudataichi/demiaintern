@@ -1,31 +1,29 @@
+{% extends 'cookapp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 <!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="utf-8">
-    
-</head>
 <body>
-    <input type="button" value="戻る" onClick="javascript:history.go(-1);">
-    <p>設定</p>
+    <header>
+        <div class=""><a href="{% url 'home' %}"><img src="{% static 'png/グループ 481.png' %}" alt=""></a></div>
+        <div class="">設定</div>
+    </header>
+    {% block main %}
     <div class = container>
-        <p>アカウント情報</p>
-        <p>名前</p>
-        <p>{{user.username}}</p>
-        <p>メールアドレス</p>
-        <p>{{user.email}}</p>
-        <p><a href="{% url 'user_update' user.id %}">編集</a></p>
-        <p><a href="{% url 'password_change' %}">パスワードを変更する</a></p>
+        <div class="">
+            <div>アカウント情報</div>    
+            <div><a href="{% url 'user_update' user.id %}"><img src="{% url '' %}" alt=""></a></div>
+        </div>
+        <div>名前</div>
+        <div>{{user.username}}</div>
+        <div>メールアドレス</div>
+        <div>{{user.email}}</div>
+        <div><a href="{% url 'password_change' %}">パスワードを変更する</a></div>
     </div>
     <div class = url>
         <p><a href="{% url 'logout' %}">ログアウト</a></p>
         <p><a href="{% url 'user_delete' %}">アカウント削除</a></p>
     </div>
+    {% endblock main %}
 </body>
-<footer>
-    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
-    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
-    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
-    <p><a href="{% url 'friends_list' %}">{{'友達一覧'}}</a></p>
-</footer>
 </html>

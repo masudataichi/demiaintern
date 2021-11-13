@@ -442,30 +442,41 @@ body {
     font-family: 源泉丸ゴシック;
 }
 
-.header_container {
-    position: absolute;
-    top: 0;
+.random-image {
     width: 100%;
-    height: 11%;
-    background-color: #EA730C;
-    border-bottom-right-radius: 46px;
-}
-
-footer {
-    position: absolute;
-    bottom: 10px
-}
-
-.footer_container {
-    display: flex;
-    margin: 0 auto;
-    width: 91%;
-    background-color:#fff;
-    border-radius: 8% / 50%;
     position: relative;
-    z-index: 10;
+    margin: 0%;
+    margin-bottom: -15px;
 }
 
-.footer_button {
-    width: 25%;
+.random-image ::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.random-image img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -30px;
+    object-fit: cover;
+}
+
+
+
+.images-container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 4px;
+    row-gap: 3.5px;
+}
+
+.images-submitted {
+    width: 24%;
+    height: 24%;
+}
+
+img {
+    border-radius: 10%;
 }

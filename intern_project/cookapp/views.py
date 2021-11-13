@@ -233,10 +233,12 @@ def friends_profile(request,id):
     friend = User.objects.get(id = id)
     content = Submission.objects.filter(submissionconnection = friend,public_private = 11)
     if content.exists():
-        content = content.order_by('date')
+        randomcontent = content.order_by('?')[0]
+        content = content.exclude(id = randomcontent.id).order_by('date')
         params = {
             'user': friend,
             'content': content,
+            'randomcontent': randomcontent,
             }
     else:
         params = {
