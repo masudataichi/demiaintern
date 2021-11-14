@@ -272,11 +272,9 @@ class PasswordView(LoginRequiredMixin,PasswordChangeView):
 
 def friends_add_before(request):
     myuserID = request.user.userID
-    friends = User.objects.filter(current_user = request.user)
     params = {
         'myuserID': myuserID,
         'form': FriendsForm(),
-        'friends': friends
     }
     if request.method == 'POST':
         form = FriendsForm(request.POST)
