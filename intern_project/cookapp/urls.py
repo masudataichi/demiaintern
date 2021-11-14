@@ -7,6 +7,7 @@ urlpatterns = [
     path('login/', views.login_view.as_view(), name='login'),
     path('logout/', views.logout, name='logout'),
     path('signup', views.SignupView.as_view(), name='signup'),
+    path('signup_complete',views.signup_complete,name='signup_complete'),
     path('home', views.home, name='home'),
     path('friends', views.friends, name='friends'),
     path('submission', views.SubmissionView, name='submission'),
@@ -21,6 +22,6 @@ urlpatterns = [
     path('friends_add_after/<str:userID>', views.friends_add_after, name="friends_add_after"), 
     path('user_update/<int:pk>',views.UserUpdateView.as_view(),name='user_update'),
     path('logout2',LogoutView.as_view(),name='logout2'),
-    path('user_delete',views.user_delete,name='user_delete'),
+    path('user_delete/<int:pk>',views.UserDeleteView.as_view(),name='user_delete'),
     path('password_change',views.PasswordView.as_view(),name='password_change'),
 ]
