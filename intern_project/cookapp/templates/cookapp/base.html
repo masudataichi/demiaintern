@@ -10,12 +10,8 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
-            {% if user.icon %}
-                <div class="header-icon"><a href=""><img src="{{user.icon.url}}" alt="" ></a></div>
-            {% endif %}
-            <div class="header-name" >{{user.username}}<div>
-        </div>
+        {% block header %}
+        {% endblock header %}
     </header>
     <main>
         <div class="main-container">

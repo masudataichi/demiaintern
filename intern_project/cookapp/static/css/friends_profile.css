@@ -441,12 +441,46 @@ body {
     margin: 0;
     font-family: 源泉丸ゴシック;
 }
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 11%;
+  background-color: #EA730C;
+  border-bottom-right-radius: 46px;
+}
+
+.header-container {
+    width: 93.5%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+}
+
+.header-icon img {
+    margin-top: 8px;
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+}
+
+.header-name {
+    margin-top: 8px;
+    color: #fff;
+    margin-left: 3%;
+    font-size: 1rem;
+    font-weight: 1;
+}
 
 .random-image {
     width: 100%;
     position: relative;
     margin: 0%;
     margin-bottom: -15px;
+    -webkit-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    -moz-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    -ms-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
 }
 
 .random-image ::before {

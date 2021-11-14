@@ -254,7 +254,9 @@ def friends_profile(request,id):
 
 def setting(request):
     user = request.user
-    params = {'user':user}
+    params = {
+        'user':user,
+    }
     return render(request, 'cookapp/setting.html',params)
 
 class UserUpdateView(LoginRequiredMixin,UpdateView):

@@ -3,27 +3,43 @@
 {% load widget_tweaks %}
 <!doctype html>
 <html lang="ja">
+    {% block extrastyle %}
+        <link rel="stylesheet" href="../static/css/setting.css">
+        <link rel="stylesheet" href="../static/css/base.css">
+
+    {% endblock extrastyle %}
 <body>
-    <header>
-        <div class=""><a href="{% url 'home' %}"><img src="{% static 'png/グループ 481.png' %}" alt=""></a></div>
+    {% block header %}
+    <div class="header-container">
+        <div class=""><a href="{% url 'home' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
         <div class="">設定</div>
-    </header>
+    </div>
+        {% endblock header %}
+
     {% block main %}
-    <div class = container>
-        <div class="">
-            <div>アカウント情報</div>    
-            <div><a href="{% url 'user_update' user.id %}"><img src="{% url '' %}" alt=""></a></div>
+    <div class = "account-container">
+        <div class="account-flex">
+            <div class="">アカウント情報</div>    
+            <div class=""><a href="{% url 'user_update' user.id %}"><img src="{% static 'svg/グループ 325.svg' %}" alt="" ></a></div>
         </div>
-        <div>名前</div>
-        <div>{{user.username}}</div>
-        <div>メールアドレス</div>
-        <div>{{user.email}}</div>
+        <div class="icon"><img src="/media/{{user.icon}}" alt="" width="101px" height="101px"></div>
+        <div class="name-container">
+            <div class="font-small">名前</div>
+            <div class="font-big">{{user.username}}</div>
+        </div>
+        <div class="email-container">
+            <div class="font-small">メールアドレス</div>
+            <div class="font-big">{{user.email}}</div>
+        </div>
+    </div>
+    <div class="password-change">
         <div><a href="{% url 'password_change' %}">パスワードを変更する</a></div>
     </div>
-    <div class = url>
+    <div class="url">
         <p><a href="{% url 'logout' %}">ログアウト</a></p>
         <p><a href="{% url 'user_delete' %}">アカウント削除</a></p>
     </div>
     {% endblock main %}
+
 </body>
 </html>
