@@ -2,7 +2,12 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    
 </head>
-
+<body>
+    <p>アカウントを削除しますか？</p>
+    <form method ="post">
+        {% csrf_token %}
+        <input type = "submit" value = "削除">
+    </form>
+</body>
 </html>

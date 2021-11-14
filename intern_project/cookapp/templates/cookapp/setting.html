@@ -37,7 +37,7 @@
     </div>
     <div class="url">
         <p><a href="{% url 'logout' %}">ログアウト</a></p>
-        <p><a href="{% url 'user_delete' %}">アカウント削除</a></p>
+        <p><a href="{% url 'user_delete' user.id %}">アカウント削除</a></p>
     </div>
     {% endblock main %}
 
