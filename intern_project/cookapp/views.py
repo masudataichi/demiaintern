@@ -1,6 +1,12 @@
 
 from django.db import models
+
+from django.forms.utils import pretty_name
+from django.http import request
+from django.shortcuts import redirect, render
+
 from django.db.models.fields import EmailField
+
 from django.forms.utils import to_current_timezone
 from django.http import request
 from django.shortcuts import render, redirect
@@ -34,6 +40,12 @@ def top(request):
 class login_view(LoginView):
     authentication_form = EmailAuthenticationForm
     template_name = "cookapp/login.html"
+    success_url = reverse_lazy('home')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = SignupForm
+        return context
 
 
 def logout(request):
@@ -65,6 +77,10 @@ class SignupView(CreateView):
 
 def signup_complete(request):
     return render(request,'cookapp/signup_complete.html')
+
+def signup_complete(request):
+    return render(request, 'cookapp/signup_complete.html')
+
 
 @login_required
 def home(request):
@@ -228,10 +244,12 @@ def friends_profile(request,id):
     friend = User.objects.get(id = id)
     content = Submission.objects.filter(submissionconnection = friend,public_private = 11)
     if content.exists():
-        content = content.order_by('date')
+        randomcontent = content.order_by('?')[0]
+        content = content.exclude(id = randomcontent.id).order_by('date')
         params = {
             'user': friend,
             'content': content,
+            'randomcontent': randomcontent,
             }
     else:
         params = {
@@ -242,7 +260,9 @@ def friends_profile(request,id):
 
 def setting(request):
     user = request.user
-    params = {'user':user}
+    params = {
+        'user':user,
+    }
     return render(request, 'cookapp/setting.html',params)
 
 class UserUpdateView(LoginRequiredMixin,UpdateView):
