@@ -260,6 +260,11 @@ class UserDeleteView(LoginRequiredMixin,DeleteView):
     success_url = reverse_lazy('top')
     model = User
 
+class MyContentDeleteView(LoginRequiredMixin,DeleteView):
+    template_name = 'cookapp/my_content_delete.html'
+    success_url = reverse_lazy('home')
+    model = Submission
+
 class PasswordView(LoginRequiredMixin,PasswordChangeView):
     success_url = 'setting'
     template_name = 'cookapp/password_change.html'
