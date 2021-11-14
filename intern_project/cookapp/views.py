@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.db.models.fields import EmailField
 from django.forms.utils import to_current_timezone
 from django.http import request
 from django.shortcuts import render, redirect
@@ -24,14 +25,14 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db.models import Q
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from .forms import EmailAuthenticationForm
 
 # Create your views here.
 def top(request):
     return render(request, 'cookapp/top.html')
 
 class login_view(LoginView):
-    authentication_form = AuthenticationForm
+    authentication_form = EmailAuthenticationForm
     template_name = "cookapp/login.html"
 
 
