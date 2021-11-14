@@ -327,4 +327,7 @@ def friends_add_after(request, userID):
 
     return render(request, 'cookapp/friends_add_after.html', params)
 
+def setting_complete(request):
+    return render(request, 'cookapp/setting_complete.html')
+
 
