@@ -42,10 +42,6 @@ class login_view(LoginView):
     template_name = "cookapp/login.html"
     success_url = reverse_lazy('home')
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = SignupForm
-        return context
 
 
 def logout(request):
@@ -345,6 +341,10 @@ def friends_add_after(request, userID):
         friends, created = Friends.objects.get_or_create(
             current_user = from_user,
             users = to_user,
+        )
+        friends, created = Friends.objects.get_or_create(
+            users = from_user,
+            current_user = to_user,
         )
         return redirect('home')
 
