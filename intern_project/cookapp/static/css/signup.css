@@ -428,10 +428,18 @@ html {
     margin: 0px;
 }
 
+/* font指定 */
+@font-face {
+    font-family: '源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+
 body {
-    width: 100%;
+    width: 376px;
+    height: 812px;
+    position: relative;
     margin: 0;
-    font-family: "ヒラギノ丸ゴ Pro W4", "Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO", sans-serif;
+    font-family: 源泉丸ゴシック;
 }
 
 .container {
@@ -536,8 +544,11 @@ button {
     box-shadow: 1px 1px 1px #757575;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
 .footer-image {
-    position: relative;
-    margin-top: -6%;
     z-index: 8;
 }

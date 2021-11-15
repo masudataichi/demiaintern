@@ -43,6 +43,23 @@
                 <td id='addIcon'><img class='form-image1' src="{% static 'media/グループ 352.svg' %}" /></td>
                 <td><p class='form-document'>コメントを入力</p></td>
             </th>
+    <img src={{content.image.url}} alt="サンプル" width="96" height="65">
+    {{content.category}}
+    {{content.public_private}}
+    {{content.date}}
+    {{content.place}}
+    {{content.comment}}
+    <p><a href="{% url 'my_content_update' %}">{{'編集'}}</a></p>
+    <p><a href="{% url 'my_content_delete' content.id %}">{{'削除'}}</a></p>
+    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+    {% for threadlist in threadlist %}
+    {{threadlist.threadconnection_user.username}}
+    {{threadlist.thread}}
+    {% endfor %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
         </table>
     </div>
     <form method="post" enctype="multipart/form-data" class="form" id='form'>
