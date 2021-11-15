@@ -1,9 +1,48 @@
+{% load static %}
+{% load widget_tweaks %}
 <!doctype html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my_content.css' %}" />
+    <script type="text/javascript" src="{% static 'js/my_content.js' %}"></script>
+    <title>my_contents</title>
 </head>
 <body>
+    <header>
+            <div class='user'>
+                <div class="user-icon">
+                    {% if user.icon %}
+                    <img src={{user.icon.url}} alt="サンプル" style=border-radius:50px; width="40" height="40">
+                    {% endif %}
+                </div>
+                <div class="user-name">{{user.username}}</div>
+            </div>
+        <div class="options">
+            <p><a href="{% url 'my_content_update' %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
+            <p><a href="{% url 'my_content_delete' %}"><img id="image-display_origin" src="{% static 'media/グループ 319.svg' %}"/></a></p>
+        </div>
+    </header>
+    <div class=image-image>
+        <img src={{content.image.url}} alt="サンプル" width="350" height="350" class="image">
+    </div>
+    <div class="image-details">
+        <div class="image-detail_1">
+            <div class="image_date">{{content.date}}</div>
+            <div class="image_place"><img id="image-display_origin" src="{% static 'media/グループ 271.svg' %}"/>{{content.place}}</div>
+            <div class="image_category">{{content.category}}</div>
+        </div>
+        <div class="image-detail_2">
+            {{content.comment}}
+        </div>
+    </div>
+    <div class="form-unclicked" id='form-unclicked'>
+        <table class="form-unclicked_table">
+            <th>
+                <td id='addIcon'><img class='form-image1' src="{% static 'media/グループ 352.svg' %}" /></td>
+                <td><p class='form-document'>コメントを入力</p></td>
+            </th>
     <img src={{content.image.url}} alt="サンプル" width="96" height="65">
     {{content.category}}
     {{content.public_private}}
@@ -22,8 +61,22 @@
         <table>
             {{ form.as_table }}
         </table>
-        <button type="submit">投稿</button>
+    </div>
+    <form method="post" enctype="multipart/form-data" class="form" id='form'>
+        <img class='form-image2' id='deleteIcon' src="{% static 'media/グループ 352.svg' %}" />
+        {% csrf_token %}
+        <div class="form-content">
+            <div class="form-table">{{ form.thread }}</div>
+            <div class="form-button"><button type="submit" class="button"><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button></div>
+        </div>
     </form>
+    <div class="thread" id='thread'>
+        {{content.talk}}
+        {% for threadlist in threadlist %}
+        {{threadlist.threadconnection_user.username}}
+        {{threadlist.thread}}
+        {% endfor %}
+    </div>
 </body>
 <footer>
     <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
