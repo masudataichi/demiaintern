@@ -12,6 +12,11 @@ class SubmissionForm(forms.ModelForm):
     class Meta:
         model = Submission
         fields = ['image','category','public_private','date','place','comment']
+        
+        #追記（臼杵）
+        widgets = {
+            'comment': forms.Textarea(attrs={'rows':16, 'cols':15}),
+        }
 
 
 
@@ -24,6 +29,10 @@ class ThreadForm(forms.ModelForm):
     class Meta:
         model = Thread
         fields = ['thread']
+
+        widgets = {
+            'thread':forms.Textarea(attrs={'rows':2, 'cols':45 }),
+        }
 
 class FriendsForm(forms.ModelForm):
     class Meta:
