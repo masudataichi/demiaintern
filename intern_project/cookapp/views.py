@@ -1,5 +1,12 @@
 
 from django.db import models
+
+from django.forms.utils import pretty_name
+from django.http import request
+from django.shortcuts import redirect, render
+
+from django.db.models.fields import EmailField
+
 from django.forms.utils import to_current_timezone
 from django.http import request
 from django.shortcuts import render, redirect
@@ -24,15 +31,17 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db.models import Q
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from .forms import EmailAuthenticationForm
 
 # Create your views here.
 def top(request):
     return render(request, 'cookapp/top.html')
 
 class login_view(LoginView):
-    authentication_form = AuthenticationForm
+    authentication_form = EmailAuthenticationForm
     template_name = "cookapp/login.html"
+    success_url = reverse_lazy('home')
+    
 
 
 def logout(request):
@@ -64,6 +73,10 @@ class SignupView(CreateView):
 
 def signup_complete(request):
     return render(request,'cookapp/signup_complete.html')
+
+def signup_complete(request):
+    return render(request, 'cookapp/signup_complete.html')
+
 
 @login_required
 def home(request):
@@ -218,10 +231,12 @@ def friends_profile(request,id):
     friend = User.objects.get(id = id)
     content = Submission.objects.filter(submissionconnection = friend,public_private = 11)
     if content.exists():
-        content = content.order_by('date')
+        randomcontent = content.order_by('?')[0]
+        content = content.exclude(id = randomcontent.id).order_by('date')
         params = {
             'user': friend,
             'content': content,
+            'randomcontent': randomcontent,
             }
     else:
         params = {
@@ -232,7 +247,9 @@ def friends_profile(request,id):
 
 def setting(request):
     user = request.user
-    params = {'user':user}
+    params = {
+        'user':user,
+    }
     return render(request, 'cookapp/setting.html',params)
 
 class UserUpdateView(LoginRequiredMixin,UpdateView):
@@ -250,6 +267,11 @@ class UserDeleteView(LoginRequiredMixin,DeleteView):
     success_url = reverse_lazy('top')
     model = User
 
+class MyContentDeleteView(LoginRequiredMixin,DeleteView):
+    template_name = 'cookapp/my_content_delete.html'
+    success_url = reverse_lazy('home')
+    model = Submission
+
 class PasswordView(LoginRequiredMixin,PasswordChangeView):
     success_url = 'setting'
     template_name = 'cookapp/password_change.html'
@@ -259,7 +281,8 @@ def friends_add_before(request):
     myuserID = request.user.userID
     params = {
         'myuserID': myuserID,
-        'form': FriendsForm()
+        'form': FriendsForm(),
+
     }
     if request.method == 'POST':
         form = FriendsForm(request.POST)
@@ -311,12 +334,17 @@ def friends_add_after(request, userID):
             current_user = from_user,
             users = to_user,
         )
+
         friends2, created2 = Friends.objects.get_or_create(
             current_user = to_user,
             users = from_user
+
         )
         return redirect('home')
 
     return render(request, 'cookapp/friends_add_after.html', params)
+
+def setting_complete(request):
+    return render(request, 'cookapp/setting_complete.html')
 
 

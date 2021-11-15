@@ -11,7 +11,7 @@
     {{content.place}}
     {{content.comment}}
     <p><a href="{% url 'my_content_update' %}">{{'編集'}}</a></p>
-    <p><a href="{% url 'my_content_delete' %}">{{'削除'}}</a></p>
+    <p><a href="{% url 'my_content_delete' content.id %}">{{'削除'}}</a></p>
     <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
     {% for threadlist in threadlist %}
     {{threadlist.threadconnection_user.username}}
