@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <form method = "post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{form.icon}}
+    <p>{{form.username}}</p>
+    <p>{{form.email}}</p>
+    <button type = "submit">更新</button>
+    </form>
+</body>
+</html>

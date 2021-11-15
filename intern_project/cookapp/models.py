@@ -14,13 +14,14 @@ class User(AbstractUser):
     username = models.CharField(
         verbose_name='名前(20文字まで)',
         max_length=20,
-        unique=True,
+        unique=False,
         validators=[username_validator],
         error_messages={
             'unique':("A user with that username already exists."),
         },
         
     )
+    email = models.EmailField(max_length=254, unique=True)
   
 
 
@@ -64,8 +65,10 @@ class Thread(models.Model):
     thread = models.CharField(max_length=150, null=True)
 
 class Friends(models.Model):
-    users = models.ManyToManyField(User, default='users', blank=True, related_name='users')
-    current_user = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE, null=True)
 
-# Create your models here.
+    users = models.ForeignKey(User, related_name='friends', on_delete=models.CASCADE, null=True)#友達
+    current_user = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE, null=True)#自分
+
+
+
 

@@ -420,6 +420,7 @@ th {
   font-weight: bold;
 }
 
+
 /* ------------------------------ ここから記入 -------------------------------------------*/
 html {
     width: 376px;
@@ -429,78 +430,118 @@ html {
 
 /* font指定 */
 @font-face {
-  font-family: '源泉丸ゴシック';
-  src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+    font-family: '源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
-
 
 body {
     width: 376px;
     height: 812px;
-    width: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 源泉丸ゴシック;
     position: relative;
-}
-
-.container {
-    margin: 0 auto;
-    width: 95%;
-}
-
-main {
-  flex: 1;
-}
-
-.complete-image,.complete-message {
-    margin: 0 auto;
-    text-align: center;
-    
-}
-
-.complete-image {
-    margin-top: 12rem;
-}
-
-.complete-message {
-    margin-top: 1.5rem;
-    font-size: 20px;
+    margin: 0;
+    font-family: 源泉丸ゴシック;
     color: #212121;
 }
 
-
-.button {
-    margin-top: 20%;
-    margin-bottom: 30%;
-    position: relative;
-    z-index: 15;
+.header-container {
+    width: 93.5%;
+    margin: 0 auto;
+    margin-top: 34px;
+    font-size: 26px;
+    display: flex;
+    vertical-align:top;
+    align-items: center;
 }
 
-button {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
+main {
+    position: relative;
+    top: 69px !important;
+}
 
-    padding: 0.8rem;
-    background-color: #ea730c;
-    font-size: 20px;
-    color: #fff;
-    width: 95%;
-    border-radius: 3rem;
+.main-container {
+    width: 93.5%;
+    margin: 0 auto;
+}
+
+.account-container {
+    background-color: #fff;
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 34px 19px;
+    -webkit-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    -moz-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    -ms-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+}
+
+.account-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.account-flex div {
+    align-self: center;
+}
+
+.icon {
+    margin: 30px auto;
     text-align: center;
-    box-shadow: 1px 1px 1px #757575;
+}
+
+.icon img {
+    border-radius: 50%;
+}
+
+.name-container {
+    margin-bottom: 29px;
+}
+
+.font-small {
+    color: #757575;
+    font-size: 13px;
+}
+
+.font-big {
+    color: #212121;
+    font-size: 16px;
+}
+
+.password-change {
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 24px;
+    padding: 24px 19px;
+    -webkit-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    -moz-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    -ms-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+}
+
+.url {
+    margin-top: 69px;
+    color: #EA730C;
+}
+
+.url p {
+    margin-bottom: 24px;
 }
 
 footer {
-    margin-top: auto;
-    position: absolute;
-    bottom: 0;
-
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
 }
 
+.footer-container {
+    display: flex;
+    margin: 0 auto;
+    width: 93.5%;
+    background-color:#fff;
+    border-radius: 8% / 50%;
+    position: relative;
+    z-index: 10;
+}
 
-.footer-image {
-    z-index: 8;
+.footer-button {
+    width: 25%;
 }

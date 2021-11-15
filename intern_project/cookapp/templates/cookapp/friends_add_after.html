@@ -8,6 +8,7 @@
     <title>友達追加（追加後）</title>
 </head>
 <body>
+
     <div class="title">
         <h1>友だち追加</h1>
     </div>
@@ -24,6 +25,21 @@
         <p class="myfield_ID">{{myuserID}}</p>
         <p class="myfield_doc">友達の検索ボックスに、大文字と小文字を区別して正確に入力して下さい</p>
     </div>
+
+
+    {% if friends.icon %}
+        <p><img src={{friends.icon.url}} alt="サンプル" width="96" height="65"></p>
+    {% endif %}
+
+    <p><img src={{friends.icon.url}} alt="サンプル" width="96" height="65"></p>
+
+    <p>{{friends.username}}</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit">追加する</button>
+    </form>
+    {{'あなたのID'}}
+    <p>{{myuserID}}</p>
 </body>
 <footer>
     <div class='footer'>
