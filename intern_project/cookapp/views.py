@@ -85,22 +85,13 @@ def home(request):
     return render(request, 'cookapp/home.html', params)
 
 def friends(request):
-    friendslist = Friends.objects.filter(current_user=request.user)
-    friend = friendslist.users.all()
-    content = Submission.objects.filter(submissionconnection=friend)
-    if content.exists():
-        randomcontent = content.order_by('?')
-        params = {
-            'user': user,
-            'randomcontent': randomcontent,
-            }
-    else:
-        params = {
-            'user': user,
-            }
-
-
-    return render(request, 'cookapp/friends.html')
+    user = request.user
+    friends_list = Friends.objects.filter(current_user = user)
+    for friends in friends_list:
+        print(friends.users)
+    params ={'list':friends_list
+    }
+    return render(request, 'cookapp/friends.html',params)
 
 def SubmissionView(request):
     params = {
@@ -266,11 +257,9 @@ class PasswordView(LoginRequiredMixin,PasswordChangeView):
 
 def friends_add_before(request):
     myuserID = request.user.userID
-    friends = User.objects.filter(current_user = request.user)
     params = {
         'myuserID': myuserID,
-        'form': FriendsForm(),
-        'friends': friends
+        'form': FriendsForm()
     }
     if request.method == 'POST':
         form = FriendsForm(request.POST)
@@ -321,6 +310,10 @@ def friends_add_after(request, userID):
         friends, created = Friends.objects.get_or_create(
             current_user = from_user,
             users = to_user,
+        )
+        friends2, created2 = Friends.objects.get_or_create(
+            current_user = to_user,
+            users = from_user
         )
         return redirect('home')
 
