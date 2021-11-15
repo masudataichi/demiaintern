@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'cookapp.apps.CookappConfig',
     'widget_tweaks',
 
-
 ]
 
 MIDDLEWARE = [

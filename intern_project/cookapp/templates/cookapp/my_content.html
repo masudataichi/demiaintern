@@ -53,7 +53,7 @@
             <div class="form-button"><button type="submit" class="button"><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button></div>
         </div>
     </form>
-    <div class="thread">
+    <div class="thread" id='thread'>
         {{content.talk}}
         {% for threadlist in threadlist %}
         {{threadlist.threadconnection_user.username}}
