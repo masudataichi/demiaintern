@@ -170,7 +170,7 @@ def friends_content(request,id):
 
 def my_content(request, id):
     content = Submission.objects.get(id = id)
-    threadlist = Thread.objects.filter(threadconnection_image = content)
+    thread = Thread.objects.filter(threadconnection_image = content)
     if request.method == 'POST':
         form = ThreadForm(request.POST)
         if form.is_valid():
@@ -209,7 +209,7 @@ def my_content(request, id):
     params = {
         'content': content,
         'form': ThreadForm(),
-        'threadlist': threadlist,
+        'thread': thread,
     }
     return render(request, 'cookapp/my_content.html', params)
 

@@ -36,6 +36,10 @@ class ThreadForm(forms.ModelForm):
         widgets = {
             'thread':forms.Textarea(attrs={'rows':2, 'cols':45 }),
         }
+class ThreadlistForm(forms.ModelForm):
+    class Meta:
+        model = Threadlist
+        fields = ['threadlist']
 
 class FriendsForm(forms.ModelForm):
     class Meta:

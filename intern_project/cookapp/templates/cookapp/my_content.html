@@ -21,7 +21,7 @@
             </div>
         <div class="options">
             <p><a href="{% url 'my_content_update' %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
-            <p><a href="{% url 'my_content_delete' %}"><img id="image-display_origin" src="{% static 'media/グループ 319.svg' %}"/></a></p>
+            <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 319.svg' %}"/></a></p>
         </div>
     </header>
     <div class=image-image>
@@ -52,9 +52,9 @@
     <p><a href="{% url 'my_content_update' %}">{{'編集'}}</a></p>
     <p><a href="{% url 'my_content_delete' content.id %}">{{'削除'}}</a></p>
     <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-    {% for threadlist in threadlist %}
-    {{threadlist.threadconnection_user.username}}
-    {{threadlist.thread}}
+    {% for thread in thread %}
+    {{thread.threadconnection_user.username}}
+    {{thread.thread}}
     {% endfor %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -72,9 +72,9 @@
     </form>
     <div class="thread" id='thread'>
         {{content.talk}}
-        {% for threadlist in threadlist %}
-        {{threadlist.threadconnection_user.username}}
-        {{threadlist.thread}}
+        {% for thread in thread %}
+        {{thread.threadconnection_user.username}}
+        {{thread.thread}}
         {% endfor %}
     </div>
 </body>
