@@ -486,11 +486,17 @@ main {
 .icon {
     margin: 30px auto;
     text-align: center;
+    width: 101px;
+    height: 101px;
 }
 
 .icon img {
     border-radius: 50%;
+    width: 100%;
+    height: 100%;
 }
+
+    
 
 .name-container {
     margin-bottom: 29px;
