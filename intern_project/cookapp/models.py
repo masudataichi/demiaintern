@@ -5,7 +5,6 @@ from django.contrib.auth.validators import UnicodeUsernameValidator
 from imagekit.models import ImageSpecField, ProcessedImageField
 from imagekit.processors import ResizeToFill
 
-
 class User(AbstractUser):
     #アイコン画像
     icon = models.ImageField(blank=True, null=True)
@@ -22,8 +21,7 @@ class User(AbstractUser):
         },
         
     )
-    email = models.EmailField(max_length=254, unique=True)
-  
+    email = models.EmailField(max_length=254, unique=True)  
 
 
 class Submission(models.Model):
@@ -95,5 +93,7 @@ class Friends(models.Model):
     current_user = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE, null=True)#自分
 
 
-
+class Like(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user')
+    submission = models.ForeignKey(Submission,on_delete=models.CASCADE,related_name='submission')
 

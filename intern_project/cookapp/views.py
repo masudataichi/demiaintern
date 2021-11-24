@@ -11,8 +11,10 @@ from django.forms.utils import to_current_timezone
 from django.http import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from .models import Submission, Threadlist, User, Thread, Friends, Threadlist
+
+from .models import Submission, Threadlist, User, Thread, Friends, Threadlist, Like
 from .forms import PasswordForm, SubmissionForm, FriendsForm, ThreadlistForm
+
 from django.views.generic import CreateView,UpdateView,DeleteView
 from django.contrib import messages
 from django.utils.crypto import get_random_string
@@ -100,10 +102,10 @@ def home(request):
 def friends(request):
     user = request.user
     friends_list = Friends.objects.filter(current_user = user)
-    for friends in friends_list:
-        print(friends.users)
-    params ={'list':friends_list
+    friends = friends_list.Friends.all()
+    params ={'list':friends
     }
+
     return render(request, 'cookapp/friends.html',params)
 
 def SubmissionView(request):
@@ -127,12 +129,20 @@ def friends_content(request,id):
     content = Submission.objects.get(id = id)
     threadlist = Thread.objects.filter(threadconnection_image = content)
     if request.method == 'POST':
-        form = ThreadForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.threadconnection_image = content
-            form.threadconnection_user = request.user
-            form.save()
+        if 'comment' in request.POST:
+            form = ThreadForm(request.POST)
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.threadconnection_image = content
+                form.threadconnection_user = request.user
+                form.save()
+        if 'like' in request.POST:
+            user = request.user
+            if Like.objects.filter(user=user,submission=content).exists():
+                like= Like.objects.get(user=user,submission=content)
+                like.delete()
+            else:
+                Like.objects.create(user=user,submission = content)
     if content.category == 11:
         content.category = '和食'
     if content.category == 12:
@@ -318,9 +328,9 @@ def friends_add_before(request):
 
 class ContentUpdateView(LoginRequiredMixin,UpdateView):
     model = Submission
-    template_name = 'my_content_update.html'
+    template_name = 'cookapp/my_content_update.html'
     form_class = SubmissionForm
-    success_url = 'home'
+    success_url = reverse_lazy('home')
 
     def form_valid(self,form):
         return super().form_valid(form)
