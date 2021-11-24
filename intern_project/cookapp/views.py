@@ -11,8 +11,8 @@ from django.forms.utils import to_current_timezone
 from django.http import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from .models import Submission, User, Thread, Friends
-from .forms import PasswordForm, SubmissionForm, FriendsForm
+from .models import Submission, Threadlist, User, Thread, Friends, Threadlist
+from .forms import PasswordForm, SubmissionForm, FriendsForm, ThreadlistForm
 from django.views.generic import CreateView,UpdateView,DeleteView
 from django.contrib import messages
 from django.utils.crypto import get_random_string
@@ -171,13 +171,28 @@ def friends_content(request,id):
 def my_content(request, id):
     content = Submission.objects.get(id = id)
     thread = Thread.objects.filter(threadconnection_image = content)
+    threadlist = Threadlist.objects.all()
+    form1 = ThreadlistForm()
     if request.method == 'POST':
-        form = ThreadForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.threadconnection_image = content
-            form.threadconnection_user = request.user
-            form.save()
+        if 'thread1' in request.POST:
+            print(request.POST)
+            form = ThreadForm(request.POST)
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.threadconnection_image = content
+                form.threadconection_user = request.user
+                form.save()
+        elif 'th' in request.POST:
+                print(type(request.POST['th']))
+                number = int(request.POST['th'])
+                print(type(number))
+                print(number)
+                print(thread[number])
+                form2 = ThreadlistForm(request.POST)
+                if form2.is_valid():
+                    form2 = form2.save(commit=False)
+                    form2.threadlistconnection = thread[number]
+                    form2.save()
     if content.category == 11:
         content.category = '和食'
     if content.category == 12:
@@ -210,6 +225,8 @@ def my_content(request, id):
         'content': content,
         'form': ThreadForm(),
         'thread': thread,
+        'form1': form1,
+        'threadlist': threadlist,
     }
     return render(request, 'cookapp/my_content.html', params)
 
