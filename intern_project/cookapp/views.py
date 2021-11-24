@@ -100,10 +100,10 @@ def home(request):
 def friends(request):
     user = request.user
     friends_list = Friends.objects.filter(current_user = user)
-    for friends in friends_list:
-        print(friends.users)
-    params ={'list':friends_list
+    friends = friends_list.Friends.all()
+    params ={'list':friends
     }
+
     return render(request, 'cookapp/friends.html',params)
 
 def SubmissionView(request):
@@ -301,9 +301,9 @@ def friends_add_before(request):
 
 class ContentUpdateView(LoginRequiredMixin,UpdateView):
     model = Submission
-    template_name = 'my_content_update.html'
+    template_name = 'cookapp/my_content_update.html'
     form_class = SubmissionForm
-    success_url = 'home'
+    success_url = reverse_lazy('home')
 
     def form_valid(self,form):
         return super().form_valid(form)
