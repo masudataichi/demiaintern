@@ -32,13 +32,13 @@
             <p class="myID_doc">友達の検索ボックスに、大文字と小文字を区別して正確に入力して下さい</p>
         </div>
     </div>
-    <div class="footer">
-        <footer>
-            <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
-            <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-            <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
-            <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
-        </footer>
-    </div>
+    <footer>
+        <div class="footer-container">
+                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+        </div>
+    </footer>
 </body>
 </html>

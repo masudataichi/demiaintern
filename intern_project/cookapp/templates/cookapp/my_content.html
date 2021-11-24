@@ -10,12 +10,8 @@
     <title>my_contents</title>
 </head>
 <body>
-<<<<<<< HEAD
-
-=======
->>>>>>> 509410c7a67263b873a0909c806b11a1e36bd6b4
     <header>
-            <div class='user'>
+        <div class='user'>
                 <div class="user-icon">
                     {% if user.icon %}
                     <img src={{user.icon.url}} alt="サンプル" style=border-radius:50px; width="40" height="40">
@@ -24,8 +20,8 @@
                 <div class="user-name">{{user.username}}</div>
             </div>
         <div class="options">
-            <p><a href="{% url 'my_content_update' %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
-            <p><a href="{% url 'my_content_delete' %}"><img id="image-display_origin" src="{% static 'media/グループ 319.svg' %}"/></a></p>
+            <p><a href="{% url 'my_content_update' %}"><img id="image-display_origin1" src="{% static 'media/グループ 325.svg' %}"/></a></p>
+            <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin2" src="{% static 'media/グループ 319.svg' %}"/></a></p>
         </div>
     </header>
     <div class=image-image>
@@ -34,8 +30,10 @@
     <div class="image-details">
         <div class="image-detail_1">
             <div class="image_date">{{content.date}}</div>
-            <div class="image_place"><img id="image-display_origin" src="{% static 'media/グループ 271.svg' %}"/>{{content.place}}</div>
-            <div class="image_category">{{content.category}}</div>
+            <div class="image_place"><img id="image-display_origin3" src="{% static 'media/グループ 271.svg' %}"/>{{content.place}}</div>
+            <div class="image_category">
+                <p>{{content.category}}</p>
+            </div>
         </div>
         <div class="image-detail_2">
             {{content.comment}}
@@ -44,56 +42,36 @@
     <div class="form-unclicked" id='form-unclicked'>
         <table class="form-unclicked_table">
             <th>
-                <td id='addIcon'><img class='form-image1' src="{% static 'media/グループ 352.svg' %}" /></td>
-                <td><p class='form-document'>コメントを入力</p></td>
+                <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'media/グループ 352.svg' %}" /></button>
+                <td><p class='form-document' id='form-document'>コメントを入力</p></td>
             </th>
-<<<<<<< HEAD
-
-=======
->>>>>>> 509410c7a67263b873a0909c806b11a1e36bd6b4
-    <img src={{content.image.url}} alt="サンプル" width="96" height="65">
-    {{content.category}}
-    {{content.public_private}}
-    {{content.date}}
-    {{content.place}}
-    {{content.comment}}
-    <p><a href="{% url 'my_content_update' %}">{{'編集'}}</a></p>
-    <p><a href="{% url 'my_content_delete' content.id %}">{{'削除'}}</a></p>
-    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-    {% for threadlist in threadlist %}
-    {{threadlist.threadconnection_user.username}}
-    {{threadlist.thread}}
-    {% endfor %}
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-<<<<<<< HEAD
-
-=======
->>>>>>> 509410c7a67263b873a0909c806b11a1e36bd6b4
         </table>
     </div>
     <form method="post" enctype="multipart/form-data" class="form" id='form'>
-        <img class='form-image2' id='deleteIcon' src="{% static 'media/グループ 352.svg' %}" />
         {% csrf_token %}
         <div class="form-content">
-            <div class="form-table">{{ form.thread }}</div>
-            <div class="form-button"><button type="submit" class="button"><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button></div>
+            <div class="form-table">{{ form.thread }}</div>  
+            <div class="form-button">
+                <button type="submit" class="button" name='thread1'><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button>
+            </div>
         </div>
     </form>
     <div class="thread" id='thread'>
         {{content.talk}}
         {% for threadlist in threadlist %}
-        {{threadlist.threadconnection_user.username}}
-        {{threadlist.thread}}
+        <div class="my-thread">
+            {{threadlist.threadconnection_user.username}}
+            {{threadlist.thread}}
+        </div>
         {% endfor %}
     </div>
 </body>
-<footer>
-    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
-    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
-    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
-</footer>
+    <footer>
+        <div class="footer-container">
+                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+        </div>
+    </footer>
 </html>

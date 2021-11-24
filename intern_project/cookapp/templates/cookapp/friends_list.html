@@ -15,31 +15,23 @@
     <div class="number-of-friends"></div>
 </header>
 <body>
-
     {% if friendslist %}
-        {% for f in friendslist%}
-
+        {% for f in friendslist %}
         <div class="body-content">
             <div class="image-icon"><img src="{{f.icon.url}}" alt="サンプル" style="border-radius:50px; height:40px; width:40px;"></div>
             <div class="username">{{f.username}}</div>
         </div>
-
-
-        {% if f.users == user %}     
+          {% if f.users == user %}     
             {% if f.current_user.icon %}
                 <img src="{{f.current_user.icon.url}}" alt="サンプル" width="96" height="65">
                 <a href="{% url 'friends_profile' f.current_user.id %}" class="">{{f.current_user.username}}</a>
             {% endif %}
-
-        {% else %}  
+          {% else %}  
             {% if f.users.icon %}
                 <img src="{{f.users.icon.url}}" alt="サンプル" width="96" height="65">
                 <a href="{% url 'friends_profile' f.users.id %}" class="">{{f.users.username}}</a>
             {% endif %}
-            
-        {% endif %}
-
-
+          {% endif %}
         {% endfor %}
     {% endif %}
 </body>

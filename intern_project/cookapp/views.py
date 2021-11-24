@@ -256,7 +256,7 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = User
     template_name = 'cookapp/user_update.html'
     fields = ['username','email','icon']
-    success_url = reverse_lazy('setting')
+    success_url = reverse_lazy('setting_complete')
 
 
 def user_delete(request):
@@ -335,11 +335,7 @@ def friends_add_after(request, userID):
             users = to_user,
         )
 
-        friends2, created2 = Friends.objects.get_or_create(
-            current_user = to_user,
-            users = from_user
 
-        )
         return redirect('home')
 
     return render(request, 'cookapp/friends_add_after.html', params)
