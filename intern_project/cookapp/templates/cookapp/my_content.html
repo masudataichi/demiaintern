@@ -20,11 +20,10 @@
                 <div class="user-name">{{user.username}}</div>
             </div>
         <div class="options">
-<<<<<<< HEAD
-            <p><a href="{% url 'my_content_update' %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
-=======
+
+
             <p><a href="{% url 'my_content_update' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
->>>>>>> 9d3b515591c00118eef57bbd66f5cf9448d02d98
+
             <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 319.svg' %}"/></a></p>
         </div>
     </header>
@@ -47,24 +46,15 @@
                 <td id='addIcon'><img class='form-image1' src="{% static 'media/グループ 352.svg' %}" /></td>
                 <td><p class='form-document'>コメントを入力</p></td>
             </th>
-<<<<<<< HEAD
-        </table>
+    </table>
     </div>
-=======
-    <img src={{content.image.url}} alt="サンプル" width="96" height="65">
-    {{content.category}}
-    {{content.public_private}}
-    {{content.date}}
-    {{content.place}}
-    {{content.comment}}
-    <p><a href="{% url 'my_content_update' content.id %}">{{'編集'}}</a></p>
-    <p><a href="{% url 'my_content_delete' content.id %}">{{'削除'}}</a></p>
-    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+
+    
     {% for threadlist in threadlist %}
     {{threadlist.threadconnection_user.username}}
     {{threadlist.thread}}
     {% endfor %}
->>>>>>> 9d3b515591c00118eef57bbd66f5cf9448d02d98
+
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
