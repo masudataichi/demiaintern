@@ -11,7 +11,7 @@ from django.forms.utils import to_current_timezone
 from django.http import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from .models import Submission, User, Thread, Friends
+from .models import Submission, User, Thread, Friends,Like
 from .forms import PasswordForm, SubmissionForm, FriendsForm
 from django.views.generic import CreateView,UpdateView,DeleteView
 from django.contrib import messages
@@ -127,12 +127,20 @@ def friends_content(request,id):
     content = Submission.objects.get(id = id)
     threadlist = Thread.objects.filter(threadconnection_image = content)
     if request.method == 'POST':
-        form = ThreadForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.threadconnection_image = content
-            form.threadconnection_user = request.user
-            form.save()
+        if 'comment' in request.POST:
+            form = ThreadForm(request.POST)
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.threadconnection_image = content
+                form.threadconnection_user = request.user
+                form.save()
+        if 'like' in request.POST:
+            user = request.user
+            if Like.objects.filter(user=user,submission=content).exists():
+                like= Like.objects.get(user=user,submission=content)
+                like.delete()
+            else:
+                Like.objects.create(user=user,submission = content)
     if content.category == 11:
         content.category = '和食'
     if content.category == 12:

@@ -10,6 +10,10 @@
     {{content.place}}
     {{content.comment}}
     <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+    <p><form method="post">
+        {% csrf_token %}
+        <button type="submit" name='like'>お気に入り</button>
+    </form></p>
     {{content.talk}}
     {% for threadlist in threadlist %}
     {{threadlist.threadconnection_user.username}}
@@ -20,7 +24,7 @@
         <table>
             {{ form.as_table }}
         </table>
-        <button type="submit">投稿</button>
+        <button type="submit" name='comment'>投稿</button>
     </form>
 </body>
 <footer>
