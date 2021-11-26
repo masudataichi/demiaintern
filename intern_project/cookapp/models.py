@@ -2,8 +2,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.fields import related
 from django.contrib.auth.validators import UnicodeUsernameValidator
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
+
 from imagekit.models import ImageSpecField, ProcessedImageField
 from imagekit.processors import ResizeToFill
+
 
 class User(AbstractUser):
     #アイコン画像
@@ -84,7 +89,8 @@ class Thread(models.Model):
     threadconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadconnection_user', null=True)
     thread = models.CharField(max_length=150, null=True)
 class Threadlist(models.Model):
-    threadlistconnection = models.ForeignKey(Thread, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
+    threadlistconnection_thread = models.ForeignKey(Thread, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
+    threadlistconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
     threadlist = models.CharField(max_length=150, null=True)
 
 class Friends(models.Model):

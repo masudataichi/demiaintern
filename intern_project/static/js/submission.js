@@ -2,9 +2,11 @@
 window.addEventListener('DOMContentLoaded', function(){
     document.getElementById('id_image').addEventListener('change',function(e){
         var input = document.getElementById('id_image').files[0];
+        console.log(input);
+        input.width = 300;
         var reader = new FileReader();
         reader.addEventListener('load', function(e){
-            document.getElementById('image-display_origin').src = reader.result;
+            document.getElementById('image-display_update').src = reader.result;
         },true);
         reader.readAsDataURL(input);
     },true);
@@ -13,7 +15,6 @@ window.addEventListener('DOMContentLoaded', function(){
 window.addEventListener('DOMContentLoaded', function(){
     const doc =document.getElementById('doc');
     document.getElementById('id_image').addEventListener('change',function(e){
-        console.log(doc);
         doc.style.display = 'none';
     },false);
 });
