@@ -19,6 +19,7 @@
     {% endblock header %}
 </header>
 <body>
+<<<<<<< HEAD
     <div class="content-image">
         <img src={{content.image.url}} alt="サンプル" style='border-radius:30px;' width="350" height="350"/>
     </div>
@@ -48,6 +49,27 @@
                 <button type="submit" class="button" name='thread1'><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button>
             </div>
         </div>
+    <img src={{content.image.url}} alt="サンプル" width="96" height="65">
+    {{content.category}}
+    {{content.date}}
+    {{content.place}}
+    {{content.comment}}
+    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+    <p><form method="post">
+        {% csrf_token %}
+        <button type="submit" name='like'>お気に入り</button>
+    </form></p>
+    {{content.talk}}
+    {% for threadlist in threadlist %}
+    {{threadlist.threadconnection_user.username}}
+    {{threadlist.thread}}
+    {% endfor %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit" name='comment'>投稿</button>
     </form>
     <div class="thread" id='thread'>
         {{content.talk}}

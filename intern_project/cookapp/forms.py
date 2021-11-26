@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.backends import UserModel
 from django.db.models import fields
-from .models import Friends, Submission, Thread
+from .models import Friends, Submission, Thread, Threadlist
 from django.forms import ModelForm
 
 from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
@@ -36,6 +36,10 @@ class ThreadForm(forms.ModelForm):
         widgets = {
             'thread':forms.Textarea(attrs={'rows':2, 'cols':45 }),
         }
+class ThreadlistForm(forms.ModelForm):
+    class Meta:
+        model = Threadlist
+        fields = ['threadlist']
 
 class FriendsForm(forms.ModelForm):
     class Meta:

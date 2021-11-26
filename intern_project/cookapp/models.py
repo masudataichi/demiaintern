@@ -6,6 +6,9 @@ from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
 
+from imagekit.models import ImageSpecField, ProcessedImageField
+from imagekit.processors import ResizeToFill
+
 
 class User(AbstractUser):
     #アイコン画像
@@ -23,8 +26,7 @@ class User(AbstractUser):
         },
         
     )
-    email = models.EmailField(max_length=254, unique=True)
-  
+    email = models.EmailField(max_length=254, unique=True)  
 
 
 class Submission(models.Model):
@@ -32,6 +34,27 @@ class Submission(models.Model):
     submissionconnection = models.ForeignKey(User, on_delete=models.CASCADE, related_name='submissionconnection')
     #画像
     image = models.ImageField(upload_to='media', blank=True, null=True)
+    big = ImageSpecField(source="image",
+                         processors=[ResizeToFill(1280, 1024)],
+                         format='JPEG'
+                         )
+    thumbnail = ImageSpecField(source='image',
+                            processors=[ResizeToFill(250,250)],
+                            format="JPEG",
+                            options={'quality': 60}
+                            )
+
+    middle = ImageSpecField(source='image',
+                        processors=[ResizeToFill(600, 400)],
+                        format="JPEG",
+                        options={'quality': 75}
+                        )
+
+    small = ImageSpecField(source='image',
+                            processors=[ResizeToFill(75,75)],
+                            format="JPEG",
+                            options={'quality': 50}
+                            )
     CATEGORY = (
         (11, '和食'),
         (12, '洋食'),
@@ -65,6 +88,10 @@ class Thread(models.Model):
     threadconnection_image = models.ForeignKey(Submission, on_delete=models.CASCADE, related_name='threadconnection_image', null=True)
     threadconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadconnection_user', null=True)
     thread = models.CharField(max_length=150, null=True)
+class Threadlist(models.Model):
+    threadlistconnection_thread = models.ForeignKey(Thread, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
+    threadlistconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
+    threadlist = models.CharField(max_length=150, null=True)
 
 class Friends(models.Model):
 
@@ -72,5 +99,7 @@ class Friends(models.Model):
     current_user = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE, null=True)#自分
 
 
-
+class Like(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user')
+    submission = models.ForeignKey(Submission,on_delete=models.CASCADE,related_name='submission')
 

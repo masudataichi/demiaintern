@@ -18,10 +18,10 @@
                     {% endif %}
                 </div>
                 <div class="user-name">{{user.username}}</div>
-            </div>
+        </div>
         <div class="options">
-            <p><a href="{% url 'my_content_update' %}"><img id="image-display_origin1" src="{% static 'media/グループ 325.svg' %}"/></a></p>
-            <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin2" src="{% static 'media/グループ 319.svg' %}"/></a></p>
+            <p><a href="{% url 'my_content_update' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
+            <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 319.svg' %}"/></a></p>
         </div>
     </header>
     <div class=image-image>
@@ -41,29 +41,56 @@
     </div>
     <div class="form-unclicked" id='form-unclicked'>
         <table class="form-unclicked_table">
-            <th>
-                <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'media/グループ 352.svg' %}" /></button>
-                <td><p class='form-document' id='form-document'>コメントを入力</p></td>
-            </th>
+              <th>
+                  <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'media/グループ 352.svg' %}" /></button>
+                  <td><p class='form-document' id='form-document'>コメントを入力</p></td>
+              </th>
         </table>
     </div>
+    {% for threadlist in threadlist %}
+    {{threadlist.threadconnection_user.username}}
+    {{threadlist.thread}}
+    {% endfor %}
     <form method="post" enctype="multipart/form-data" class="form" id='form'>
         {% csrf_token %}
         <div class="form-content">
-            <div class="form-table">{{ form.thread }}</div>  
-            <div class="form-button">
-                <button type="submit" class="button" name='thread1'><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button>
-            </div>
+            <div class="form-table">{{ form.thread }}</div>
+            <div class="form-button"><button type="submit" class="button" name="thread1"><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button></div>
         </div>
     </form>
-    <div class="thread" id='thread'>
+    <div>
         {{content.talk}}
-        {% for threadlist in threadlist %}
-        <div class="my-thread">
-            {{threadlist.threadconnection_user.username}}
-            {{threadlist.thread}}
+        {% for thread in thread %}
+        <div class="threadform">
+            <div class='thread1-display'>
+                <img src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
+                <p class='thread1-doc'>{{ thread.threadconnection_user.username }}:</p>
+                <p class='thread1-thread'>{{thread.thread}}</p>
+            </div>
+            <button class='reply-trigger' id='unclicked'>
+                <p id='doc' class='unclicked-doc'>返信する</p>
+                <img class='form-image3' id='img' src="{% static 'media/グループ 352.svg' %}" />
+            </button>
+            <form method="post" class="replyform" id='clicked'>
+                <div class='replyform-content'>
+                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button>
+                    <div class='replyform-thread'>{{form1.threadlist}}</div>
+                </div>
+                {% csrf_token %}
+            </form>
         </div>
-        {% endfor %}
+            <div class="thread2">
+                {% for threadlist in threadlist %}
+                {% if threadlist.threadlistconnection_thread == thread %}
+                <div class="thread2_content">
+                    <img src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='20px' width='20px'/>
+                    {{threadlist.threadlistconnection_user.username}}:
+                    {{threadlist.threadlist}}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+            </div>
     </div>
 </body>
     <footer>
