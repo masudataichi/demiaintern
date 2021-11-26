@@ -20,7 +20,9 @@
     {% csrf_token %}
     <div class='image-field'>
       <div class='image-field-content'> 
-          <div class='imageform'>{{form.icon}}</div>      
+          <div class='imageform'>
+              <input type="file" name="{{ form.icon.html_name }}" accept="image/*" id="{{ form.icon.id_for_label }}">
+            </div>      
           <img src={{user.icon.url}} alt="サンプル" style='border-radius:50px;' width="100" height="100">
       </div>
         <p class='image-doc'>写真を変更する</p>

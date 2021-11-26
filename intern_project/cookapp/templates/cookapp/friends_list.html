@@ -23,7 +23,7 @@
         </div>
           {% if f.users == user %}     
             {% if f.current_user.icon %}
-                <img src="{{f.current_user.icon.url}}" alt="サンプル" width="96" height="65">
+                <img src="{{f.current_user.icon.url}}" alt="サンプル" style='border-radius:50px;' width="50" height="50">
                 <a href="{% url 'friends_profile' f.current_user.id %}" class="">{{f.current_user.username}}</a>
             {% endif %}
           {% else %}  
@@ -35,10 +35,12 @@
         {% endfor %}
     {% endif %}
 </body>
-<footer>
-    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
-    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
-    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
-</footer>
+    <footer>
+        <div class="footer-container">
+                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+        </div>
+    </footer>
 </html>

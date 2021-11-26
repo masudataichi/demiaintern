@@ -150,6 +150,10 @@ header{
 .button{
     background-color:transparent;
     border:none;
+    color:transparent;
+}
+.form-image{
+    padding-bottom:20px;
 }
 #id_thread{
     margin-left:8px;
@@ -159,13 +163,85 @@ header{
     border-bottom:1px solid #e2e1e1;
 
 }
+.thread1-display{
+    display:flex;
+}
 .my-thread{
+    border-radius:20px;
+    width:350px;
+    /*box-shadow:0px 10px 6px #00000029;*/
+    border:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+}
+.threadform{
+    border-radius:20px;
+    width:350px;
+    border:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+}
+.replyform{
+    width:350px;
+    border-bottom:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+    display:none;
+    border-radius:0 0 20px 20px;
+}
+.replyform.active{
+    display:block;
+}
+.reply-trigger{
+    background-color:#ffffff;
+    border:none;
+    margin-left:280px;
+    margin-bottom:10px;
+}
+.unclicked-doc{
+    display:block;
+}
+.unclicked-doc.active{
+    display:none;
+}
+.form-image3{
+    display:none;
+}
+.form-image3.active{
+    display:block;
+}
+.reply-trigger p{
+    color:#929292;
+}
+.thread2{
     border-radius:20px;
     width:350px;
     box-shadow:0px 10px 6px #00000029;
     border:1px solid #00000029;
     margin:auto;
-    margin-top:20px;
+    margin-bottom:20px;
+}
+.replybutton{
+    margin-left:310px;
+    background:#ffffff;
+    border:none;
+}
+.replyform-thread{
+    width:90%;
+    margin:auto;
+    margin-bottom:10px;
+}
+#id_threadlist{
+    width:100%;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid #e2e1e1;
+}
+.thread2_content{
+    width:90%;
+    margin:auto;
+    border-bottom:1px solid #929292;
 }
 footer{
     width:350px;
