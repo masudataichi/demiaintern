@@ -1,15 +1,47 @@
+{% extends 'cookapp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 <!doctype html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    {% block extrastyle %}
+        <link rel="stylesheet" href="../static/css/user_update.css">
+        <link rel="stylesheet" href="../static/css/base.css">
+
+    {% endblock extrastyle %}
 </head>
 <body>
-    <form method = "post" enctype="multipart/form-data" >
-    {% csrf_token %}
-    {{form.icon}}
-    <p>{{form.username}}</p>
-    <p>{{form.email}}</p>
-    <button type = "submit">更新</button>
-    </form>
+    {% block header %}
+        
+        <div class="header-container">
+            <div class=""><a href="{% url 'setting' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
+            <div class="">設定</div>
+            <div class="update-button"><button type = "submit">更新</button></div>
+        </div>
+
+    {% endblock header %}
+
+    {% block main %}
+        
+        <div class="">アカウント情報の変更</div>
+        <form method = "post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <div class="">
+                <div class="icon"><img src="{{form.icon.value.url}}" ></div>
+                <div><label for="">{{ form.icon }}</label></div>
+                <div class="image-change">写真を変更する</div> <!-- ここがinputになる -->
+            </div>
+            <div class="fields-wrapper">
+                <div class="label">名前（20文字まで）</div>
+                <div class="field">{{form.username}}</div>
+            </div>
+            <div class="fields-wrapper">
+                <div class="label">メールアドレス</div>
+                <div class="field">{{form.email}}</div>
+            </div>
+        </form>
+        
+    {% endblock main %}
 </body>
 </html>

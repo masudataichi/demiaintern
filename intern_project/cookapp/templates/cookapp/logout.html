@@ -1,12 +1,28 @@
+{% extends 'cookapp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 <!doctype html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    {% block extrastyle %}
+    <!-- オーバーレイだけどこのページで見た目を完成させてからやる -->
+        <link rel="stylesheet" href="../static/css/setting.css">
+        <link rel="stylesheet" href="../static/css/base.css">
+
+    {% endblock extrastyle %}
 </head>
 <body>
-    <p>ログアウトしますか</p>
-    <a href ="{% url 'logout2' %}">ログアウト</a>
-    <input type="button" value="キャンセル" onClick="javascript:history.go(-1);">
-    </form>
+   {% block main %}
+   
+        <div class="buttons-wrapper">
+            <p class="message">ログアウトしますかあ？</p>
+            <div class="button-flex">
+                <div class="" id="">キャンセル</div>
+                <div class=""><a href ="{% url 'logout2' %}">ログアウト</a></div>
+            </div>
+        </div>
+   
+   {% endblock main %}
 </body>
 </html>

@@ -1,15 +1,19 @@
 
 from django.db import models
+
 from django.forms.utils import pretty_name
 from django.http import request
 from django.shortcuts import redirect, render
+
+from django.db.models.fields import EmailField
+
 from django.forms.utils import to_current_timezone
 from django.http import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from .models import Submission, User, Thread, Friends
 from .forms import PasswordForm, SubmissionForm, FriendsForm
-from django.views.generic import CreateView,UpdateView,FormView
+from django.views.generic import CreateView,UpdateView,DeleteView
 from django.contrib import messages
 from django.utils.crypto import get_random_string
 
@@ -18,7 +22,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView,PasswordChangeView,LogoutView
+from django.contrib.auth.views import LoginView,PasswordChangeView
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
 from .forms import SignupForm, ThreadForm
@@ -27,21 +31,17 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db.models import Q
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from .forms import EmailAuthenticationForm
 
 # Create your views here.
 def top(request):
     return render(request, 'cookapp/top.html')
 
 class login_view(LoginView):
-    authentication_form = AuthenticationForm
+    authentication_form = EmailAuthenticationForm
     template_name = "cookapp/login.html"
     success_url = reverse_lazy('home')
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = SignupForm
-        return context
 
 
 def logout(request):
@@ -71,6 +71,8 @@ class SignupView(CreateView):
         messages.error(self.request,"失敗")
         return super().form_invalid(form)
 
+def signup_complete(request):
+    return render(request,'cookapp/signup_complete.html')
 
 def signup_complete(request):
     return render(request, 'cookapp/signup_complete.html')
@@ -96,22 +98,13 @@ def home(request):
     return render(request, 'cookapp/home.html', params)
 
 def friends(request):
-    friendslist = Friends.objects.filter(current_user=request.user)
-    friend = friendslist.users.all()
-    content = Submission.objects.filter(submissionconnection=friend)
-    if content.exists():
-        randomcontent = content.order_by('?')
-        params = {
-            'user': user,
-            'randomcontent': randomcontent,
-            }
-    else:
-        params = {
-            'user': user,
-            }
-
-
-    return render(request, 'cookapp/friends.html')
+    user = request.user
+    friends_list = Friends.objects.filter(current_user = user)
+    for friends in friends_list:
+        print(friends.users)
+    params ={'list':friends_list
+    }
+    return render(request, 'cookapp/friends.html',params)
 
 def SubmissionView(request):
     params = {
@@ -265,9 +258,18 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
     fields = ['username','email','icon']
     success_url = reverse_lazy('setting')
 
-
 def user_delete(request):
     return render(request,'cookapp/user_delete.html')
+
+class UserDeleteView(LoginRequiredMixin,DeleteView):
+    template_name = 'cookapp/user_delete.html'
+    success_url = reverse_lazy('top')
+    model = User
+
+class MyContentDeleteView(LoginRequiredMixin,DeleteView):
+    template_name = 'cookapp/my_content_delete.html'
+    success_url = reverse_lazy('home')
+    model = Submission
 
 class PasswordView(LoginRequiredMixin,PasswordChangeView):
     success_url = 'setting'
@@ -276,11 +278,10 @@ class PasswordView(LoginRequiredMixin,PasswordChangeView):
 
 def friends_add_before(request):
     myuserID = request.user.userID
-    friends = User.objects.filter(current_user = request.user)
     params = {
         'myuserID': myuserID,
         'form': FriendsForm(),
-        'friends': friends
+
     }
     if request.method == 'POST':
         form = FriendsForm(request.POST)
@@ -299,16 +300,21 @@ def friends_add_before(request):
 
 class ContentUpdateView(LoginRequiredMixin,UpdateView):
     model = Submission
-    template_name = 'my_content_update.html'
+    template_name = 'cookapp/my_content_update.html'
     form_class = SubmissionForm
-    success_url = 'home'
-
-    def form_valid(self,form):
+    success_url = 'my_content'
+    def form_valid(self,form) :
         return super().form_valid(form)
 
     def form_invalid(self,form):
         messages.error(self.request,"投稿の更新に失敗しました。")
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context['content'] = Submission.objects.filter(submissionconnection=user)
+        return context
 
 
 def my_content_delete(request):
@@ -332,8 +338,17 @@ def friends_add_after(request, userID):
             current_user = from_user,
             users = to_user,
         )
+
+        friends2, created2 = Friends.objects.get_or_create(
+            current_user = to_user,
+            users = from_user
+
+        )
         return redirect('home')
 
     return render(request, 'cookapp/friends_add_after.html', params)
+
+def setting_complete(request):
+    return render(request, 'cookapp/setting_complete.html')
 
 

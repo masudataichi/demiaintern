@@ -1,0 +1,23 @@
+<svg id="home" xmlns="http://www.w3.org/2000/svg" width="88" height="58" viewBox="0 0 88 58">
+  <rect id="長方形_41" data-name="長方形 41" width="88" height="58" fill="none"/>
+  <g id="アートワーク_18" data-name="アートワーク 18" transform="translate(44.328 29)">
+    <g id="グループ_383" data-name="グループ 383" transform="translate(-11.328 -12.5)">
+      <g id="長方形_228" data-name="長方形 228" transform="translate(1.317)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.58">
+        <rect width="21.339" height="25" rx="3.902" stroke="none"/>
+        <rect x="0.79" y="0.79" width="19.759" height="23.42" rx="3.111" fill="none"/>
+      </g>
+      <g id="グループ_382" data-name="グループ 382" transform="translate(0 7.707)">
+        <line id="線_736" data-name="線 736" x2="4.15" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.713"/>
+        <line id="線_737" data-name="線 737" x2="4.15" transform="translate(0 4.809)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.713"/>
+        <line id="線_738" data-name="線 738" x2="4.15" transform="translate(0 9.618)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.713"/>
+      </g>
+      <line id="線_739" data-name="線 739" y2="8.564" transform="translate(9.354 11.562)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.58"/>
+      <line id="線_740" data-name="線 740" y2="8.564" transform="translate(14.953 11.562)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.58"/>
+      <ellipse id="楕円形_93" data-name="楕円形 93" cx="1.416" cy="2.437" rx="1.416" ry="2.437" transform="translate(13.57 6.226)" fill="#ea730c" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.58"/>
+      <path id="長方形_229" data-name="長方形 229" d="M0,0H2.9a0,0,0,0,1,0,0V.461A1.449,1.449,0,0,1,1.449,1.91h0A1.449,1.449,0,0,1,0,.461V0A0,0,0,0,1,0,0Z" transform="translate(7.938 9.618)" fill="#ea730c" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.957"/>
+      <line id="線_741" data-name="線 741" y2="3.821" transform="translate(9.321 6.193)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.988"/>
+      <line id="線_742" data-name="線 742" y2="3.821" transform="translate(10.836 6.193)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.988"/>
+      <line id="線_743" data-name="線 743" y2="3.821" transform="translate(7.938 6.193)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.988"/>
+    </g>
+  </g>
+</svg>

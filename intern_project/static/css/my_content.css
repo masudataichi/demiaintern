@@ -1,0 +1,129 @@
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+body{
+    font-family:'源泉丸ゴシック';
+    width:375px;
+    height:812px;
+}
+header{
+    width:100%;
+    background-color:#ea730c;
+    height:12%;
+    border-radius:0 0 30px 0;
+    display:flex;
+    justify-content:space-between;
+}
+.user{
+    display:flex;
+}
+.user-icon{
+    padding-top:5px;
+    padding-left:5px;
+}
+.user-name{
+    padding-top:16px;
+    padding-left:5px;
+    height:16px;
+    color:#ffffff;
+}
+.options{
+    display:flex;
+}
+.image{
+    border-radius:20px;
+    margin-bottom:20px;
+    margin-top:-40px;
+}
+.image-image{
+    width:350px;
+    margin:auto;
+}
+.form-unclicked{
+    border-radius:20px;
+    width:350px;
+    height:50px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    margin:auto;
+    z-index:1000;
+}
+.form-unclicked_table{
+    margin-top:17px;
+    margin-left:10px;
+}
+.form-document{
+    padding-left:10px;
+}
+.form{
+    border-radius:20px;
+    width:350px;
+    height:100px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    margin:auto;
+    margin-top:-52px;
+    opacity:0;
+}
+.image-details{
+    border-radius:20px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    width:350px;
+    height:200px;
+    margin:auto;
+    margin-bottom:20px;
+}
+.image-detail_1{
+    display:flex;
+    margin-top:10px;
+    justify-content:space-between;
+}
+.image-detail_2{
+    margin-top:40px;
+    margin-left:20px;
+}
+.image_category{
+    background-color:#ea730c;
+    color:#ffffff;
+    height:20px;
+    width:60px;
+    text-align:center;
+    border-radius:10px;
+}
+.form-content{
+    display:flex;
+}
+.form-image2{
+    margin-top:20px;
+    margin-left:10px;
+}
+.form-table{
+    width:90%;
+    margin:auto;
+    padding-top:30px;
+}
+.form-button{
+    margin-top:-15px;
+}
+.button{
+    background-color:transparent;
+    border:none;
+}
+.thread{
+    border-radius:20px;
+    width:350px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    margin:auto;
+    margin-top:20px;
+}
+#id_thread{
+    margin-left:8px;
+}
+footer{
+    width:300px;
+    margin:auto;
+    margin-top:20px;
+}

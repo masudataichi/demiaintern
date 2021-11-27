@@ -1,15 +1,41 @@
+{% extends 'cookapp/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 <!doctype html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    {% block extrastyle %}
+        <link rel="stylesheet" href="../static/css/my_content_update.css">
+        <link rel="stylesheet" href="../static/css/base.css">
+
+    {% endblock extrastyle %}
 </head>
 
 <body>
-    <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">更新</button>
-    <button type="button" onclick="history.back()">戻る</button>
-    </form>
+    {% block header %}
+
+         <div class="header-container">
+            <div class=""><a href="{% url 'setting' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
+            <div class="">編集</div>
+            <div class="update-button"><button type = "submit">更新</button></div>
+        </div>
+
+    {% endblock header %}
+
+    {% block main %}
+    
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="content-image"><img src="{{form.image.value.url}}"><input type="file" name="image" accept="image/*" required="" id="id_image" style="display: none;"></div>
+            
+            <div class="public-private">{{ form.public_private }}</div>
+            <div class="category fields">{{ form.category|add_class:'form-width' }}</div>
+            <div class="date fields">{{ form.date }}</div>
+            <div class="place fields">{{ form.place }}</div>
+            <div class="comment fields">{{ form.comment|add_class:'form-width' }}</div>
+        </form>
+
+    {% endblock main %}
 </body>
 </html>

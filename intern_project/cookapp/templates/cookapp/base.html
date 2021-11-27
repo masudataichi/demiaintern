@@ -9,6 +9,7 @@
     <meta charset="utf-8" name="viewport" content="width=device-width">
 </head>
 <body>
+
     <header>
         {% block header %}
         {% endblock header %}
@@ -19,14 +20,17 @@
             {% endblock  %}
         </div>
     </main>
+
+    <!------------- ここが引き継がれる -------------------------------->
     <footer>
         <div class="footer-container">
-                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+                <div class="footer-button" ><a href="{% url 'home' %}"><img src="{% static '../static/svg/home_orange.svg' %}" alt="" id="button1"></a></div>
+                <div class="footer-button" ><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt="" id="button2"></a></div>
+                <div class="footer-button" ><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt="" id="button3"></a></div>
+                <div class="footer-button" ><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt="" id="button4"></a></div>
         </div>
     </footer>
+    <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+<script src="../static/javascript/base.js"></script>
 </body>
-
 </html>
