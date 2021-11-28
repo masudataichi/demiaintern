@@ -20,7 +20,12 @@
                 <div class="user-name">{{user.username}}</div>
         </div>
         <div class="options">
+
+
+
             <p><a href="{% url 'my_content_update' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
+
+
             <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 319.svg' %}"/></a></p>
         </div>
     </header>
@@ -41,16 +46,35 @@
     </div>
     <div class="form-unclicked" id='form-unclicked'>
         <table class="form-unclicked_table">
+<<<<<<< HEAD
+            <th>
+                <td id='addIcon'><img class='form-image1' src="{% static 'media/グループ 352.svg' %}" /></td>
+                <td><p class='form-document'>コメントを入力</p></td>
+            </th>
+    </table>
+    </div>
+
+    
+=======
               <th>
                   <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'media/グループ 352.svg' %}" /></button>
                   <td><p class='form-document' id='form-document'>コメントを入力</p></td>
               </th>
         </table>
     </div>
+>>>>>>> 6f2ba179cba5134a9681f9836e974ba52593ad04
     {% for threadlist in threadlist %}
     {{threadlist.threadconnection_user.username}}
     {{threadlist.thread}}
     {% endfor %}
+<<<<<<< HEAD
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+    </div>
+=======
+>>>>>>> 6f2ba179cba5134a9681f9836e974ba52593ad04
     <form method="post" enctype="multipart/form-data" class="form" id='form'>
         {% csrf_token %}
         <div class="form-content">

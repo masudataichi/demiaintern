@@ -19,7 +19,7 @@
     {% endblock header %}
 </header>
 <body>
-<<<<<<< HEAD
+
     <div class="content-image">
         <img src={{content.image.url}} alt="サンプル" style='border-radius:30px;' width="350" height="350"/>
     </div>
@@ -50,6 +50,7 @@
             </div>
         </div>
     <img src={{content.image.url}} alt="サンプル" width="96" height="65">
+    {{time}}
     {{content.category}}
     {{content.date}}
     {{content.place}}
@@ -64,6 +65,10 @@
     {{threadlist.threadconnection_user.username}}
     {{threadlist.thread}}
     {% endfor %}
+    <p><form method="post">
+        {% csrf_token %}
+        <button type="submit" name='like'>お気に入り</button>
+    </form></p>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
