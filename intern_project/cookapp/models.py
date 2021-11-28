@@ -83,6 +83,7 @@ class Submission(models.Model):
     place = models.CharField(max_length=50, null=True)
     #コメント
     comment = models.CharField(max_length=2000, null=True)
+    time = models.IntegerField(default=0)
 
 class Thread(models.Model):
     threadconnection_image = models.ForeignKey(Submission, on_delete=models.CASCADE, related_name='threadconnection_image', null=True)
@@ -100,6 +101,6 @@ class Friends(models.Model):
 
 
 class Like(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user')
-    submission = models.ForeignKey(Submission,on_delete=models.CASCADE,related_name='submission')
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user', null=True)
+    submission = models.ForeignKey(Submission,on_delete=models.CASCADE,related_name='submission', null=True)
 

@@ -21,6 +21,9 @@ class SubmissionForm(forms.ModelForm):
             'comment': forms.Textarea(attrs={'rows':16, 'cols':15}),
         }
 
+class SearchForm(forms.Form):
+    word = forms.CharField(max_length=100)
+    
 
 
 class SignupForm(UserCreationForm):
