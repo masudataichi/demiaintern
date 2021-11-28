@@ -190,7 +190,7 @@ def my_content(request, id):
             if form.is_valid():
                 form = form.save(commit=False)
                 form.threadconnection_image = content
-                form.threadconection_user = request.user
+                form.threadconnection_user = request.user
                 form.save()
         elif 'th' in request.POST:
                 print(type(request.POST['th']))
