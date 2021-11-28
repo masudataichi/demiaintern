@@ -243,10 +243,12 @@ def friends_list(request):
     if Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user)).exists():
         friendslist = Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user))
         user = request.user
+        number = len(friendslist)
     # friendslist = request.user.friends
         params = {
             'friendslist': friendslist,
-            'user': user,            
+            'user': user,         
+            'number': number   
         }
         return render(request, 'cookapp/friends_list.html', params)
 
