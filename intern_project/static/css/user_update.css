@@ -1,0 +1,128 @@
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+body{
+    font-family:'源泉丸ゴシック';
+    width:375px;
+    height:812px;
+}
+.setting-reverse{
+    display:flex;
+}
+.setting-title{
+    font-size:25px;
+    margin-top:10px;
+}
+
+.button-content{
+    border-radius:20px;
+    background-color:#ea730c;
+    width:50px;
+    height:25px;
+    margin-top:10px;
+    text-align:center;
+    padding-top:2px;
+    color:#ffffff;
+    border:none;
+}
+.head{
+    display:flex;
+    justify-content:space-between;
+}
+.form-title{
+    margin-top:50px;
+    margin-left:10px;
+}
+#id_icon{
+    color:transparent;
+}
+#file-upload-button{
+    background-color:transparent;
+    height:20px;
+}
+.image-field{
+    width:200px;
+    height:200px;
+    margin:auto;
+    text-align:center;
+    margin-top:40px;
+}
+.iamge-field-content{
+    width:120px;
+    position:relative;
+    display:table;
+}
+.image-doc{
+    color:#ea730c;
+    margin-top:16px;
+}
+.username{
+    width:90%;
+    margin:auto;
+    margin-top:30px;
+}
+.email{
+    width:90%;
+    margin:auto;
+    margin-top:16px;
+}
+#id_icon{
+    position:absolute;
+    display:block;
+    opacity:0;
+    width: 150px;
+    height:20px;
+    margin-top:115px;
+    margin-left:25px;
+}
+.image-field-content a{
+    display:none;
+}
+.image-field-content label{
+    display:none;
+}
+.imageform text{
+    color:transparent;
+}
+#icon-clear_id{
+    display:none;
+}
+#file-upload-button{
+    display:none;
+}
+#id_username{
+    width:100%;
+    border-bottom:1px solid #9e9e9e;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+}
+#id_email{
+    width:100%;
+    border-bottom:1px solid #9e9e9e;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+}
+.username-doc{
+    font-size:10px;
+    color:#757575;
+}
+.email-doc{
+    font-size:10px;
+    color:#757575;
+}
+footer{
+    width:90%;
+    margin:auto;
+    margin-top:40px;
+}
+.footer-container{
+    display:flex;
+    border-radius:50px;
+    border-radius:20px;
+    background-color:#ffffff;
+    box-shadow: 0px 10px 6px #00000029;
+    border:1px groove #00000029;
+}

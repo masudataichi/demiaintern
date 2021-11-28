@@ -196,12 +196,11 @@ def my_content(request, id):
                 print(type(request.POST['th']))
                 number = int(request.POST['th'])
                 print(type(number))
-                print(number)
-                print(thread[number])
                 form2 = ThreadlistForm(request.POST)
                 if form2.is_valid():
                     form2 = form2.save(commit=False)
-                    form2.threadlistconnection = thread[number]
+                    form2.threadlistconnection_thread = thread[number]
+                    form2.threadlistconnection_user = request.user
                     form2.save()
     if content.category == 11:
         content.category = '和食'
@@ -283,7 +282,7 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = User
     template_name = 'cookapp/user_update.html'
     fields = ['username','email','icon']
-    success_url = reverse_lazy('setting')
+    success_url = reverse_lazy('setting_complete')
 
 
 def user_delete(request):
@@ -362,11 +361,7 @@ def friends_add_after(request, userID):
             users = to_user,
         )
 
-        friends2, created2 = Friends.objects.get_or_create(
-            current_user = to_user,
-            users = from_user
 
-        )
         return redirect('home')
 
     return render(request, 'cookapp/friends_add_after.html', params)

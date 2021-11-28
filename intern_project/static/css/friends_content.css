@@ -1,0 +1,167 @@
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+body{
+    font-family:'源泉丸ゴシック';
+    width:375px;
+    height:812px;
+}
+.header-container{
+    display:flex;
+    background-color: #ea730c;
+    height:80px;
+    border-radius:0 0 40px 0;
+}
+.header-image{
+    height:40px;
+    width:40px;
+    margin-top:5px;
+}
+.header-icon{
+    margin-top:10px;
+}
+.header-name{
+    margin-top:19px;
+    margin-left:5px;
+    color:#ffffff;
+}
+.content-image{
+    margin:auto;
+    margin-top:-30px;
+    width:350px;
+    height:350px;
+}
+.content-content{
+    border-radius:20px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    width:350px;
+    height:200px;
+    margin:auto;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+.content-detail1{
+    display:flex;
+    margin-top:10px;
+    justify-content:space-around;
+}
+.content-detail2{
+    margin-top:40px;
+    margin-left:23px;
+}
+.content-category{
+    background-color:#ea730c;
+    color:#ffffff;
+    height:12px;
+    width:40px;
+    text-align:center;
+    border-radius:10px;
+}
+.content-date{
+    font-size:12px;
+}
+.content-place{
+    font-size:12px;
+}
+.content-category p{
+    padding-top:2px;
+    font-size:10px;
+}
+.form-unclicked{
+    border-radius:20px;
+    width:350px;
+    height:50px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    margin:auto;
+    z-index:1000;
+}
+.form-unclicked_table{
+    margin-top:17px;
+    margin-left:10px;
+}
+.form-document{
+    padding-left:10px;
+}
+#action{
+    background:#ffffff;
+    border:none;
+}
+.action.active{
+    margin-top:10px;
+}
+.form{
+    border-radius:20px;
+    width:350px;
+    height:100px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    margin:auto;
+    margin-top:-52px;
+    display:none;
+}
+.form.active{
+    display:block;
+}
+.form-unclicked.active{
+    border:none;
+    box-shadow:none;
+}
+.form-document.active{
+    display:none;
+}
+.form-image1{
+    transform:rotate(45deg);
+}
+.form-image1.active{
+    transform:rotate(90deg);
+}
+.form-content{
+    display:flex;
+}
+.form-table{
+    width:90%;
+    margin:auto;
+    padding-top:50px;
+
+}
+.form-button{
+    width:30px;
+    height:30px;
+    margin-top:10px;
+}
+.button{
+    background-color:transparent;
+    border:none;
+}
+#id_thread{
+    margin-left:8px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid #e2e1e1;
+
+}
+.my-thread{
+    border-radius:20px;
+    width:350px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+}
+footer{
+    width:350px;
+    margin:auto;
+    margin-top:40px;
+}
+.footer-container{
+    display:flex;
+    border-radius:50px;
+    border-radius:20px;
+    background-color:#ffffff;
+    box-shadow: 0px 10px 6px #00000029;
+    border:1px groove #00000029;
+}
