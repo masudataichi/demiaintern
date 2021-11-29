@@ -135,8 +135,8 @@ def friends(request):
             'category':category,
             'place':place,
         }
-    if Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user)).exists():
-        friendslist = Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user))
+    if Friends.objects.filter(current_user = request.user).exists():
+        friendslist = Friends.objects.filter(current_user = request.user)
         if Submission.objects.exclude(submissionconnection = user).exists():
             submission_exclude = Submission.objects.exclude(submissionconnection = user)
             params ={
