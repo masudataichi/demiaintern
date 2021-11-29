@@ -1,13 +1,30 @@
+{% extends 'cookapp/base.html' %}
+{% load static %}
+
 <!doctype html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-</head>
+
+    {% block extrastyle %}
+    <!-- オーバーレイだけどこのページで見た目整えてからやる -->
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/setting.css">
+    {% endblock extrastyle %}
+    
+</head>   
 <body>
-    <p>アカウントを削除しますか？</p>
-    <form method ="post">
-        {% csrf_token %}
-        <input type = "submit" value = "削除">
-    </form>
+   {% block main %}
+   
+        <div class="buttons-wrapper">
+            <p class="message">削除しますか？</p>
+            <div class="button-flex">
+                <div class="" id="">キャンセル</div>
+                <div class=""><a href ="">削除</a></div>
+            </div>
+        </div>
+   
+   {% endblock main %}
 </body>
+
 </html>

@@ -26,7 +26,10 @@ class User(AbstractUser):
         },
         
     )
-    email = models.EmailField(max_length=254, unique=True)  
+
+    email = models.EmailField(max_length=254, unique=True, verbose_name='メールアドレス') #追記　エガワ　verbose_name
+  
+
 
 
 class Submission(models.Model):

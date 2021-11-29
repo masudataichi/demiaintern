@@ -1,41 +1,52 @@
+
+{% extends 'cookapp/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
+
 <!doctype html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/user_update.css' %}" />
-    <title>更新ページ</title>
+
+    {% block extrastyle %}
+        <link rel="stylesheet" href="../static/css/user_update.css">
+        <link rel="stylesheet" href="../static/css/base.css">
+
+    {% endblock extrastyle %}
 </head>
 <body>
-    <div class="head">
-        <div class="setting-reverse">
-            <div><img src="{% static 'media/←.svg' %}" /></div>
-            <div><p class="setting-title" >設定</p></div>
+    {% block header %}
+        
+        <div class="header-container">
+            <div class=""><a href="{% url 'setting' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
+            <div class="">設定</div>
+            <div class="update-button"><button type = "submit">更新</button></div>
         </div>
-        <button type = "submit" class="button-content">更新</button>
-    </div>
-    <div class="form-title">アカウント情報の変更</div>
-    <form method = "post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class='image-field'>
-      <div class='image-field-content'> 
-          <div class='imageform'>
-              <input type="file" name="{{ form.icon.html_name }}" accept="image/*" id="{{ form.icon.id_for_label }}">
-            </div>      
-          <img src={{user.icon.url}} alt="サンプル" style='border-radius:50px;' width="100" height="100">
-      </div>
-        <p class='image-doc'>写真を変更する</p>
-    </div>
-    <div class="username">
-        <p class="username-doc">名前（20文字まで）</p>
-        {{form.username}}
-    </div>
-    <div class="email">
-        <p class="email-doc">メールアドレス</p>
-        {{form.email}}
-    </div>
-    </form>
+
+    {% endblock header %}
+
+    {% block main %}
+        
+        <div class="">アカウント情報の変更</div>
+        <form method = "post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <div class="">
+                <div class="icon"><img src="{{form.icon.value.url}}" ></div>
+                <div><label for="">{{ form.icon }}</label></div>
+                <div class="image-change">写真を変更する</div> <!-- ここがinputになる -->
+            </div>
+            <div class="fields-wrapper">
+                <div class="label">名前（20文字まで）</div>
+                <div class="field">{{form.username}}</div>
+            </div>
+            <div class="fields-wrapper">
+                <div class="label">メールアドレス</div>
+                <div class="field">{{form.email}}</div>
+            </div>
+        </form>
+        
+    {% endblock main %}
+
 </body>
     <footer>
         <div class="footer-container">

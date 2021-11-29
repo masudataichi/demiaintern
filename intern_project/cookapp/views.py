@@ -338,7 +338,6 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
     fields = ['username','email','icon']
     success_url = reverse_lazy('setting_complete')
 
-
 def user_delete(request):
     return render(request,'cookapp/user_delete.html')
 
@@ -383,14 +382,22 @@ class ContentUpdateView(LoginRequiredMixin,UpdateView):
     model = Submission
     template_name = 'cookapp/my_content_update.html'
     form_class = SubmissionForm
+
     success_url = reverse_lazy('home')
 
     def form_valid(self,form):
+
         return super().form_valid(form)
 
     def form_invalid(self,form):
         messages.error(self.request,"投稿の更新に失敗しました。")
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context['content'] = Submission.objects.filter(submissionconnection=user)
+        return context
 
 
 def my_content_delete(request):
