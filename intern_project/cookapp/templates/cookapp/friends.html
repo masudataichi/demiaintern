@@ -25,16 +25,9 @@
                 {% if submission_exclude %}
                     {% for s in submission_exclude %}   
                         {% if f.current_user == s.submissionconnection %} 
-                            <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" width="40" height="40"></a>          
-                        {% endif %} 
-                    {% endfor %}
-                {% endif %}
-            {% endif %}
-            {% if f.current_user == user %} 
-                {% if submission_exclude %}
-                    {% for s in submission_exclude %}   
-                        {% if f.users == s.submissionconnection %} 
-                            <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" width="40" height="40"></a>          
+                            {% if 11 == s.public_private %}
+                                <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" width="40" height="40"></a>          
+                            {% endif %} 
                         {% endif %} 
                     {% endfor %}
                 {% endif %}
@@ -44,7 +37,9 @@
     {% if like %}
         {% for l in like %}    
             {% if l.submission.image %}
-                <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="40" height="40"></a>
+                {% if l.submission.public_private == 11 %}
+                    <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="40" height="40"></a>
+                {% endif %}
             {% endif %} 
         {% endfor %}
     {% endif %}
