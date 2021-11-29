@@ -21,16 +21,12 @@
     {% endif %}
     {% if friendslist %}
         {% for f in friendslist %}
-            {% if f.users == user %} 
-                {% if submission_exclude %}
-                    {% for s in submission_exclude %}   
-                        {% if f.current_user == s.submissionconnection %} 
-                            {% if 11 == s.public_private %}
-                                <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" width="40" height="40"></a>          
-                            {% endif %} 
-                        {% endif %} 
-                    {% endfor %}
-                {% endif %}
+            {% if submission_exclude %}
+                {% for s in submission_exclude %}   
+                    {% if f.users == s.submissionconnection %} 
+                        <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" width="40" height="40"></a>          
+                    {% endif %} 
+                {% endfor %}
             {% endif %}
         {% endfor %}
     {% endif %}
