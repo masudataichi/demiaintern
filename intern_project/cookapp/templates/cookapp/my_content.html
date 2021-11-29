@@ -20,7 +20,16 @@
                 <div class="user-name">{{user.username}}</div>
         </div>
         <div class="options">
+<<<<<<< HEAD
             <p><a href="{% url 'my_content_update' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
+=======
+
+
+
+            <p><a href="{% url 'my_content_update' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
+
+
+>>>>>>> main
             <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 319.svg' %}"/></a></p>
         </div>
     </header>
@@ -41,16 +50,40 @@
     </div>
     <div class="form-unclicked" id='form-unclicked'>
         <table class="form-unclicked_table">
+
+            <th>
+                <td id='addIcon'><img class='form-image1' src="{% static 'media/グループ 352.svg' %}" /></td>
+                <td><p class='form-document'>コメントを入力</p></td>
+            </th>
+
+    <img src={{content.image.url}} alt="サンプル" width="96" height="65">
+    {{content.category}}
+    {{content.public_private}}
+    {{content.date}}
+    {{content.place}}
+    {{content.comment}}
+    <p><a href="{% url 'my_content_update' content.pk %}">{{'編集'}}</a></p>
+    <p><a href="{% url 'my_content_delete' content.pk %}">{{'削除'}}</a></p>
+    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+
+    </table>
+    </div>
+
+    
+
               <th>
                   <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'media/グループ 352.svg' %}" /></button>
                   <td><p class='form-document' id='form-document'>コメントを入力</p></td>
               </th>
         </table>
     </div>
+
     {% for threadlist in threadlist %}
     {{threadlist.threadconnection_user.username}}
     {{threadlist.thread}}
     {% endfor %}
+
+
     <form method="post" enctype="multipart/form-data" class="form" id='form'>
         {% csrf_token %}
         <div class="form-content">
@@ -93,6 +126,7 @@
             </div>
     </div>
 </body>
+
     <footer>
         <div class="footer-container">
                 <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
@@ -101,4 +135,5 @@
                 <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
         </div>
     </footer>
+
 </html>

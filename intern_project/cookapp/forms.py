@@ -12,18 +12,34 @@ from django.utils.translation import gettext_lazy as _
 
 
 class SubmissionForm(forms.ModelForm):
+
+    image = forms.ImageField(widget=forms.FileInput) # ★追加　エガワ
+
     class Meta:
         model = Submission
         fields = ['image','category','public_private','date','place','comment']
         
+        MONTHS = { 
+            1: '/ 1 /', 2: '/ 2 /', 3: '/ 3 /', 4: '/ 4 /',
+            5: '/ 5 /', 6: '/ 6 /', 7: '/ 7 /', 8: '/ 8 /',
+            9: '/ 9 /', 10: '/ 10 /', 11: '/ 11 /', 1/2: '/ 12 /'
+        }
+
         #追記（臼杵）
         widgets = {
             'comment': forms.Textarea(attrs={'rows':16, 'cols':15}),
+            'date': forms.SelectDateWidget(years=[x for x in range(1990, 2030)], months=MONTHS) #追記　エガワ
         }
+
+
+class SearchForm(forms.Form):
+    word = forms.CharField(max_length=100)
+    
 
 
 
 class SignupForm(UserCreationForm):
+
     class Meta:
         model = User
         fields = ['username','email','password1','password2','icon']
