@@ -1,10 +1,13 @@
+
 {% extends 'cookapp/base.html' %}
 {% load static %}
 {% load widget_tweaks %}
+
 <!doctype html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+
     {% block extrastyle %}
         <link rel="stylesheet" href="../static/css/user_update.css">
         <link rel="stylesheet" href="../static/css/base.css">
@@ -43,5 +46,14 @@
         </form>
         
     {% endblock main %}
+
 </body>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
+            <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
+            <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
+            <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+        </div>
+    </footer>
 </html>
