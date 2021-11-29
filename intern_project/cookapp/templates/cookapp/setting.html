@@ -9,11 +9,11 @@
     {% endblock extrastyle %}
 <body>
     {% block header %}
-    <div class="header-container">
-        <div class=""><a href="{% url 'home' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
-        <div class="">設定</div>
-    </div>
-        {% endblock header %}
+        <div class="header-container">
+            <div class=""><a href="{% url 'home' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
+            <div class="">設定</div>
+        </div>
+    {% endblock header %}
 
     {% block main %}
     <div class = "account-container">
@@ -21,7 +21,7 @@
             <div class="">アカウント情報</div>    
             <div class=""><a href="{% url 'user_update' user.id %}"><img src="{% static 'svg/グループ 325.svg' %}" alt="" ></a></div>
         </div>
-        <div class="icon"><img src="/media/{{user.icon}}" alt="" width="101px" height="101px"></div>
+        <div class="icon"><img src="/media/{{user.icon}}" alt="" ></div>
         <div class="name-container">
             <div class="font-small">名前</div>
             <div class="font-big">{{user.username}}</div>

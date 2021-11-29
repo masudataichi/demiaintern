@@ -440,6 +440,7 @@ body {
     margin: 0;
     font-family: 源泉丸ゴシック;
 }
+
 header {
   top: 0;
   width: 100%;
@@ -495,8 +496,6 @@ header {
     top: -30px;
     object-fit: cover;
 }
-
-
 
 .images-container {
     display: flex;
