@@ -414,7 +414,10 @@ def friends_add_after(request, userID):
             current_user = from_user,
             users = to_user,
         )
-
+        friends, created = Friends.objects.get_or_create(
+            current_user = to_user,
+            users = from_user,
+        )
 
         return redirect('home')
 
