@@ -36,8 +36,8 @@
     {% endif %}
     {% if like %}
         {% for l in like %}    
-            {% if l.submission.public_private == 11 %}
-                {% if l.submission. %}
+            {% if l.submission.image %}
+                {% if l.submission.public_private == 11 %}
                     <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="40" height="40"></a>
                 {% endif %}
             {% endif %} 
