@@ -135,24 +135,28 @@ def friends(request):
             'category':category,
             'place':place,
         }
-    if Submission.objects.exclude(submissionconnection = user).exists():
-        submission_exclude = Submission.objects.exclude(submissionconnection = user)
-        params ={
-            'submission_exclude':submission_exclude,
-            'user':user,
-            'form':SearchForm,
-        }
-        return render(request, 'cookapp/friends.html',params)       
-    if Like.objects.filter(user = user).exists():
-        like = Like.objects.filter(user = user)
-        submission_exclude = Submission.objects.exclude(submissionconnection = user)
-        params ={
-            'submission_exclude':submission_exclude,
-            'user':user,
-            'like':like,
-            'form':SearchForm,
-        }
-        return render(request, 'cookapp/friends.html',params)
+    if Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user)).exists():
+        friendslist = Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user))
+        if Submission.objects.exclude(submissionconnection = user).exists():
+            submission_exclude = Submission.objects.exclude(submissionconnection = user)
+            params ={
+                'submission_exclude':submission_exclude,
+                'user':user,
+                'form':SearchForm,
+                'friendslist': friendslist,
+            }
+            return render(request, 'cookapp/friends.html',params)       
+        if Like.objects.filter(user = user).exists():
+            like = Like.objects.filter(user = user)
+            submission_exclude = Submission.objects.exclude(submissionconnection = user)
+            params ={
+                'submission_exclude':submission_exclude,
+                'user':user,
+                'like':like,
+                'form':SearchForm,
+            }
+            return render(request, 'cookapp/friends.html',params)
+    return render(request, 'cookapp/friends.html')
 
 def SubmissionView(request):
     params = {
