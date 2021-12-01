@@ -12,7 +12,7 @@ from django.http import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
-from .models import Submission, Threadlist, User, Thread, Friends, Threadlist, Like
+from .models import Submission, User, Thread, Friends, Threadlist, Like
 from .forms import PasswordForm, SubmissionForm, FriendsForm, ThreadlistForm, SearchForm
 
 from django.views.generic import CreateView,UpdateView,DeleteView

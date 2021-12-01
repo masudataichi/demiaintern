@@ -22,7 +22,13 @@ class User(AbstractUser):
         
     )
 
-    email = models.EmailField(max_length=254, unique=True, verbose_name='メールアドレス') #追記　エガワ　verbose_name
+    email = models.EmailField(
+        max_length=254, 
+        unique=True, 
+        null=True, 
+        verbose_name='メールアドレス'  #追記　エガワ　verbose_name
+        )
+        
   
 
 
@@ -32,7 +38,7 @@ class Submission(models.Model):
     submissionconnection = models.ForeignKey(User, on_delete=models.CASCADE, related_name='submissionconnection')
     #画像
     image = models.ImageField(upload_to='media', blank=True, null=True)
-   
+    
     CATEGORY = (
         (11, '和食'),
         (12, '洋食'),
@@ -61,12 +67,13 @@ class Submission(models.Model):
     place = models.CharField(max_length=50, null=True)
     #コメント
     comment = models.CharField(max_length=2000, null=True)
-    time = models.IntegerField(default=0)
+    time = models.IntegerField(default=0, null=True)
 
 class Thread(models.Model):
     threadconnection_image = models.ForeignKey(Submission, on_delete=models.CASCADE, related_name='threadconnection_image', null=True)
     threadconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadconnection_user', null=True)
     thread = models.CharField(max_length=150, null=True)
+
 class Threadlist(models.Model):
     threadlistconnection_thread = models.ForeignKey(Thread, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
     threadlistconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)

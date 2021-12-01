@@ -17,7 +17,7 @@ class SubmissionForm(forms.ModelForm):
 
     class Meta:
         model = Submission
-        fields = ['image','category','public_private','date','place','comment']
+        fields = ['image','category','public_private','date','place','comment', 'time']
         
         MONTHS = { 
             1: '/ 1 /', 2: '/ 2 /', 3: '/ 3 /', 4: '/ 4 /',
@@ -52,6 +52,7 @@ class ThreadForm(forms.ModelForm):
         widgets = {
             'thread':forms.Textarea(attrs={'rows':2, 'cols':45 }),
         }
+        
 class ThreadlistForm(forms.ModelForm):
     class Meta:
         model = Threadlist
