@@ -2,12 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.fields import related
 from django.contrib.auth.validators import UnicodeUsernameValidator
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
 
-
-from imagekit.models import ImageSpecField, ProcessedImageField
-from imagekit.processors import ResizeToFill
 
 
 class User(AbstractUser):
@@ -37,27 +32,7 @@ class Submission(models.Model):
     submissionconnection = models.ForeignKey(User, on_delete=models.CASCADE, related_name='submissionconnection')
     #画像
     image = models.ImageField(upload_to='media', blank=True, null=True)
-    big = ImageSpecField(source="image",
-                         processors=[ResizeToFill(1280, 1024)],
-                         format='JPEG'
-                         )
-    thumbnail = ImageSpecField(source='image',
-                            processors=[ResizeToFill(250,250)],
-                            format="JPEG",
-                            options={'quality': 60}
-                            )
-
-    middle = ImageSpecField(source='image',
-                        processors=[ResizeToFill(600, 400)],
-                        format="JPEG",
-                        options={'quality': 75}
-                        )
-
-    small = ImageSpecField(source='image',
-                            processors=[ResizeToFill(75,75)],
-                            format="JPEG",
-                            options={'quality': 50}
-                            )
+   
     CATEGORY = (
         (11, '和食'),
         (12, '洋食'),
