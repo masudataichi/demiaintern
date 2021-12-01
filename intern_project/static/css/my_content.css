@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face{
     font-family:'源泉丸ゴシック';
     src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
@@ -256,4 +257,263 @@ footer{
     background-color:#ffffff;
     box-shadow: 0px 10px 6px #00000029;
     border:1px groove #00000029;
+=======
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+body{
+    font-family:'源泉丸ゴシック';
+    width:375px;
+    height:812px;
+}
+header{
+    width:100%;
+    background-color:#ea730c;
+    height:12%;
+    border-radius:0 0 30px 0;
+    display:flex;
+    justify-content:space-between;
+}
+.user{
+    display:flex;
+}
+.user-icon{
+    padding-top:5px;
+    padding-left:5px;
+}
+.user-name{
+    padding-top:16px;
+    padding-left:5px;
+    height:16px;
+    color:#ffffff;
+}
+.options{
+    display:flex;
+}
+.image{
+    border-radius:20px;
+    margin-bottom:20px;
+    margin-top:-40px;
+}
+.image-image{
+    width:350px;
+    margin:auto;
+}
+.form-unclicked{
+    border-radius:20px;
+    width:350px;
+    height:50px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    margin:auto;
+    z-index:1000;
+}
+.form-unclicked_table{
+    margin-top:17px;
+    margin-left:10px;
+}
+.form-document{
+    padding-left:10px;
+}
+.form{
+    border-radius:20px;
+    width:350px;
+    height:100px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    margin:auto;
+    margin-top:-52px;
+    display:none;
+}
+.form.active{
+    display:block;
+}
+.form-unclicked.active{
+    border:none;
+    box-shadow:none;
+}
+.form-document.active{
+    display:none;
+}
+#action{
+    background:#ffffff;
+    border:none;
+}
+.action.active{
+    margin-top:10px;
+}
+.form-image1{
+    transform:rotate(45deg);
+}
+.form-image1.active{
+    transform:rotate(90deg);
+}
+.image-details{
+    border-radius:20px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px groove #00000029;
+    width:350px;
+    height:200px;
+    margin:auto;
+    margin-bottom:20px;
+}
+.image-detail_1{
+    display:flex;
+    margin-top:10px;
+    justify-content:space-around;
+}
+.image_date{
+    font-size:12px;
+}
+.image_place{
+    font-size:12px;
+}
+#image-display_origin3{
+    height:10px;
+}
+.image-detail_2{
+    margin-top:40px;
+    margin-left:23px;
+}
+.image_category{
+    background-color:#ea730c;
+    color:#ffffff;
+    height:12px;
+    width:40px;
+    text-align:center;
+    border-radius:10px;
+
+}
+.image_category p{
+    padding-top:2px;
+    font-size:10px;
+}
+.form-content{
+    display:flex;
+}
+.form-image2{
+    margin-top:20px;
+    margin-left:10px;
+}
+.form-table{
+    width:90%;
+    margin:auto;
+    padding-top:50px;
+
+}
+.form-button{
+    width:30px;
+    height:30px;
+    margin-top:10px;
+}
+.button{
+    background-color:transparent;
+    border:none;
+    color:transparent;
+}
+.form-image{
+    padding-bottom:20px;
+}
+#id_thread{
+    margin-left:8px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid #e2e1e1;
+
+}
+.thread1-display{
+    display:flex;
+}
+.my-thread{
+    border-radius:20px;
+    width:350px;
+    /*box-shadow:0px 10px 6px #00000029;*/
+    border:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+}
+.threadform{
+    border-radius:20px;
+    width:350px;
+    border:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+}
+.replyform{
+    width:350px;
+    border-bottom:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+    display:none;
+    border-radius:0 0 20px 20px;
+}
+.replyform.active{
+    display:block;
+}
+.reply-trigger{
+    background-color:#ffffff;
+    border:none;
+    margin-left:280px;
+    margin-bottom:10px;
+}
+.unclicked-doc{
+    display:block;
+}
+.unclicked-doc.active{
+    display:none;
+}
+.form-image3{
+    display:none;
+}
+.form-image3.active{
+    display:block;
+}
+.reply-trigger p{
+    color:#929292;
+}
+.thread2{
+    border-radius:20px;
+    width:350px;
+    box-shadow:0px 10px 6px #00000029;
+    border:1px solid #00000029;
+    margin:auto;
+    margin-bottom:20px;
+}
+.replybutton{
+    margin-left:310px;
+    background:#ffffff;
+    border:none;
+}
+.replyform-thread{
+    width:90%;
+    margin:auto;
+    margin-bottom:10px;
+}
+#id_threadlist{
+    width:100%;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid #e2e1e1;
+}
+.thread2_content{
+    width:90%;
+    margin:auto;
+    border-bottom:1px solid #929292;
+}
+footer{
+    width:350px;
+    margin:auto;
+    margin-top:40px;
+}
+.footer-container{
+    display:flex;
+    border-radius:50px;
+    border-radius:20px;
+    background-color:#ffffff;
+    box-shadow: 0px 10px 6px #00000029;
+    border:1px groove #00000029;
+>>>>>>> 6de7971ea61c2eb2f4c4a3311ad0e51694777306
 }
