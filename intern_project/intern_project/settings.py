@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cookapp.apps.CookappConfig',
     'widget_tweaks',
-    'imagekit',
 
 ]
 
