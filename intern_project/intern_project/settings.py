@@ -103,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -144,3 +144,5 @@ try:
 except ImportError:
     # local_settings.py が存在しなくてもエラーにならないようにする
     pass
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
