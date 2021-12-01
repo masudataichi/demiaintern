@@ -127,3 +127,20 @@ footer{
     margin:auto;
     margin-top:20px;
 }
+
+
+
+/* オーバーレイのCSS */
+
+.under {
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+
+}
+
+.over {
+    position: absolute;
+    z-index: 2;
+    top: 20vh;
+}
