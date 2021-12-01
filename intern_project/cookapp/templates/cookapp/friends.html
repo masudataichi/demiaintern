@@ -2,11 +2,43 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    
+    <form method = "post" enctype = "multipart/form-data" >{{form}}<button type="submit">検索</button>{% csrf_token %}</form>
 </head>
 <body>
-    {{list}}
-</body>
+    {% if place %}
+        {% for p in place %} 
+            {% if p.image %}
+                <a class ="Link" href="{% url 'friends_content' p.id %}"><img src={{p.image.url}} alt="サンプル" width="40" height="40"></a>
+            {% endif %} 
+        {% endfor %}    
+    {% endif %}
+    {% if category %}
+        {% for c in category %} 
+            {% if c.image %}
+                <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" width="40" height="40"></a>
+            {% endif %} 
+        {% endfor %}    
+    {% endif %}
+    {% if friendslist %}
+        {% for f in friendslist %}
+            {% if submission_exclude %}
+                {% for s in submission_exclude %}   
+                    {% if f.users == s.submissionconnection %} 
+                        <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" width="40" height="40"></a>          
+                    {% endif %} 
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if like %}
+        {% for l in like %}    
+            {% if l.submission.image %}
+                {% if l.submission.public_private == 11 %}
+                    <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="40" height="40"></a>
+                {% endif %}
+            {% endif %} 
+        {% endfor %}
+    {% endif %}
 <footer>
     <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
     <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>

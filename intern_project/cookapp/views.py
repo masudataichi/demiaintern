@@ -11,8 +11,10 @@ from django.forms.utils import to_current_timezone
 from django.http import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from .models import Submission, User, Thread, Friends
-from .forms import PasswordForm, SubmissionForm, FriendsForm
+
+from .models import Submission, Threadlist, User, Thread, Friends, Threadlist, Like
+from .forms import PasswordForm, SubmissionForm, FriendsForm, ThreadlistForm, SearchForm
+
 from django.views.generic import CreateView,UpdateView,DeleteView
 from django.contrib import messages
 from django.utils.crypto import get_random_string
@@ -99,12 +101,62 @@ def home(request):
 
 def friends(request):
     user = request.user
-    friends_list = Friends.objects.filter(current_user = user)
-    for friends in friends_list:
-        print(friends.users)
-    params ={'list':friends_list
-    }
-    return render(request, 'cookapp/friends.html',params)
+    if request.method == 'POST':
+        word = request.POST['word']
+        if word == '和食':
+            word = 11
+        if word == '洋食':
+            word = 12
+        if word == '中華':
+            word = 13
+        if word == 'アジア':
+            word = 14
+        if word == 'カレー':
+            word = 15
+        if word == '焼肉':
+            word = 16
+        if word == '鍋':
+            word = 17
+        if word == '麺類':
+            word = 18
+        if word == '軽食':
+            word = 19
+        if word == 'スイーツ':
+            word = 20
+        if word == '飲食':
+            word = 21
+        if word == 'その他':
+            word = 22
+        place = Submission.objects.filter(place__icontains=word)
+        print(place)
+        category = Submission.objects.filter(category__icontains=word)
+        params ={
+            'form':SearchForm,
+            'category':category,
+            'place':place,
+        }
+    if Friends.objects.filter(current_user = request.user).exists():
+        friendslist = Friends.objects.filter(current_user = request.user)
+        if Submission.objects.exclude(submissionconnection = user).exists():
+            submission_exclude = Submission.objects.exclude(submissionconnection = user)
+            params ={
+                'submission_exclude':submission_exclude,
+                'user':user,
+                'form':SearchForm,
+                'friendslist': friendslist,
+            }
+            return render(request, 'cookapp/friends.html',params)       
+        if Like.objects.filter(user = user).exists():
+            like = Like.objects.filter(user = user)
+            submission_exclude = Submission.objects.exclude(submissionconnection = user)
+            params ={
+                'submission_exclude':submission_exclude,
+                'user':user,
+                'like':like,
+                'form':SearchForm,
+            }
+            return render(request, 'cookapp/friends.html',params)
+    return render(request, 'cookapp/friends.html')
 
 def SubmissionView(request):
     params = {
@@ -125,14 +177,24 @@ def SubmissionView(request):
 
 def friends_content(request,id):
     content = Submission.objects.get(id = id)
+    content.time = content.time + 1
+    content.save()
     threadlist = Thread.objects.filter(threadconnection_image = content)
     if request.method == 'POST':
-        form = ThreadForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.threadconnection_image = content
-            form.threadconnection_user = request.user
-            form.save()
+        if 'comment' in request.POST:
+            form = ThreadForm(request.POST)
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.threadconnection_image = content
+                form.threadconnection_user = request.user
+                form.save()
+        if 'like' in request.POST:
+            user = request.user
+            if Like.objects.filter(user=user,submission=content).exists():
+                like= Like.objects.get(user=user,submission=content)
+                like.delete()
+            else:
+                Like.objects.create(user=user,submission = content)
     if content.category == 11:
         content.category = '和食'
     if content.category == 12:
@@ -165,19 +227,34 @@ def friends_content(request,id):
         'content': content,
         'form': ThreadForm(),
         'threadlist': threadlist,
+        'time': content.time,
     }
     return render(request, 'cookapp/friends_contents.html',params)
 
 def my_content(request, id):
     content = Submission.objects.get(id = id)
-    threadlist = Thread.objects.filter(threadconnection_image = content)
+    thread = Thread.objects.filter(threadconnection_image = content)
+    threadlist = Threadlist.objects.all()
+    form1 = ThreadlistForm()
     if request.method == 'POST':
-        form = ThreadForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.threadconnection_image = content
-            form.threadconnection_user = request.user
-            form.save()
+        if 'thread1' in request.POST:
+            print(request.POST)
+            form = ThreadForm(request.POST)
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.threadconnection_image = content
+                form.threadconnection_user = request.user
+                form.save()
+        elif 'th' in request.POST:
+                print(type(request.POST['th']))
+                number = int(request.POST['th'])
+                print(type(number))
+                form2 = ThreadlistForm(request.POST)
+                if form2.is_valid():
+                    form2 = form2.save(commit=False)
+                    form2.threadlistconnection_thread = thread[number]
+                    form2.threadlistconnection_user = request.user
+                    form2.save()
     if content.category == 11:
         content.category = '和食'
     if content.category == 12:
@@ -209,6 +286,8 @@ def my_content(request, id):
     params = {
         'content': content,
         'form': ThreadForm(),
+        'thread': thread,
+        'form1': form1,
         'threadlist': threadlist,
     }
     return render(request, 'cookapp/my_content.html', params)
@@ -232,6 +311,7 @@ def friends_profile(request,id):
     content = Submission.objects.filter(submissionconnection = friend,public_private = 11)
     if content.exists():
         randomcontent = content.order_by('?')[0]
+        print(randomcontent)
         content = content.exclude(id = randomcontent.id).order_by('date')
         params = {
             'user': friend,
@@ -256,7 +336,7 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = User
     template_name = 'cookapp/user_update.html'
     fields = ['username','email','icon']
-    success_url = reverse_lazy('setting')
+    success_url = reverse_lazy('setting_complete')
 
 def user_delete(request):
     return render(request,'cookapp/user_delete.html')
@@ -302,8 +382,11 @@ class ContentUpdateView(LoginRequiredMixin,UpdateView):
     model = Submission
     template_name = 'cookapp/my_content_update.html'
     form_class = SubmissionForm
-    success_url = 'my_content'
-    def form_valid(self,form) :
+
+    success_url = reverse_lazy('home')
+
+    def form_valid(self,form):
+
         return super().form_valid(form)
 
     def form_invalid(self,form):
@@ -338,12 +421,11 @@ def friends_add_after(request, userID):
             current_user = from_user,
             users = to_user,
         )
-
-        friends2, created2 = Friends.objects.get_or_create(
+        friends, created = Friends.objects.get_or_create(
             current_user = to_user,
-            users = from_user
-
+            users = from_user,
         )
+
         return redirect('home')
 
     return render(request, 'cookapp/friends_add_after.html', params)

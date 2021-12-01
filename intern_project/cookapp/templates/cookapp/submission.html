@@ -18,11 +18,12 @@
                 <button type="submit">追加</button>
                </div>
             </div>
-            <div class="image-field">
+            <div class="image-field" id='image-field'>
                 <div class="image_document">
                         <img id="image-display_origin" src="{% static 'media/グループ 3 (1).svg' %}"/>
                         <p id='doc'>写真を選択</p>
                 </div>
+                <img id="image-display_update"/>
                 <div class="image-display">
                     {{ form.image }}
                 </div>
@@ -52,4 +53,12 @@
         </div>
     </form>
 </body>
+    <footer>
+        <div class="footer-container">
+                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+        </div>
+    </footer>
 </html>

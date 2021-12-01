@@ -64,14 +64,24 @@ body{
     width:300px;
     height:300px;
 }
+#image-display_update{
+    position:absolute;
+    display:block;
+    width:300px;
+    height:300px;
+    z-index:1001;
+    top:0;
+    left:0;
+    border-radius:30px;
 
+}
 #id_image{
     position: absolute;
     display:block;
     width: 300px;
     height: 300px;
     opacity: 0;
-    z-index: 1000;
+    z-index: 1002;
 }
 #id_public_private{
     margin-bottom:10px;
@@ -110,4 +120,17 @@ body{
     box-shadow:0px 3px 3px #a8a7a7;
     margin-bottom:10px;
     border-radius:20px;
+}
+footer{
+    width:90%;
+    margin:auto;
+    margin-top:100px;
+}
+.footer-container{
+    display:flex;
+    border-radius:50px;
+    border-radius:20px;
+    background-color:#ffffff;
+    box-shadow: 0px 10px 6px #00000029;
+    border:1px groove #00000029;
 }

@@ -1,32 +1,97 @@
+{% load static %}
 <!doctype html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/friends_content.css' %}" />
+    <script type="text/javascript" src="{% static 'js/friends_content.js' %}"></script>
 </head>
+<header>
+    {% block header %}
+        <div class="header-container">
+            <img src="{% static 'media/← (2).svg' %}" class='header-image'/>
+    {% if user.icon %}
+            <div class="header-icon"><a href=""><img src="{{user.icon.url}}" style='border-radius:50px;' width="30" height="30"></a></div>
+    {% endif %}
+            <div class="header-name" >{{user.username}}<div>
+        </div>
+    {% endblock header %}
+</header>
 <body>
+
+    <div class="content-image">
+        <img src={{content.image.url}} alt="サンプル" style='border-radius:30px;' width="350" height="350"/>
+    </div>
+    <div class="content-content">
+        <div class="content-detail1">
+            <div class='content-date'>{{content.date}}</div>
+            <div class="content-place"><img id="image-display_origin3" src="{% static 'media/グループ 271.svg' %}"/>{{content.place}}</div>
+            <div class="content-category"><p>{{content.category}}</p></div>
+        </div>
+        <div class="content-detail2">
+            {{content.comment}}
+        </div>
+    </div>
+    <div class="form-unclicked" id='form-unclicked'>
+        <table class="form-unclicked_table">
+            <th>
+                <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'media/グループ 352.svg' %}" /></button>
+                <td><p class='form-document' id='form-document'>コメントを入力</p></td>
+            </th>
+        </table>
+    </div>
+    <form method="post" enctype="multipart/form-data" class="form" id='form'>
+        {% csrf_token %}
+        <div class="form-content">
+            <div class="form-table">{{ form.thread }}</div>  
+            <div class="form-button">
+                <button type="submit" class="button" name='thread1'><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button>
+            </div>
+        </div>
     <img src={{content.image.url}} alt="サンプル" width="96" height="65">
+    {{time}}
     {{content.category}}
     {{content.date}}
     {{content.place}}
     {{content.comment}}
     <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+    <p><form method="post">
+        {% csrf_token %}
+        <button type="submit" name='like'>お気に入り</button>
+    </form></p>
     {{content.talk}}
     {% for threadlist in threadlist %}
     {{threadlist.threadconnection_user.username}}
     {{threadlist.thread}}
     {% endfor %}
+    <p><form method="post">
+        {% csrf_token %}
+        <button type="submit" name='like'>お気に入り</button>
+    </form></p>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
         </table>
-        <button type="submit">投稿</button>
+        <button type="submit" name='comment'>投稿</button>
     </form>
+    <div class="thread" id='thread'>
+        {{content.talk}}
+        {% for threadlist in threadlist %}
+        <div class="my-thread">
+            {{threadlist.threadconnection_user.username}}
+            {{threadlist.thread}}
+        </div>
+        {% endfor %}
+    </div>
 </body>
-<footer>
-    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
-    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
-    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
-</footer>
+    <footer>
+        <div class="footer-container">
+                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+        </div>
+    </footer>
 </html>
