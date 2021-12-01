@@ -3,14 +3,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.fields import related
 from django.contrib.auth.validators import UnicodeUsernameValidator
-
+import uuid
 
 
 class User(AbstractUser):
     #アイコン画像
     icon = models.ImageField(blank=True, null=True)
     username_validator = UnicodeUsernameValidator()
-    userID = models.CharField(max_length = 15,null = True, blank = True)
+    userID = models.CharField(max_length = 15, null = True, blank = True)
 
     username = models.CharField(
         verbose_name='名前(20文字まで)',
@@ -23,7 +23,7 @@ class User(AbstractUser):
         
     )
 
-    email = models.EmailField(max_length=254, unique=True, verbose_name='メールアドレス') #追記　エガワ　verbose_name
+    email = models.EmailField(max_length=254, null=True, unique=True , verbose_name='メールアドレス') #追記　エガワ　verbose_name
   
 
 

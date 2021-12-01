@@ -196,6 +196,7 @@ def friends_content(request,id):
                 like.delete()
             else:
                 Like.objects.create(user=user,submission = content)
+                
     if content.category == 11:
         content.category = '和食'
     if content.category == 12:

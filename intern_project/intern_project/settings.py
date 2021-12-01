@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cookapp.apps.CookappConfig',
     'widget_tweaks',
-    'imagekit',
 
 ]
 
@@ -139,12 +138,7 @@ MEDIA_URL = '/media/'
 LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'top'
-# ...
-try:
-    from .local_settings import *
-except ImportError:
-    # local_settings.py が存在しなくてもエラーにならないようにする
-    pass
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
 
