@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.fields import related
 from django.contrib.auth.validators import UnicodeUsernameValidator
-import uuid
+
 
 
 class User(AbstractUser):
@@ -33,7 +33,7 @@ class Submission(models.Model):
     submissionconnection = models.ForeignKey(User, on_delete=models.CASCADE, related_name='submissionconnection')
     #画像
     image = models.ImageField(upload_to='media', blank=True, null=True)
-  
+
     CATEGORY = (
         (11, '和食'),
         (12, '洋食'),
