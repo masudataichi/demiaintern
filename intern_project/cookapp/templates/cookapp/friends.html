@@ -10,18 +10,18 @@
 <body>
     <header>
         <div class='header-form'>
-            <form method = "post" enctype = "multipart/form-data" >{{form.word}}<button type="submit" class='submit'><img src="{% static 'svg/グループ 236.svg' %}" class='submit-icon' /></button>{% csrf_token %}</form>
-            <a href='friends_list' class='friends-image'><img class='friends-image' src="{% static 'svg/グループ 508.svg' %}" /></a>
+            <form method = "post" enctype = "multipart/form-data" >{{form.word}}<button type="submit" class='submit'><img src="{% static '../static/svg/グループ 236.svg' %}" class='submit-icon' /></button>{% csrf_token %}</form>
+            <a href='friends_list' class='friends-image'><img class='friends-image' src="{% static '../static/svg/グループ 508.svg' %}" /></a>
         </div>
         <div class='tabs'>
             <ul class='tabs'>
                 <li id='all'>
-                    <img class='friendsall-img' id='all-img' src="{% static 'svg/アートワーク 38.svg' %}" />
-                    <img id='background1' src="{% static 'svg/アートワーク 42.svg' %}" />
+                    <img class='friendsall-img' id='all-img' src="{% static '../static/svg/アートワーク 38.svg' %}" />
+                    <img id='background1' src="{% static '../static/svg/アートワーク 42.svg' %}" />
                 </li>
                 <li id='like'>
-                    <img class='friendslike-img' id='like-img' src="{% static 'svg/アートワーク 40.svg' %}" />
-                    <img id='background2' src="{% static 'svg/アートワーク 42.svg' %}" />
+                    <img class='friendslike-img' id='like-img' src="{% static '../static/svg/アートワーク 40.svg' %}" />
+                    <img id='background2' src="{% static '../static/svg/アートワーク 42.svg' %}" />
                 </li>
             </ul>
         </div>
@@ -112,4 +112,7 @@
     </footer>
 </body>
 
-</html>
+url 'friends_list' %}">{{'友達一覧'}}</a></p>
+</footer>
+
+</body>
