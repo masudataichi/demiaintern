@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function(){
    
-    let input =　document.getElementsByTagName('input')[1];
+    let input =　document.getElementsByClassName('form-hidden')[0];
     console.log(input)
 
     input.addEventListener('change', function(){

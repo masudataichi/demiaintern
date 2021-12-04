@@ -490,8 +490,16 @@ form {
     margin-bottom: 2rem;
 }
 
+.signup-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
 .input-icon-file {
     text-align: right;
+    position: relative;
+    top: -30px;
 }
 
 .signup-form {

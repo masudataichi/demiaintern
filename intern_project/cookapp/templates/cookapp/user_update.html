@@ -30,7 +30,7 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="">
-                <div class="icon"><img src="{{form.icon.value.url}}" ></div>
+                <div class="icon"><img src="{{form.icon.value.url}}" id="image_preview"></div>
                 <div class><input type="file" name="{{ form.icon.html_name }}" accept="image/*" id="{{ form.icon.id_for_label }}" style="display: none;"></div>
                 <div class="image-change"><label for="{{ form.icon.id_for_label }}">写真を変更する</label></div> <!-- ここがinputになる -->
             </div>
@@ -46,6 +46,10 @@
         </form>
         
     {% endblock main %}
+
+    {% block script %}
+        <script src="{% static 'javascript/user_update.js' %}"></script>
+    {% endblock script %}
 
 </body>
 </html>
