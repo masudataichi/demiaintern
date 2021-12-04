@@ -68,6 +68,7 @@ class Thread(models.Model):
     threadconnection_image = models.ForeignKey(Submission, on_delete=models.CASCADE, related_name='threadconnection_image', null=True)
     threadconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadconnection_user', null=True)
     thread = models.CharField(max_length=150, null=True)
+    
 class Threadlist(models.Model):
     threadlistconnection_thread = models.ForeignKey(Thread, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
     threadlistconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
