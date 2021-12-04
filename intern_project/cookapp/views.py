@@ -1,4 +1,5 @@
 
+
 from django.db import models
 
 from django.forms.utils import pretty_name
@@ -12,7 +13,7 @@ from django.http import request
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
-from .models import Submission, Threadlist, User, Thread, Friends, Threadlist, Like
+from .models import Submission, User, Thread, Friends, Threadlist, Like
 from .forms import PasswordForm, SubmissionForm, FriendsForm, ThreadlistForm, SearchForm
 
 from django.views.generic import CreateView,UpdateView,DeleteView
@@ -72,12 +73,11 @@ class SignupView(CreateView):
     def form_invalid(self,form):
         messages.error(self.request,"失敗")
         return super().form_invalid(form)
-
+@login_required
 def signup_complete(request):
     return render(request,'cookapp/signup_complete.html')
 
-def signup_complete(request):
-    return render(request, 'cookapp/signup_complete.html')
+
 
 
 @login_required
@@ -98,7 +98,7 @@ def home(request):
             }
 
     return render(request, 'cookapp/home.html', params)
-
+@login_required
 def friends(request):
     user = request.user
     if request.method == 'POST':
@@ -144,20 +144,21 @@ def friends(request):
                 'user':user,
                 'form':SearchForm,
                 'friendslist': friendslist,
-            }
-            return render(request, 'cookapp/friends.html',params)       
-        if Like.objects.filter(user = user).exists():
-            like = Like.objects.filter(user = user)
-            submission_exclude = Submission.objects.exclude(submissionconnection = user)
-            params ={
-                'submission_exclude':submission_exclude,
-                'user':user,
-                'like':like,
-                'form':SearchForm,
-            }
+            }       
+            if Like.objects.filter(user = user).exists():
+                like = Like.objects.filter(user = user)
+                submission_exclude = Submission.objects.exclude(submissionconnection = user)
+                params ={
+                    'submission_exclude':submission_exclude,
+                    'user':user,
+                    'like':like,
+                    'form':SearchForm,
+                    'friendslist': friendslist,
+                }
+                return render(request, 'cookapp/friends.html',params)
             return render(request, 'cookapp/friends.html',params)
     return render(request, 'cookapp/friends.html')
-
+@login_required
 def SubmissionView(request):
     params = {
         'form': SubmissionForm(),
@@ -174,7 +175,7 @@ def SubmissionView(request):
         return redirect('home')
 
     return render(request, 'cookapp/submission.html', params)
-
+@login_required
 def friends_content(request,id):
     content = Submission.objects.get(id = id)
     content.time = content.time + 1
@@ -211,6 +212,7 @@ def friends_content(request,id):
                 like.delete()
             else:
                 Like.objects.create(user=user,submission = content)
+                
     if content.category == 11:
         content.category = '和食'
     if content.category == 12:
@@ -248,7 +250,7 @@ def friends_content(request,id):
         'form1': form1,
     }
     return render(request, 'cookapp/friends_contents.html',params)
-
+@login_required
 def my_content(request, id):
     content = Submission.objects.get(id = id)
     thread = Thread.objects.filter(threadconnection_image = content)
@@ -309,7 +311,7 @@ def my_content(request, id):
         'threadlist': threadlist,
     }
     return render(request, 'cookapp/my_content.html', params)
-
+@login_required
 def friends_list(request):
     if Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user)).exists():
         friendslist = Friends.objects.filter(users = request.user)
@@ -325,7 +327,7 @@ def friends_list(request):
 
     return render(request, 'cookapp/friends_list.html')
 
-
+@login_required
 def friends_profile(request,id):
     friend = User.objects.get(id = id)
     content = Submission.objects.filter(submissionconnection = friend,public_private = 11)
@@ -344,7 +346,7 @@ def friends_profile(request,id):
             }
 
     return render(request, 'cookapp/friends_profile.html',params)
-
+@login_required
 def setting(request):
     user = request.user
     params = {
@@ -357,7 +359,7 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
     template_name = 'cookapp/user_update.html'
     fields = ['username','email','icon']
     success_url = reverse_lazy('setting_complete')
-
+@login_required
 def user_delete(request):
     return render(request,'cookapp/user_delete.html')
 
@@ -375,7 +377,7 @@ class PasswordView(LoginRequiredMixin,PasswordChangeView):
     success_url = 'setting'
     template_name = 'cookapp/password_change.html'
     form_class = PasswordForm
-
+@login_required
 def friends_add_before(request):
     myuserID = request.user.userID
     params = {
@@ -385,17 +387,18 @@ def friends_add_before(request):
     }
     if request.method == 'POST':
         form = FriendsForm(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            if User.objects.filter(userID = form.userID).exists():
-                print(form)
-                userID = form.userID
-                return redirect('friends_add_after', userID)
+        if request.user != request.POST['userID']:
+            if form.is_valid():
+                form = form.save(commit=False)
+                if User.objects.filter(userID = form.userID).exists():
+                    print(form)
+                    userID = form.userID
+                    return redirect('friends_add_after', userID)
+                else:
+                    return render(request, 'cookapp/friends_add_before.html', params)
             else:
+                params['form'] = form
                 return render(request, 'cookapp/friends_add_before.html', params)
-        else:
-            params['form'] = form
-            return render(request, 'cookapp/friends_add_before.html', params)
     return render(request, 'cookapp/friends_add_before.html', params)
 
 class ContentUpdateView(LoginRequiredMixin,UpdateView):
@@ -449,8 +452,9 @@ def friends_add_after(request, userID):
         return redirect('home')
 
     return render(request, 'cookapp/friends_add_after.html', params)
-
+@login_required
 def setting_complete(request):
     return render(request, 'cookapp/setting_complete.html')
+
 
 

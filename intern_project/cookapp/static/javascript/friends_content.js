@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', function(){
     });
 });
 //いいね
-var img_src = new Array('/static/media/コンポーネント 14 – 2.svg', '/static/media/コンポーネント 14 – 2 (1).svg');
+var img_src = new Array('/static/svg/コンポーネント 14 – 2.svg', '/static/svg/コンポーネント 14 – 2 (1).svg');
 var i = 0;
 function henkou(){
     if(i == 1){

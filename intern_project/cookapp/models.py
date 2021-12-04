@@ -1,20 +1,16 @@
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.fields import related
 from django.contrib.auth.validators import UnicodeUsernameValidator
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
 
-
-from imagekit.models import ImageSpecField, ProcessedImageField
-from imagekit.processors import ResizeToFill
 
 
 class User(AbstractUser):
     #アイコン画像
     icon = models.ImageField(blank=True, null=True)
     username_validator = UnicodeUsernameValidator()
-    userID = models.CharField(max_length = 15,null = True, blank = True)
+    userID = models.CharField(max_length = 15, null = True)
 
     username = models.CharField(
         verbose_name='名前(20文字まで)',
@@ -27,7 +23,7 @@ class User(AbstractUser):
         
     )
 
-    email = models.EmailField(max_length=254, unique=True, verbose_name='メールアドレス') #追記　エガワ　verbose_name
+    email = models.EmailField(max_length=254, null=True, unique=True , verbose_name='メールアドレス') #追記　エガワ　verbose_name
   
 
 
@@ -36,28 +32,8 @@ class Submission(models.Model):
     #外部キー
     submissionconnection = models.ForeignKey(User, on_delete=models.CASCADE, related_name='submissionconnection')
     #画像
-    image = models.ImageField(upload_to='media', blank=True, null=True)
-    big = ImageSpecField(source="image",
-                         processors=[ResizeToFill(1280, 1024)],
-                         format='JPEG'
-                         )
-    thumbnail = ImageSpecField(source='image',
-                            processors=[ResizeToFill(250,250)],
-                            format="JPEG",
-                            options={'quality': 60}
-                            )
+    image = models.ImageField(upload_to='media', null=True)
 
-    middle = ImageSpecField(source='image',
-                        processors=[ResizeToFill(600, 400)],
-                        format="JPEG",
-                        options={'quality': 75}
-                        )
-
-    small = ImageSpecField(source='image',
-                            processors=[ResizeToFill(75,75)],
-                            format="JPEG",
-                            options={'quality': 50}
-                            )
     CATEGORY = (
         (11, '和食'),
         (12, '洋食'),
@@ -81,7 +57,7 @@ class Submission(models.Model):
     #公開/非公開
     public_private = models.IntegerField(choices=PUBLIC_PRIVATE, null=True)
     #日付時間
-    date = models.DateField(blank=True, null=True)
+    date = models.DateField(null=True)
     #場所
     place = models.CharField(max_length=50, null=True)
     #コメント
@@ -92,6 +68,7 @@ class Thread(models.Model):
     threadconnection_image = models.ForeignKey(Submission, on_delete=models.CASCADE, related_name='threadconnection_image', null=True)
     threadconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadconnection_user', null=True)
     thread = models.CharField(max_length=150, null=True)
+    
 class Threadlist(models.Model):
     threadlistconnection_thread = models.ForeignKey(Thread, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
     threadlistconnection_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='threadlistconnection', null=True)
@@ -106,4 +83,5 @@ class Friends(models.Model):
 class Like(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='user', null=True)
     submission = models.ForeignKey(Submission,on_delete=models.CASCADE,related_name='submission', null=True)
+
 

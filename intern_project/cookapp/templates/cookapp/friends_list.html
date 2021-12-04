@@ -12,7 +12,7 @@
 <body>
 <header>
     <div class="title-and-arrow">
-        <a href="{% url 'home' %}"><img class='arrow-img' src="{% static 'media/←.svg' %}" /></a>
+        <a href="{% url 'home' %}"><img class='arrow-img' src="{% static 'svg/←(黒).svg' %}" /></a>
         <h1 class='title'>友だち</h1>
     </div>
     <div class="number-of-friends">{{number}}人</div>
@@ -40,5 +40,6 @@
                 <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
         </div>
     </footer>
+
 
 </html>

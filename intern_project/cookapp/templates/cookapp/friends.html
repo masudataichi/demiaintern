@@ -5,23 +5,23 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/friends.css' %}" />
-    <script type="text/javascript" src="{% static 'js/friends.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/friends.js' %}"></script>
 </head>
 <body>
     <header>
         <div class='header-form'>
-            <form method = "post" enctype = "multipart/form-data" >{{form.word}}<button type="submit" class='submit'><img src="{% static 'media/グループ 236.svg' %}" class='submit-icon' /></button>{% csrf_token %}</form>
-            <a href='friends_list' class='friends-image'><img class='friends-image' src="{% static 'media/グループ 508.svg' %}" /></a>
+            <form method = "post" enctype = "multipart/form-data" >{{form.word}}<button type="submit" class='submit'><img src="{% static 'svg/グループ 236.svg' %}" class='submit-icon' /></button>{% csrf_token %}</form>
+            <a href='friends_list' class='friends-image'><img class='friends-image' src="{% static 'svg/グループ 508.svg' %}" /></a>
         </div>
         <div class='tabs'>
             <ul class='tabs'>
                 <li id='all'>
-                    <img class='friendsall-img' id='all-img' src="{% static 'media/アートワーク 38.svg' %}" />
-                    <img id='background1' src="{% static 'media/アートワーク 42.svg' %}" />
+                    <img class='friendsall-img' id='all-img' src="{% static 'svg/アートワーク 38.svg' %}" />
+                    <img id='background1' src="{% static 'svg/アートワーク 42.svg' %}" />
                 </li>
                 <li id='like'>
-                    <img class='friendslike-img' id='like-img' src="{% static 'media/アートワーク 40.svg' %}" />
-                    <img id='background2' src="{% static 'media/アートワーク 42.svg' %}" />
+                    <img class='friendslike-img' id='like-img' src="{% static 'svg/アートワーク 40.svg' %}" />
+                    <img id='background2' src="{% static 'svg/アートワーク 42.svg' %}" />
                 </li>
             </ul>
         </div>
@@ -111,4 +111,5 @@
         </div>
     </footer>
 </body>
+
 </html>

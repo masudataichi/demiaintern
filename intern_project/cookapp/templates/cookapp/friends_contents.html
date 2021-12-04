@@ -9,7 +9,7 @@
 <header>
     {% block header %}
         <div class="header-container">
-            <img src="{% static 'media/← (2).svg' %}" class='header-image'/>
+            <a class = "Link" href="{% url 'friends_profile' content.submissionconnection.id %}" class='friends-image'><img src="{% static 'svg/← (2).svg' %}" class='header-image'/></a>
     {% if user.icon %}
             <div class="header-icon"><a href=""><img src="{{content.submissionconnection.icon.url}}" style='border-radius:50px;' width="30" height="30"></a></div>
     {% endif %}
@@ -24,7 +24,7 @@
             <form method="post" class='like-form'>
             {% csrf_token %}
                 <button type="submit" class='like-button' name='like'>
-                    <img id="like-ikon" src="{% static 'media/コンポーネント 14 – 2.svg' %}" onclick="henkou()"/>
+                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2.svg' %}" onclick="henkou()"/>
                 </button>
             </form>    
         </div>   
@@ -32,7 +32,7 @@
     <div class="content-content">
         <div class="content-detail1">
             <div class='content-date'>{{content.date}}</div>
-            <div class="content-place"><img id="image-display_origin3" src="{% static 'media/グループ 271.svg' %}"/>{{content.place}}</div>
+            <div class="content-place"><img id="image-display_origin3" src="{% static 'svg/グループ 271.svg' %}"/>{{content.place}}</div>
             <div class="content-category"><p>{{content.category}}</p></div>
         </div>
         <div class="content-detail2">
@@ -42,7 +42,7 @@
     <div class="form-unclicked" id='form-unclicked'>
         <table class="form-unclicked_table">
             <tr>
-                <td><button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'media/グループ 352.svg' %}" /></button></td>
+                <td><button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'svg/グループ 352.svg' %}" /></button></td>
                 <td><p class='form-document' id='form-document'>コメントを入力</p></td>
             </tr>
         </table>
@@ -52,7 +52,7 @@
         <div class="form-content">
             <div class="form-table">{{ form.thread }}</div>  
             <div class="form-button">
-                <button type="submit" class="button" name='thread1'><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button>
+                <button type="submit" class="button" name='thread1'><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button>
             </div>
         </div>
     </form>
@@ -67,11 +67,11 @@
             </div>
             <button class='reply-trigger' id='unclicked'>
                 <p id='doc' class='unclicked-doc'>返信する</p>
-                <img class='form-image3' id='img' src="{% static 'media/グループ 352.svg' %}" />
+                <img class='form-image3' id='img' src="{% static 'svg/グループ 352.svg' %}" />
             </button>
             <form method="post" class="replyform" id='clicked'>
                 <div class='replyform-content'>
-                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button>
+                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button>
                     <div class='replyform-thread'>{{form1.threadlist}}</div>
                 </div>
                 {% csrf_token %}
@@ -90,7 +90,7 @@
             </div>
         {% endfor %}
     </div>
-    <script type="text/javascript" src="{% static 'js/friends_content.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/friends_content.js' %}"></script>
 </body>
     <footer>
         <div class="footer-container">

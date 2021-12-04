@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="102" viewBox="0 0 102 102">
+  <defs>
+    <filter id="長方形_224" x="0" y="0" width="102" height="102" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feFlood flood-opacity="0.141"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="コンポーネント_14_2" data-name="コンポーネント 14 – 2" transform="translate(27 22)">
+    <g transform="matrix(1, 0, 0, 1, -27, -22)" filter="url(#長方形_224)">
+      <rect id="長方形_224-2" data-name="長方形 224" width="48" height="48" rx="24" transform="translate(27 22)" fill="#fff"/>
+    </g>
+    <g id="アートワーク_30" data-name="アートワーク 30" transform="translate(14 14.489)">
+      <path id="パス_274" data-name="パス 274" d="M10,0l3.09,6.261,6.91,1-5,4.874,1.18,6.882L10,15.772,3.82,19.021,5,12.139,0,7.265l6.91-1Z" fill="#ea730c" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.466"/>
+    </g>
+  </g>
+</svg>

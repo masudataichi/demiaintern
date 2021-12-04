@@ -1,27 +1,37 @@
+{% extends 'cookapp/base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/setting_complete.css' %}" />
-    <title>設定更新完了</title>
+
+    {% block extrastyle %}
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/setting_complete.css' %}" />
+        <title>設定更新完了</title>
+
+    {% endblock extrastyle %}
+
 </head>
 <body>
-    <div class='top'>
-        <a href="{% url 'setting' %}"><img src="{% static 'media/← (1).svg' %}" /></a>
-    </div>
-    <div class='main'>
-        <img src="{% static 'media/グループ 26.svg' %}" class='complete_image' />
-        <p class='complete_doc'>更新しました</p>
-    </div>
-<footer>
-    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
-    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
-    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
-</footer>
+
+    {% block header %}
+
+        <div class='top'>
+            <a href="{% url 'setting' %}"><img src="{% static 'svg/←(黒).svg' %}" /></a>
+        </div>
+
+    {% endblock header %}
+
+
+    {% block main %}
+        
+        <div class='main'>
+            <img src="{% static 'svg/グループ 26.svg' %}" class='complete_image' />
+            <p class='complete_doc'>更新しました</p>
+        </div>
+        
+    {% endblock main %}
+
 </body>
 </html>

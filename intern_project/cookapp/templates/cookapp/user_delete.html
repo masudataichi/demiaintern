@@ -8,20 +8,22 @@
     {% block extrastyle %}
     <!-- オーバーレイだけどこのページで見た目を完成させてからやる -->
         <link rel="stylesheet" href="../static/css/setting.css">
-        <link rel="stylesheet" href="../static/css/base.css">
 
     {% endblock extrastyle %}
 </head>
 <body>
+
    {% block main %}
-   
-        <div class="buttons-wrapper">
-            <p class="message">アカウントを削除しますか？</p>
-            <div class="button-flex">
-                <div class="" id="">キャンセル</div>
-                <div class=""><input type="button" value="削除"></div>
+
+        <form action="post" enctype="multipart/form-data">
+            <div class="buttons-wrapper">
+                <p class="message"><a href="{% url 'setting' %}">アカウントを削除しますか？</a></p>
+                <div class="button-flex">
+                    <div class="" id="">キャンセル</div>
+                    <div class=""><input type="button" value="削除"></div>
+                </div>
             </div>
-        </div>
+        </form>
    
    {% endblock main %}
 </body>

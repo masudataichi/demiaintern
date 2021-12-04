@@ -19,8 +19,8 @@
                 <div class="user-name">{{user.username}}</div>
         </div>
         <div class="options">
-            <p><a href="{% url 'my_content_update' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 325.svg' %}"/></a></p>
-            <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'media/グループ 319.svg' %}"/></a></p>
+            <p><a href="{% url 'my_content_update' content.id %}"><img id="image-display_origin" src="{% static 'svg/グループ 325.svg' %}"/></a></p>
+            <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'svg/グループ 319.svg' %}"/></a></p>
         </div>
     </header>
     <div class=image-image>
@@ -29,7 +29,7 @@
     <div class="image-details">
         <div class="image-detail_1">
             <div class="image_date">{{content.date}}</div>
-            <div class="image_place"><img id="image-display_origin3" src="{% static 'media/グループ 271.svg' %}"/>{{content.place}}</div>
+            <div class="image_place"><img id="image-display_origin3" src="{% static 'svg/グループ 271.svg' %}"/>{{content.place}}</div>
             <div class="image_category">
                 <p>{{content.category}}</p>
             </div>
@@ -41,7 +41,7 @@
     <div class="form-unclicked" id='form-unclicked'>
         <table class="form-unclicked_table">
               <th>
-                  <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'media/グループ 352.svg' %}" /></button>
+                  <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'svg/グループ 352.svg' %}" /></button>
                   <td><p class='form-document' id='form-document'>コメントを入力</p></td>
               </th>
         </table>
@@ -57,7 +57,7 @@
         {% csrf_token %}
         <div class="form-content">
             <div class="form-table">{{ form.thread }}</div>
-            <div class="form-button"><button type="submit" class="button" name="thread1"><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button></div>
+            <div class="form-button"><button type="submit" class="button" name="thread1"><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button></div>
         </div>
     </form>
     <div>
@@ -94,7 +94,7 @@
                 {% endfor %}
             </div>
     </div>
-    <script type="text/javascript" src="{% static 'js/my_content.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/my_content.js' %}"></script>
 </body>
 
     <footer>

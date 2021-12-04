@@ -1,44 +1,41 @@
+{% extends 'cookapp/base.html' %}
 {% load static %}
 <!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/friends_add_before.css' %}" />
-    <title>友達追加（追加前）</title>
+    {% block extrastyle %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/friends_add_before.css' %}" />
+
+        <title>友達追加（追加前）</title>
+    {% endblock extrastyle %}
 </head>
 <body>
-    <div class="title">
-        <h1>友だち追加</h1>
-    </div>
-    <div class="form_field">
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="searchfield">
-            <h2 class="table_title">ID検索</h2>
-            {{ form.userID }}
+    {% block main %}
+        <div class="title">
+            <h1>友だち追加</h1>
         </div>
-        <button class='button' type="submit">
-             <img src="{% static 'media/グループ 236.svg' %}"/>
-        </button>
-    </form>
-    </div>
-    <div class="myID">
-        <div class='myID_contents'>
-            <div class="myID_id">
-                <h2 class="myID_title">あなたのID</h2>
-                {{myuserID}}
+        <div class="form_field">
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="searchfield">
+                <h2 class="table_title">ID検索</h2>
+                {{ form.userID }}
             </div>
-            <p class="myID_doc">友達の検索ボックスに、大文字と小文字を区別して正確に入力して下さい</p>
+            <button class='button' type="submit">
+                <img src="{% static 'svg/グループ 236.svg' %}"/>
+            </button>
+            </form>
         </div>
-    </div>
-    <footer>
-        <div class="footer-container">
-                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+        <div class="myID">
+            <div class='myID_contents'>
+                <div class="myID_id">
+                    <h2 class="myID_title">あなたのID</h2>
+                    {{myuserID}}
+                </div>
+                <p class="myID_doc">友達の検索ボックスに、大文字と小文字を区別して正確に入力して下さい</p>
+            </div>
         </div>
-    </footer>
+    {% endblock main %}
 </body>
 </html>
