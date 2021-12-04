@@ -28,16 +28,6 @@
                     </div>
                 </a>
             {% endif %}
-          {% else %}  
-            {% if f.users.icon %}
-                
-                <a href="{% url 'friends_profile' f.users.id %}" class="friends"  style="cursor:default;color:inherit;text-decoration:none;">
-                    <div class='friend'>
-                        <img src="{{f.users.icon.url}}" alt="サンプル" style='border-radius:50px;' width="30" height="30">
-                        <p>{{f.users.username}}</p>
-                    </div>
-                </a>
-            {% endif %}
           {% endif %}
         {% endfor %}
     {% endif %}

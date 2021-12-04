@@ -79,3 +79,7 @@ body{
     font-size:15px;
     padding:10px;
 }
+html{
+    width:375px;
+    height:812px;
+}
