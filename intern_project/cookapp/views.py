@@ -181,13 +181,29 @@ def friends_content(request,id):
     content.save()
     threadlist = Thread.objects.filter(threadconnection_image = content)
     if request.method == 'POST':
-        if 'comment' in request.POST:
+        content = Submission.objects.get(id = id)
+    thread = Thread.objects.filter(threadconnection_image = content)
+    threadlist = Threadlist.objects.all()
+    form1 = ThreadlistForm()
+    if request.method == 'POST':
+        if 'thread1' in request.POST:
+            print(request.POST)
             form = ThreadForm(request.POST)
             if form.is_valid():
                 form = form.save(commit=False)
                 form.threadconnection_image = content
                 form.threadconnection_user = request.user
                 form.save()
+        elif 'th' in request.POST:
+                print(type(request.POST['th']))
+                number = int(request.POST['th'])
+                print(type(number))
+                form2 = ThreadlistForm(request.POST)
+                if form2.is_valid():
+                    form2 = form2.save(commit=False)
+                    form2.threadlistconnection_thread = thread[number]
+                    form2.threadlistconnection_user = request.user
+                    form2.save()
         if 'like' in request.POST:
             user = request.user
             if Like.objects.filter(user=user,submission=content).exists():
@@ -228,6 +244,8 @@ def friends_content(request,id):
         'form': ThreadForm(),
         'threadlist': threadlist,
         'time': content.time,
+        'thread': thread,
+        'form1': form1,
     }
     return render(request, 'cookapp/friends_contents.html',params)
 
@@ -294,12 +312,14 @@ def my_content(request, id):
 
 def friends_list(request):
     if Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user)).exists():
-        friendslist = Friends.objects.filter(Q(current_user = request.user) | Q(users = request.user))
+        friendslist = Friends.objects.filter(users = request.user)
         user = request.user
+        number = len(friendslist)
     # friendslist = request.user.friends
         params = {
             'friendslist': friendslist,
-            'user': user,            
+            'user': user,         
+            'number': number   
         }
         return render(request, 'cookapp/friends_list.html', params)
 

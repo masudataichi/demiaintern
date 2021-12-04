@@ -18,8 +18,10 @@
     {% block header %}
         
         <div class="header-container">
-            <div class=""><a href="{% url 'setting' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
-            <div class="">設定</div>
+            <div class='toSetting'>
+                <div class=""><a href="{% url 'setting' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
+                <div class="">設定</div>
+            </div>
             <div class="update-button"><button type = "submit">更新</button></div>
         </div>
 
