@@ -10,7 +10,7 @@
 <header>
     {% block header %}
         <div class="header-container">
-            <img src="{% static 'media/← (2).svg' %}" class='header-image'/>
+            <img src="{% static 'svg/← (2).svg' %}" class='header-image'/>
     {% if user.icon %}
             <div class="header-icon"><a href=""><img src="{{user.icon.url}}" style='border-radius:50px;' width="30" height="30"></a></div>
     {% endif %}
@@ -26,7 +26,7 @@
     <div class="content-content">
         <div class="content-detail1">
             <div class='content-date'>{{content.date}}</div>
-            <div class="content-place"><img id="image-display_origin3" src="{% static 'media/グループ 271.svg' %}"/>{{content.place}}</div>
+            <div class="content-place"><img id="image-display_origin3" src="{% static 'svg/グループ 271.svg' %}"/>{{content.place}}</div>
             <div class="content-category"><p>{{content.category}}</p></div>
         </div>
         <div class="content-detail2">
@@ -36,7 +36,7 @@
     <div class="form-unclicked" id='form-unclicked'>
         <table class="form-unclicked_table">
             <th>
-                <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'media/グループ 352.svg' %}" /></button>
+                <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'svg/グループ 352.svg' %}" /></button>
                 <td><p class='form-document' id='form-document'>コメントを入力</p></td>
             </th>
         </table>
@@ -46,7 +46,7 @@
         <div class="form-content">
             <div class="form-table">{{ form.thread }}</div>  
             <div class="form-button">
-                <button type="submit" class="button" name='thread1'><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button>
+                <button type="submit" class="button" name='thread1'><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button>
             </div>
         </div>
     <img src={{content.image.url}} alt="サンプル" width="96" height="65">

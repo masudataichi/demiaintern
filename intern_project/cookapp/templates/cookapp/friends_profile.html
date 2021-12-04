@@ -23,12 +23,12 @@
     {% endblock header %}
     {% block main %}
         <div class="random-image">
-            <a class ="" href="{% url 'friends_content' randomcontent.id %}"><img src="../media/{{randomcontent.image}}" alt="サンプル" width="84px" height="84px" class=""></a>
+            <a class ="" href="{% url 'friends_content' randomcontent.id %}"><img src="../svg/{{randomcontent.image}}" alt="サンプル" width="84px" height="84px" class=""></a>
         </div>
         <div class="images-container">
             {% for content in content %}
                 <div class="images-submitted">
-                    <a class ="" href="{% url 'friends_content' content.id %}"><img src="../media/{{content.image}}" alt="サンプル" width="84px" height="84px"></a>
+                    <a class ="" href="{% url 'friends_content' content.id %}"><img src="../svg/{{content.image}}" alt="サンプル" width="84px" height="84px"></a>
                 </div>   
             {% endfor %}
         </div>
