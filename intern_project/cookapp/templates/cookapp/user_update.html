@@ -20,7 +20,6 @@
         <div class="header-container">
             <div class=""><a href="{% url 'setting' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
             <div class="">設定</div>
-            <div class="update-button"><form method = "post" enctype="multipart/form-data" ><button type="submit">更新</button></form></div>
         </div>
 
     {% endblock header %}
@@ -43,6 +42,7 @@
                 <div class="label">メールアドレス</div>
                 <div class="field">{{form.email}}</div>
             </div>
+            <div class="update-button"><button type="submit">更新</button></div>
         </form>
         
     {% endblock main %}

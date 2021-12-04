@@ -152,11 +152,13 @@ body{
     margin:auto;
     margin-top:20px;
 }
-footer{
+
+/* footer{
     width:350px;
     margin:auto;
     margin-top:40px;
 }
+
 .footer-container{
     display:flex;
     border-radius:50px;
@@ -164,4 +166,4 @@ footer{
     background-color:#ffffff;
     box-shadow: 0px 10px 6px #00000029;
     border:1px groove #00000029;
-}
+} */

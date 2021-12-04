@@ -1,77 +1,86 @@
-
-
+{% extends "cookapp/base.html" %}
 {% load static %}
 {% load widget_tweaks %}
 <!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/my_content.css' %}" />
-    <script type="text/javascript" src="{% static 'js/my_content.js' %}"></script>
-    <title>my_contents</title>
+
+    {% block extrastyle %}
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/my_content.css' %}" />
+        <script type="text/javascript" src="{% static 'js/my_content.js' %}"></script>
+        <title>my_contents</title>
+        
+    {% endblock extrastyle %}
 </head>
 <body>
-    <header>
+    {% block header %}
+      
         <div class='user'>
-                <div class="user-icon">
-                    {% if user.icon %}
+            <div class="user-icon">
+                {% if user.icon %}
                     <img src={{user.icon.url}} alt="サンプル" style=border-radius:50px; width="40" height="40">
-                    {% endif %}
-                </div>
-                <div class="user-name">{{user.username}}</div>
+                {% endif %}
+            </div>
+            <div class="user-name">{{user.username}}</div>
         </div>
         <div class="options">
             <p><a href="{% url 'my_content_update' content.id %}"><img id="image-display_origin" src="{% static 'svg/グループ 325.svg' %}"/></a></p>
             <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'svg/グループ 319.svg' %}"/></a></p>
         </div>
-    </header>
-    <div class=image-image>
-        <img src={{content.image.url}} alt="サンプル" width="350" height="350" class="image">
-    </div>
-    <div class="image-details">
-        <div class="image-detail_1">
-            <div class="image_date">{{content.date}}</div>
-            <div class="image_place"><img id="image-display_origin3" src="{% static 'svg/グループ 271.svg' %}"/>{{content.place}}</div>
-            <div class="image_category">
-                <p>{{content.category}}</p>
+
+    {% endblock header %}
+
+
+    {% block main %}
+      
+        <div class=image-image>
+            <img src={{content.image.url}} alt="サンプル" width="350" height="350" class="image">
+        </div>
+        <div class="image-details">
+            <div class="image-detail_1">
+                <div class="image_date">{{content.date}}</div>
+                <div class="image_place"><img id="image-display_origin3" src="{% static 'svg/グループ 271.svg' %}"/>{{content.place}}</div>
+                <div class="image_category">
+                    <p>{{content.category}}</p>
+                </div>
+            </div>
+            <div class="image-detail_2">
+                {{content.comment}}
             </div>
         </div>
-        <div class="image-detail_2">
-            {{content.comment}}
+        <div class="form-unclicked" id='form-unclicked'>
+            <table class="form-unclicked_table">
+                
+                <th>
+                    <td id='addIcon'><img class='form-image1' src="{% static 'svg/グループ 352.svg' %}" /></td>
+                    <td><p class='form-document'>コメントを入力</p></td>
+                </th>
+
+                <img src={{content.image.url}} alt="サンプル" width="96" height="65">
+                {{content.category}}
+                {{content.public_private}}
+                {{content.date}}
+                {{content.place}}
+                {{content.comment}}
+                <p><a href="{% url 'my_content_update' content.pk %}">{{'編集'}}</a></p>
+                <p><a href="{% url 'my_content_delete' content.pk %}">{{'削除'}}</a></p>
+                <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
+                
+            </table>
         </div>
-    </div>
-    <div class="form-unclicked" id='form-unclicked'>
-        <table class="form-unclicked_table">
-
-            <th>
-                <td id='addIcon'><img class='form-image1' src="{% static 'svg/グループ 352.svg' %}" /></td>
-                <td><p class='form-document'>コメントを入力</p></td>
-            </th>
-
-    <img src={{content.image.url}} alt="サンプル" width="96" height="65">
-    {{content.category}}
-    {{content.public_private}}
-    {{content.date}}
-    {{content.place}}
-    {{content.comment}}
-    <p><a href="{% url 'my_content_update' content.pk %}">{{'編集'}}</a></p>
-    <p><a href="{% url 'my_content_delete' content.pk %}">{{'削除'}}</a></p>
-    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-
+        
+        
+        
+        <th>
+            <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'svg/グループ 352.svg' %}" /></button>
+            <td><p class='form-document' id='form-document'>コメントを入力</p></td>
+        </th>
     </table>
     </div>
 
-    
 
-              <th>
-                  <button id='action' class='action'><img class='form-image1' id='cross' src="{% static 'svg/グループ 352.svg' %}" /></button>
-                  <td><p class='form-document' id='form-document'>コメントを入力</p></td>
-              </th>
-        </table>
-    </div>
-
-    
 
 
     <form method="post" enctype="multipart/form-data" class="form" id='form'>
@@ -79,29 +88,29 @@
         <div class="form-content">
             <div class="form-table">{{ form.thread }}</div>
             <div class="form-button"><button type="submit" class="button" name="thread1"><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button></div>
-        </div>
-    </form>
-    <div>
-        {{content.talk}}
-        {% for thread in thread %}
-        <div class="threadform">
-            <div class='thread1-display'>
-                <img src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
-                <p class='thread1-doc'>{{ thread.threadconnection_user.username }}:</p>
-                <p class='thread1-thread'>{{thread.thread}}</p>
             </div>
-            <button class='reply-trigger' id='unclicked'>
-                <p id='doc' class='unclicked-doc'>返信する</p>
-                <img class='form-image3' id='img' src="{% static 'svg/グループ 352.svg' %}" />
-            </button>
-            <form method="post" class="replyform" id='clicked'>
-                <div class='replyform-content'>
-                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button>
-                    <div class='replyform-thread'>{{form1.threadlist}}</div>
+        </form>
+        <div>
+            {{content.talk}}
+            {% for thread in thread %}
+            <div class="threadform">
+                <div class='thread1-display'>
+                    <img src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
+                    <p class='thread1-doc'>{{ thread.threadconnection_user.username }}:</p>
+                    <p class='thread1-thread'>{{thread.thread}}</p>
                 </div>
-                {% csrf_token %}
-            </form>
-        </div>
+                <button class='reply-trigger' id='unclicked'>
+                    <p id='doc' class='unclicked-doc'>返信する</p>
+                    <img class='form-image3' id='img' src="{% static 'svg/グループ 352.svg' %}" />
+                </button>
+                <form method="post" class="replyform" id='clicked'>
+                    <div class='replyform-content'>
+                        <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button>
+                        <div class='replyform-thread'>{{form1.threadlist}}</div>
+                    </div>
+                    {% csrf_token %}
+                </form>
+            </div>
             <div class="thread2">
                 {% for threadlist in threadlist %}
                 {% if threadlist.threadlistconnection_thread == thread %}
@@ -114,16 +123,9 @@
                 {% endfor %}
                 {% endfor %}
             </div>
-    </div>
-</body>
-
-    <footer>
-        <div class="footer-container">
-                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
         </div>
-    </footer>
 
+    {% endblock main %}
+    
+</body>
 </html>

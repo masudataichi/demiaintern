@@ -435,6 +435,7 @@ html {
 }
 
 body {
+  
     width: 376px;
     height: 812px;
     position: relative;
@@ -455,6 +456,8 @@ body {
 
 .update-button {
     margin-left: auto;
+    position: absolute;
+    top: -100px; right: 10px;
     font-size: 14px;
     background-color: #EA730C;
     color: #fff;

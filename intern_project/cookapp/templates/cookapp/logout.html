@@ -8,20 +8,20 @@
     {% block extrastyle %}
     <!-- オーバーレイだけどこのページで見た目を完成させてからやる -->
         <link rel="stylesheet" href="../static/css/setting.css">
-        <link rel="stylesheet" href="../static/css/base.css">
 
     {% endblock extrastyle %}
 </head>
 <body>
    {% block main %}
-   
+    <form action="method" enctype="multipart/form-data">
         <div class="buttons-wrapper">
-            <p class="message">ログアウトしますかあ？</p>
+            <p class="message">ログアウトしますか？</p>
             <div class="button-flex">
-                <div class="" id="">キャンセル</div>
+                <div class="" id=""><a href="{% url 'setting'  %}">キャンセル</a></div>
                 <div class=""><a href ="{% url 'logout2' %}">ログアウト</a></div>
             </div>
         </div>
+    </form>
    
    {% endblock main %}
 </body>

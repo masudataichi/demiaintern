@@ -472,6 +472,11 @@ header {
     font-weight: 1;
 }
 
+.main-wrapper {
+  position: relative;
+  top: 11%;
+}
+
 .random-image {
     width: 100%;
     position: relative;
