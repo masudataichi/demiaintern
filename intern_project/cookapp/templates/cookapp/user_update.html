@@ -20,7 +20,6 @@
         <div class="header-container">
             <div class=""><a href="{% url 'setting' %}"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
             <div class="">設定</div>
-            <div class="update-button"><button type = "submit">更新</button></div>
         </div>
 
     {% endblock header %}
@@ -28,12 +27,12 @@
     {% block main %}
         
         <div class="">アカウント情報の変更</div>
-        <form method = "post" enctype="multipart/form-data" >
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="">
-                <div class="icon"><img src="{{form.icon.value.url}}" ></div>
-                <div><label for="">{{ form.icon }}</label></div>
-                <div class="image-change">写真を変更する</div> <!-- ここがinputになる -->
+                <div class="icon"><img src="{{form.icon.value.url}}" id="image_preview"></div>
+                <div class><input type="file" name="{{ form.icon.html_name }}" accept="image/*" id="{{ form.icon.id_for_label }}" style="display: none;"></div>
+                <div class="image-change"><label for="{{ form.icon.id_for_label }}">写真を変更する</label></div> <!-- ここがinputになる -->
             </div>
             <div class="fields-wrapper">
                 <div class="label">名前（20文字まで）</div>
@@ -43,17 +42,14 @@
                 <div class="label">メールアドレス</div>
                 <div class="field">{{form.email}}</div>
             </div>
+            <div class="update-button"><button type="submit">更新</button></div>
         </form>
         
     {% endblock main %}
 
+    {% block script %}
+        <script src="{% static 'javascript/user_update.js' %}"></script>
+    {% endblock script %}
+
 </body>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
-            <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
-            <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
-            <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
-        </div>
-    </footer>
 </html>
