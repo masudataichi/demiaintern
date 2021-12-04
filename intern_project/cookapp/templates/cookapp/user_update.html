@@ -32,7 +32,7 @@
             {% csrf_token %}
             <div class="">
                 <div class="icon"><img src="{{form.icon.value.url}}" ></div>
-                <div><label for="">{{ form.icon }}</label></div>
+                <div><input type="file" name="" accept="image/*" id="id_icon"></div>
                 <div class="image-change">写真を変更する</div> <!-- ここがinputになる -->
             </div>
             <div class="fields-wrapper">
