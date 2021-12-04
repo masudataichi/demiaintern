@@ -1,3 +1,4 @@
+
 """
 Django settings for intern_project project.
 
@@ -137,7 +138,7 @@ MEDIA_URL = '/media/'
 LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'top'
-# ...
+
 try:
     from .local_settings import *
 except ImportError:
@@ -145,3 +146,4 @@ except ImportError:
     pass
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+

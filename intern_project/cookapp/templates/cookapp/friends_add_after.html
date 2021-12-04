@@ -12,7 +12,9 @@
         <h1>友だち追加</h1>
     </div>
     <div class="friend_add_field">
+        {% if friends.has_icon %}
         <p class="friendimage"><img src={{friends.icon.url}} alt="サンプル" width="96" height="65" style="border-radius:50%; height:150px; width:150px;"></p>
+        {% endif %}
         <p class="friendID">{{friends.userID}}</p>
         <form method="post" enctype="multipart/form-data" class="addfriend">
             {% csrf_token %}
