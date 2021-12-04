@@ -10,7 +10,7 @@ class User(AbstractUser):
     #アイコン画像
     icon = models.ImageField(blank=True, null=True)
     username_validator = UnicodeUsernameValidator()
-    userID = models.CharField(max_length = 15, null = True, blank = True)
+    userID = models.CharField(max_length = 15, null = True)
 
     username = models.CharField(
         verbose_name='名前(20文字まで)',
@@ -32,7 +32,7 @@ class Submission(models.Model):
     #外部キー
     submissionconnection = models.ForeignKey(User, on_delete=models.CASCADE, related_name='submissionconnection')
     #画像
-    image = models.ImageField(upload_to='media', blank=True, null=True)
+    image = models.ImageField(upload_to='media', null=True)
 
     CATEGORY = (
         (11, '和食'),
@@ -57,7 +57,7 @@ class Submission(models.Model):
     #公開/非公開
     public_private = models.IntegerField(choices=PUBLIC_PRIVATE, null=True)
     #日付時間
-    date = models.DateField(blank=True, null=True)
+    date = models.DateField(null=True)
     #場所
     place = models.CharField(max_length=50, null=True)
     #コメント

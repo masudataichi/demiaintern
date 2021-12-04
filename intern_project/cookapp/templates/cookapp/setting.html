@@ -1,4 +1,4 @@
-{% extends "cookapp/base.html" %}
+{% extends 'cookapp/base.html'%}
 {% load static %}
 {% load widget_tweaks %}
 <!doctype html>
@@ -24,7 +24,7 @@
             <div class="">アカウント情報</div>    
             <div class=""><a href="{% url 'user_update' user.id %}"><img src="{% static 'svg/グループ 325.svg' %}" alt="" ></a></div>
         </div>
-        <div class="icon"><img src="/media/{{user.icon}}" alt="" ></div>
+        <div class="icon"><img src="/svg/{{user.icon}}" alt="" ></div>
         <div class="name-container">
             <div class="font-small">名前</div>
             <div class="font-big">{{user.username}}</div>
