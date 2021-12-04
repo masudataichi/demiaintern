@@ -15,14 +15,16 @@
 </head>   
 <body>
    {% block main %}
-   
-        <div class="buttons-wrapper">
-            <p class="message">削除しますか？</p>
-            <div class="button-flex">
-                <div class="" id="">キャンセル</div>
-                <div class=""><a href ="">削除</a></div>
+   <form action="post" enctype="multipart/form-data">
+    {% csrf_token %}
+       <div class="buttons-wrapper">
+           <p class="message">削除しますか？</p>
+           <div class="button-flex">
+               <div class="" id="">キャンセル</div>
+               <div class=""><a href ="">削除</a></div>
             </div>
         </div>
+    </form>
    
    {% endblock main %}
 </body>
