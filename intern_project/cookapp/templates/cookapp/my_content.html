@@ -71,11 +71,11 @@
             </div>
             <button class='reply-trigger' id='unclicked'>
                 <p id='doc' class='unclicked-doc'>返信する</p>
-                <img class='form-image3' id='img' src="{% static 'media/グループ 352.svg' %}" />
+                <img class='form-image3' id='img' src="{% static 'svg/グループ 352.svg' %}" />
             </button>
             <form method="post" class="replyform" id='clicked'>
                 <div class='replyform-content'>
-                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='deleteIcon' src="{% static 'media/パス 335.svg' %}" /></button>
+                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button>
                     <div class='replyform-thread'>{{form1.threadlist}}</div>
                 </div>
                 {% csrf_token %}
