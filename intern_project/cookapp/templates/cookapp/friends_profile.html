@@ -1,3 +1,4 @@
+{% extends "cookapp/base.html" %}
 {% load static %} 
 {% load widget_tweaks %} 
 <!doctype html>
@@ -5,9 +6,7 @@
 <head>
     {% block extrastyle %}
         <link rel="stylesheet" href="../static/css/friends_profile.css">
-        <link rel="stylesheet" href="../static/css/base.css">
     {% endblock extrastyle %}
-    <meta charset="utf-8">
 </head>
 <header>
      <div class='user-name'>{{user.username}}</div>
@@ -26,7 +25,7 @@
 
 
     {% block main %}
-        <div class="main-wraper"
+        <div class="main-wraper">
 
             <div class="random-image">
                 <a class ="" href="{% url 'friends_content' randomcontent.id %}"><img src="../svg/{{randomcontent.image}}" alt="サンプル" width="84px" height="84px" class=""></a>
