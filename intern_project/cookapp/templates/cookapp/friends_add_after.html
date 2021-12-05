@@ -12,8 +12,8 @@
         <h1>友だち追加</h1>
     </div>
     <div class="friend_add_field">
-        {% if friends.has_icon %}
-        <p class="friendimage"><img src={{friends.icon.url}} alt="サンプル" width="96" height="65" style="border-radius:50%; height:150px; width:150px;"></p>
+        {% if friends.icon %}
+        <p class="friendimage"><img src={{friends.icon.url}} alt="サンプル" style="border-radius:50%; height:100px; width:100px;"></p>
         {% endif %}
         <p class="friendID">{{friends.userID}}</p>
         <form method="post" enctype="multipart/form-data" class="addfriend">
@@ -27,12 +27,12 @@
         <p class="myfield_doc">友達の検索ボックスに、大文字と小文字を区別して正確に入力して下さい</p>
     </div>
 </body>
-<footer>
-    <div class='footer'>
-        <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
-        <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-        <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
-        <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
-    </div>
-</footer>
+    <footer>
+        <div class="footer-container">
+                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
+                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+        </div>
+    </footer>
 </html>

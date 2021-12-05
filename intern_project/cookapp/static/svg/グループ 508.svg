@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46">
+  <g id="グループ_508" data-name="グループ 508" transform="translate(-328 -13)">
+    <g id="アートワーク_36" data-name="アートワーク 36" transform="translate(351 35.645)">
+      <g id="グループ_503" data-name="グループ 503" transform="translate(-9 -8.645)">
+        <g id="グループ_502" data-name="グループ 502" transform="translate(2.648 2.133)">
+          <path id="パス_386" data-name="パス 386" d="M59.4,59.252a2.276,2.276,0,1,1-2.276,2.276A2.279,2.279,0,0,1,59.4,59.252m0-1.232a3.508,3.508,0,1,0,3.508,3.508A3.508,3.508,0,0,0,59.4,58.02Z" transform="translate(-55.895 -58.02)" fill="#fff"/>
+        </g>
+        <line id="線_913" data-name="線 913" x2="10.895" transform="translate(6.489)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.232"/>
+        <path id="パス_387" data-name="パス 387" d="M206.6,79.616a.616.616,0,0,1-.616.616h-7.348A4.053,4.053,0,0,0,197.98,79h8.006A.616.616,0,0,1,206.6,79.616Z" transform="translate(-188.602 -75.874)" fill="#fff"/>
+        <path id="パス_388" data-name="パス 388" d="M207.221,158.616a.616.616,0,0,1-.616.616H198.63a4.04,4.04,0,0,0,.64-1.232h7.335A.616.616,0,0,1,207.221,158.616Z" transform="translate(-189.221 -151.132)" fill="#fff"/>
+        <path id="パス_389" data-name="パス 389" d="M212.089,237.616a.616.616,0,0,1-.616.616h-6.2L203.74,237h7.733A.616.616,0,0,1,212.089,237.616Z" transform="translate(-194.089 -226.389)" fill="#fff"/>
+        <path id="パス_390" data-name="パス 390" d="M6.158,226a6.164,6.164,0,0,0-6.07,7.2H1.343a4.926,4.926,0,1,1,9.63,0h1.255a6.164,6.164,0,0,0-6.07-7.2Z" transform="translate(0 -215.911)" fill="#fff"/>
+      </g>
+    </g>
+    <circle id="楕円形_12" data-name="楕円形 12" cx="23" cy="23" r="23" transform="translate(328 13)" fill="none"/>
+  </g>
+</svg>

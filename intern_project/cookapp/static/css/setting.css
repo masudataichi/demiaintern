@@ -541,6 +541,8 @@ main {
   padding: 20px;
 }
 
+
+
 .message {
   color:#212121;
   font-size: 18px;
@@ -556,10 +558,15 @@ main {
 .button-flex div {
   width: 91px;
   font-size: 14px;
-  border: solid #757575 1px;
   border-radius: 5px;
   padding: 5px;
   text-align: center;
 }
 
+.button-cancel {
+  border: solid #757575 1px;
+}
 
+.button-delete {
+  border: solid #EA730C 1px;
+}

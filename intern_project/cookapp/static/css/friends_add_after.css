@@ -66,7 +66,8 @@ body{
     width:90%;
     margin:auto;
 }
-.footer{
-    width:80%;
+footer{
+    width:350px;
     margin:auto;
+    margin-top:40px;
 }

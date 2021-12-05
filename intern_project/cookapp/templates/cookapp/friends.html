@@ -3,64 +3,119 @@
 <!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
+
+    {% block extrastyle %}
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/friends.css' %}" />
+        <script type="text/javascript" src="{% static 'javascript/friends.js' %}"></script>
+
+    {% endblock extrastyle %}
 </head>
-<body>
-{% block header %}
-    
-    <form method = "post" enctype = "multipart/form-data" >{{form}}<button type="submit">検索</button>{% csrf_token %}</form>
 
-{% endblock header %}
+    {% block header %}
+      
+    <div class='header-form'>
+        <form method = "post" enctype = "multipart/form-data" >{{form.word}}<button type="submit" class='submit'><img src="{% static '../static/svg/グループ 236.svg' %}" class='submit-icon' /></button>{% csrf_token %}</form>
+            <a href='friends_list' class='friends-image'><img class='friends-image' src="{% static '../static/svg/グループ 508.svg' %}" /></a>
+        </div>
+        <div class='tabs'>
+            <ul class='tabs'>
+                <li id='all'>
+                    <img class='friendsall-img' id='all-img' src="{% static '../static/svg/アートワーク 38.svg' %}" />
+                    <img id='background1' src="{% static '../static/svg/アートワーク 42.svg' %}" />
+                </li>
+                <li id='like'>
+                    <img class='friendslike-img' id='like-img' src="{% static '../static/svg/アートワーク 40.svg' %}" />
+                    <img id='background2' src="{% static '../static/svg/アートワーク 42.svg' %}" />
+                </li>
+            </ul>
+        </div>
+    </div>   
+    {% endblock header %}
 
-{% block main %}
-  
-    {% if place %}
-    {% for p in place %} 
-    {% if p.image %}
-    <a class ="Link" href="{% url 'friends_content' p.id %}"><img src={{p.image.url}} alt="サンプル" width="40" height="40"></a>
-    {% endif %} 
-            {% endfor %}    
-            {% endif %}
-            {% if category %}
-            {% for c in category %} 
-            {% if c.image %}
-        <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" width="40" height="40"></a>
-            {% endif %} 
-            {% endfor %}    
+     
+    {% block main %}
+      
+    <div id='content-all'>
+        {% if place %}
+        {% for p in place %} 
+        {% if p.image %}
+                <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル"style='border-radius:10px;' width="80" height="80"></a>
+                {% endif %} 
+        {% endfor %}    
     {% endif %}
+    
+    {% if category %}
+        {% for c in category %} 
+        {% if c.image %}
+                <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                {% endif %} 
+        {% endfor %}    
+    {% endif %}
+    
     {% if friendslist %}
     {% for f in friendslist %}
-            {% if submission_exclude %}
-            {% for s in submission_exclude %}   
-                    {% if f.users == s.submissionconnection %} 
-                    {% if s.image %}
-                      
-                    <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" width="40" height="40"></a>          
-                    {% endif %}
+    {% if submission_exclude %}
+                {% for s in submission_exclude %}   
+                {% if f.users == s.submissionconnection %} 
+                {% if s.public_private == 11 %}
+                {% if s.image %}
+                            <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a> 
+                            {% endif %}
+                        {% endif %}         
                         {% endif %} 
-                        {% endfor %}
-                        {% endif %}
-        {% endfor %}
-        {% endif %}
-        {% if like %}
-        {% for l in like %}    
-            {% if l.submission.image %}
-                {% if l.submission.public_private == 11 %}
-                <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="40" height="40"></a>
-                {% endif %}
-            {% endif %} 
                 {% endfor %}
                 {% endif %}
+                {% endfor %}
+    {% endif %}
+    </div>
+    <div id='content-like'>
+        {% if place %}
+        {% for p in place %} 
+        {% if p.image %}
+                {% if like %}
+                {% for l in like %} 
+                {% if l.submission == p %}
+                            {% if l.submission.public_private == 11 %}
+                                {% if p.image %}
+                                <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル"style='border-radius:10px;' width="80" height="80"></a>
+                                {% endif %}
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %} 
+                                {% endif %}
+                                {% endfor %}    
+    {% endif %}
 
-{% endblock main %}
-
-<footer>
-    <p><a href="{% url 'friends' %}">{{'フレンズ'}}</a></p>
-    <p><a href="{% url 'home' %}">{{'ホーム'}}</a></p>
-    <p><a href="{% url 'submission' %}">{{'投稿'}}</a></p>
-    <p><a href="{% url 'friends_add_before' %}">{{'友達追加'}}</a></p>
-    <p><a href="{% url 'friends_list' %}">{{'友達一覧'}}</a></p>
-</footer>
-
-</body>
-</html>
+    {% if category %}
+    {% for c in category %} 
+    {% if c.image %}
+               {% if like %}
+               {% for l in like %} 
+                        {% if l.submission == c %}
+                            {% if l.submission.public_private == 11 %}
+                            <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                            {% endif %}
+                            {% endif %}
+                    {% endfor %}
+                    {% endif %} 
+                    {% endif %} 
+                    {% endfor %}    
+    {% endif %}
+    
+    
+    {% if like %}
+    {% for l in like %}    
+            {% if l.submission.image %}
+            {% if l.submission.public_private == 11 %}
+                    <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="80" height="80"></a>
+                    {% endif %}
+            {% endif %} 
+            {% endfor %}
+            {% endif %}
+        </div>
+        
+    {% endblock main %}
+   

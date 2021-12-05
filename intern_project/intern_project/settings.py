@@ -139,5 +139,12 @@ LOGIN_URL = 'login/'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'top'
 
+# ...
+try:
+    from .local_settings import *
+except ImportError:
+    # local_settings.py が存在しなくてもエラーにならないようにする
+    pass
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

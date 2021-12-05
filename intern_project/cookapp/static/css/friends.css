@@ -1,0 +1,73 @@
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+header{
+    height:100px;
+    background:#ea730c;
+    height:10%;
+    border-radius:0 0 30px 0;
+}
+.header-form{
+    display:flex;
+    justify-content:space-between;
+}
+.friends-image{
+    width:40px;
+    height:40px;
+    margin-top:5px;
+}
+.tabs{
+    display:flex;
+    justify-content:space-around;
+    width:100%;
+}
+.boxDisplay{
+    display:block;
+    border-radius:10px;
+    box-shadow:2px 2px 5px #929292; 
+
+}
+.boxNone{
+    display:none;
+}
+form{
+    height:30px;
+}
+body{
+    font-family:'源泉丸ゴシック';
+    width:375px;
+    height:812px;
+}
+.submit{
+    background-color:transparent;
+    border:none;
+    margin-left:-35px;
+}
+.submit-icon{
+    margin-bottom:-9px;
+}
+#id_word{
+    margin-top:10px;
+    width:300px;
+    border:none;
+    height:25px;
+    margin-left:20px;
+    border-radius:5px;
+}
+.contents{
+    width:95%;
+    margin:auto;
+    box-shadow:1px 1px 5px #929292;
+    height:90%;
+    border-radius:5px;
+    margin-top:5px;
+}
+.Link-img{
+    margin:3px;
+}
+footer{
+    width:90%;
+    margin:auto;
+    margin-top:40px;
+}
