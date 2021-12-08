@@ -29,6 +29,9 @@ body{
     align-items:center;
     box-shadow:0px 3px 3px #a8a7a7;
 }
+.add-doc{
+    padding-left:5.5px;
+}
 .add_button button{
     background-color:#ea730c;
     width:50px;
@@ -47,12 +50,13 @@ body{
     width:300px;
     background-color: #f8f8f8;
     border-radius:30px;
-    box-shadow:0px 4px 5px #a8a7a7;
+    filter:drop-shadow(0px 3px 6px #00000029);
     margin-bottom:20px;
     display:flex;
     justify-content:center;
     align-items:center;
     position: relative;
+    border:none;
 }
 .image_document{
     position: absolute;
@@ -63,6 +67,7 @@ body{
     position:absolute;
     width:300px;
     height:300px;
+    border:none;
 }
 #image-display_update{
     position:absolute;
@@ -73,6 +78,7 @@ body{
     top:0;
     left:0;
     border-radius:30px;
+    border:none;
 
 }
 #id_image{
@@ -82,60 +88,68 @@ body{
     height: 300px;
     opacity: 0;
     z-index: 1002;
+    border:none;
 }
 #id_public_private{
-    margin-bottom:10px;
+    margin-bottom:5px;
+    margin-top:5px;
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
     border-radius:5px;
-    box-shadow:0px 3px 3px #a8a7a7;
 }
 #id_date_year{
     width:70px;
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
-    box-shadow:0px 3px 3px #a8a7a7;
-    margin-bottom:10px;
+    margin-top:5px;
+    margin-bottom:5px;
     border-radius:5px;
 }
 #id_date_month{
     width:50px;
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
-    box-shadow:0px 3px 3px #a8a7a7;
-    margin-bottom:10px;
+    margin-bottom:5px;
+    margin-top:5px;
     border-radius:5px;
 }
 #id_date_day{
     width:50px;
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
-    box-shadow:0px 3px 3px #a8a7a7;
-    margin-bottom:10px;
+    margin-bottom:5px;
+    margin-top:5px;
     border-radius:5px;
 }
 #id_category{
-    margin-bottom:10px;
+    margin-bottom:5px;
+    margin-top:5px;
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
     border-radius:5px;
-    box-shadow:0px 3px 3px #a8a7a7;
 }
 #id_place{
     width:300px;
     background-color: #f8f8f8;
     border: 2px solid #f8f8f8;
-    box-shadow:0px 3px 3px #a8a7a7;
-    margin-bottom:10px;
+    margin-bottom:5px;
+    margin-top:5px;
     border-radius:5px;
+    padding:5px;
+}
+.place_doc{
+    font-size:12px;
+    color:#757575;
+    margin-bottom:20px;
 }
 #id_comment{
     width:300px;
     background-color:#f8f8f8;
     border: 2px solid #f8f8f8;
-    box-shadow:0px 3px 3px #a8a7a7;
     margin-bottom:10px;
-    border-radius:20px;
+    margin-top:5px;
+    border-radius:5px;
+    padding:5px;
 }
 footer{
     width:90%;

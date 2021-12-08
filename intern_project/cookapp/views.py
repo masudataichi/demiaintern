@@ -246,8 +246,8 @@ def friends_content(request,id):
         content.public_private = '公開'
     if content.public_private == 12:
         content.public_private = '非公開'
-    if Like.objects.filter(user=user,submission=content).exists():
-        like= Like.objects.get(user=user,submission=content)
+    if Like.objects.filter(user=request.user,submission=content).exists():
+        like= Like.objects.get(user=request.user,submission=content)
         params = {
             'content': content,
             'form': ThreadForm(),
