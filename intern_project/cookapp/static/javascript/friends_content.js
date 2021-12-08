@@ -25,11 +25,11 @@ for (var i = 0; i < unclick.length; i++){
         const doc = document.getElementsByClassName('unclicked-doc');
         for (var i = 0; i < doc.length; i++){
             doc[i].classList.toggle('active');
-        }
+        };
         const image = document.getElementsByClassName('form-image3');
         for (var i = 0; i < image.length; i++){
             image[i].classList.toggle('active');
-        }
+        };
         const form = document.getElementsByClassName('replyform');
         for (var i = 0; i < form.length; i++){
             form[i].classList.toggle('active');
