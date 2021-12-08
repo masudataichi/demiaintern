@@ -246,6 +246,18 @@ def friends_content(request,id):
         content.public_private = '公開'
     if content.public_private == 12:
         content.public_private = '非公開'
+    if Like.objects.filter(user=user,submission=content).exists():
+        like= Like.objects.get(user=user,submission=content)
+        params = {
+            'content': content,
+            'form': ThreadForm(),
+            'threadlist': threadlist,
+            'time': content.time,
+            'thread': thread,
+            'form1': form1,
+            'like': like,
+        }
+        return render(request, 'cookapp/friends_contents.html',params)
     params = {
         'content': content,
         'form': ThreadForm(),

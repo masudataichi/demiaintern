@@ -23,9 +23,11 @@
         <div class='like-ikons'>
             <form method="post" class='like-form'>
             {% csrf_token %}
+            {% if like %}
                 <button type="submit" class='like-button' name='like'>
                     <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2.svg' %}" onclick="henkou()"/>
-                </button>
+                </button>    
+            {% endif %}
             </form>    
         </div>   
     </div>
