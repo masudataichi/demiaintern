@@ -1,3 +1,4 @@
+{% extends 'cookapp/base.html' %}
 {% load static %} 
 {% load widget_tweaks %} 
 <!doctype html>
@@ -10,15 +11,19 @@
     <meta charset="utf-8">
 </head>
 <header>
+    {% block header %}
+    {% if user.icon %}
     <div class="header-icon"><a href=""><img src="{{user.icon.url}}" alt="" ></a></div>
+    {% endif %}
     <div class='user-name'>{{user.username}}</div>
+    {% endblock header %}
 </header>
 <body>
-    {% block header %}
 
 
 
-    {% endblock header %}
+
+
 
 
     {% block main %}
