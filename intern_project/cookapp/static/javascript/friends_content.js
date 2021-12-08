@@ -7,17 +7,6 @@ window.addEventListener('DOMContentLoaded', function(){
         this.classList.toggle("active");
     });
 });
-//いいね
-var img_src = new Array('/static/svg/コンポーネント 14 – 2.svg', '/static/svg/コンポーネント 14 – 2 (1).svg');
-var i = 0;
-function henkou(){
-    if(i == 1){
-        i = 0;
-    }else{
-        i++;
-    }
-    document.getElementById('like-ikon').src = img_src[i];
-}
 //第二次スレッド
 const unclick = document.getElementsByClassName('reply-trigger');
 for (var i = 0; i < unclick.length; i++){

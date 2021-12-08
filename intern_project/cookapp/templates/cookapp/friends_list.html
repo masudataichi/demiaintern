@@ -20,14 +20,14 @@
     {% if friendslist %}
         {% for f in friendslist %}
           {% if f.users == user %}     
-            {% if f.current_user.icon %}
                 <a href="{% url 'friends_profile' f.current_user.id %}" class="friends" style="cursor:default;color:inherit;text-decoration:none;">
                     <div class='friend'>
+                        {% if f.current_user.icon %} 
                         <img src="{{f.current_user.icon.url}}" alt="サンプル" style='border-radius:50px;' width="30" height="30">
+                        {% endif %}
                         <p>{{f.current_user.username}}</p>
                     </div>
                 </a>
-            {% endif %}
           {% endif %}
         {% endfor %}
     {% endif %}

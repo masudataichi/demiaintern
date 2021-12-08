@@ -36,6 +36,10 @@ class SubmissionForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     word = forms.CharField(max_length=100)
+
+    widgets = {
+        word:forms.TextInput(attrs={'placeholder':'カテゴリー、場所'})
+    }
     
 
 
