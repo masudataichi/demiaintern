@@ -10,27 +10,34 @@
 <body>
     <header>
         <div class='header-form'>
-            <form method = "post" enctype = "multipart/form-data" >{{form.word}}<button type="submit" class='submit'><img src="{% static '../static/svg/グループ 236.svg' %}" class='submit-icon' /></button>{% csrf_token %}</form>
+        {% csrf_token %}
+            <form method = "post" enctype = "multipart/form-data" >
+                {{ form.word }}
+                <button type="submit" class='submit'><img src="{% static '../static/svg/グループ 236.svg' %}" class='submit-icon' /></button>
+            </form>
             <a href='friends_list' class='friends-image'><img class='friends-image' src="{% static '../static/svg/グループ 508.svg' %}" /></a>
         </div>
         <div class='tabs'>
             <ul class='tabs'>
                 <li id='all'>
-                    <img class='friendsall-img' id='all-img' src="{% static '../static/svg/アートワーク 38.svg' %}" />
+                    <img class='friendsall-img1' id='all-img1' src="{% static '../static/svg/アートワーク 38.svg' %}" />
+                    <img class='friendsall-img2' id='all-img2' src="{% static '../static/svg/アートワーク 37.svg' %}" />
                     <img id='background1' src="{% static '../static/svg/アートワーク 42.svg' %}" />
                 </li>
                 <li id='like'>
-                    <img class='friendslike-img' id='like-img' src="{% static '../static/svg/アートワーク 40.svg' %}" />
+                    <img class='friendslike-img1' id='like-img1' src="{% static '../static/svg/アートワーク 40.svg' %}" />
+                    <img class='friendslike-img2' id='like-img2' src="{% static '../static/svg/アートワーク 31.svg' %}" />
                     <img id='background2' src="{% static '../static/svg/アートワーク 42.svg' %}" />
                 </li>
             </ul>
         </div>
     </header>
     <div id='content-all'>
-    {% if place %}
+        <div class='content-all_inner'>
+            {% if place %}
         {% for p in place %} 
             {% if p.image %}
-                <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル"style='border-radius:10px;' width="80" height="80"></a>
+                <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
             {% endif %} 
         {% endfor %}    
     {% endif %}
@@ -56,9 +63,11 @@
             {% endif %}
         {% endfor %}
     {% endif %}
+        </div>
     </div>
     <div id='content-like'>
-    {% if place %}
+        <div class='content-like_inner'>
+            {% if place %}
         {% for p in place %} 
             {% if p.image %}
                 {% if like %}
@@ -95,20 +104,23 @@
         {% for l in like %}    
             {% if l.submission.image %}
                 {% if l.submission.public_private == 11 %}
-                    <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="80" height="80"></a>
+                    <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} style='border-radius:10px;' alt="サンプル" width="80" height="80"></a>
                 {% endif %}
             {% endif %} 
         {% endfor %}
     {% endif %}
+        </div>
     </div>
 
     <footer>
+        <!------------- ここが引き継がれる -------------------------------->
         <div class="footer-container">
-                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
+                <div class="footer-button" ><a href="{% url 'home' %}"><img src="{% static '../static/svg/home_orange.svg' %}" alt="" id="button1"></a></div>
+                <div class="footer-button" ><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt="" id="button2"></a></div>
+                <div class="footer-button" ><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt="" id="button3"></a></div>
+                <div class="footer-button" ><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt="" id="button4"></a></div>
         </div>
+        <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
     </footer>
 </body>
 

@@ -7,17 +7,6 @@ window.addEventListener('DOMContentLoaded', function(){
         this.classList.toggle("active");
     });
 });
-//いいね
-var img_src = new Array('/static/svg/コンポーネント 14 – 2.svg', '/static/svg/コンポーネント 14 – 2 (1).svg');
-var i = 0;
-function henkou(){
-    if(i == 1){
-        i = 0;
-    }else{
-        i++;
-    }
-    document.getElementById('like-ikon').src = img_src[i];
-}
 //第二次スレッド
 const unclick = document.getElementsByClassName('reply-trigger');
 for (var i = 0; i < unclick.length; i++){
@@ -25,11 +14,11 @@ for (var i = 0; i < unclick.length; i++){
         const doc = document.getElementsByClassName('unclicked-doc');
         for (var i = 0; i < doc.length; i++){
             doc[i].classList.toggle('active');
-        }
+        };
         const image = document.getElementsByClassName('form-image3');
         for (var i = 0; i < image.length; i++){
             image[i].classList.toggle('active');
-        }
+        };
         const form = document.getElementsByClassName('replyform');
         for (var i = 0; i < form.length; i++){
             form[i].classList.toggle('active');
