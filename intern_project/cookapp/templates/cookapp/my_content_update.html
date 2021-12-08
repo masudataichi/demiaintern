@@ -27,8 +27,8 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="content-image" >
-                <input type="file" name="{{ form.image.html_name }}" accept="image/*" required="" id="{{ form.image.id_for_label }}" style="display: none;">
                 <label for="{{ form.image.id_for_label }}"><img src="{{form.image.value.url}}" id="image_preview"></label>
+                <input type="file" name="{{ form.image.html_name }}" accept="image/*" id="{{ form.image.id_for_label }}" style="display: none;">
             </div>
             <div class="public-private">{{ form.public_private }}</div>
             <div class="category fields">{{ form.category|add_class:'form-width' }}</div>

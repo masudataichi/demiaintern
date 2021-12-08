@@ -562,3 +562,11 @@ footer {
 .footer-image {
     z-index: 8;
 }
+
+/* error message */
+
+.form-error {
+  width: 90%;
+  color: red;
+  margin-top: 10px;
+}
