@@ -23,7 +23,13 @@
             <div class="">アカウント情報</div>    
             <div class=""><a href="{% url 'user_update' user.id %}"><img src="{% static 'svg/グループ 325(orange).svg' %}" alt="" ></a></div>
         </div>
-        <div class="icon"><img src="../media/{{user.icon}}" alt="" ></div>
+        <div class="icon">
+            {% if user.icon %}
+                <img src="../media/{{user.icon}}" alt="" >
+            {% else %}
+                <img src="{% static 'png/グループ 481.png' %}" alt="">
+            {% endif %}
+        </div>
         <div class="name-container">
             <div class="font-small">名前</div>
             <div class="font-big">{{user.username}}</div>
