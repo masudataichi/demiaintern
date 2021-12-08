@@ -27,13 +27,19 @@ class SubmissionForm(forms.ModelForm):
 
         #追記（臼杵）
         widgets = {
-            'comment': forms.Textarea(attrs={'rows':16, 'cols':15}),
-            'date': forms.SelectDateWidget(years=[x for x in range(1990, 2030)], months=MONTHS) #追記　エガワ
+            'comment': forms.Textarea(attrs={'rows':7, 'cols':15}),
+            'date': forms.SelectDateWidget(years=[x for x in range(1990, 2030)], months=MONTHS), #追記　エガワ
+            'place': forms.TextInput(attrs={'placeholder': '場所を入力'}),
+
         }
 
 
 class SearchForm(forms.Form):
     word = forms.CharField(max_length=100)
+
+    widgets = {
+        word:forms.TextInput(attrs={'placeholder':'カテゴリー、場所'})
+    }
     
 
 

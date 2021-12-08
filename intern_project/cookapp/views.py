@@ -101,6 +101,9 @@ def home(request):
 @login_required
 def friends(request):
     user = request.user
+    params ={
+        'form':SearchForm,
+    }
     if request.method == 'POST':
         word = request.POST['word']
         if word == '和食':
@@ -127,14 +130,16 @@ def friends(request):
             word = 21
         if word == 'その他':
             word = 22
+        print(word)
         place = Submission.objects.filter(place__icontains=word)
-        print(place)
         category = Submission.objects.filter(category__icontains=word)
+        print(category)
         params ={
             'form':SearchForm,
             'category':category,
             'place':place,
         }
+        return render(request, 'cookapp/friends.html', params)
     if Friends.objects.filter(current_user = request.user).exists():
         friendslist = Friends.objects.filter(current_user = request.user)
         if Submission.objects.exclude(submissionconnection = user).exists():
@@ -157,7 +162,7 @@ def friends(request):
                 }
                 return render(request, 'cookapp/friends.html',params)
             return render(request, 'cookapp/friends.html',params)
-    return render(request, 'cookapp/friends.html')
+    return render(request, 'cookapp/friends.html', params)
 @login_required
 def SubmissionView(request):
     params = {
@@ -241,6 +246,18 @@ def friends_content(request,id):
         content.public_private = '公開'
     if content.public_private == 12:
         content.public_private = '非公開'
+    if Like.objects.filter(user=request.user,submission=content).exists():
+        like= Like.objects.get(user=request.user,submission=content)
+        params = {
+            'content': content,
+            'form': ThreadForm(),
+            'threadlist': threadlist,
+            'time': content.time,
+            'thread': thread,
+            'form1': form1,
+            'like': like,
+        }
+        return render(request, 'cookapp/friends_contents.html',params)
     params = {
         'content': content,
         'form': ThreadForm(),
@@ -437,7 +454,7 @@ def friends_add_after(request, userID):
         'myuserID': myuserID,
         'friends': to_user,
     }
-    
+     
     if request.method == 'POST':
         print('OK')
         friends, created = Friends.objects.get_or_create(
@@ -449,7 +466,7 @@ def friends_add_after(request, userID):
             users = from_user,
         )
 
-        return redirect('home')
+        return redirect('friends_profile', id=to_user.id)
 
     return render(request, 'cookapp/friends_add_after.html', params)
 @login_required

@@ -1,22 +1,21 @@
-{% extends "cookapp/base.html" %}
+{% extends 'cookapp/base.html' %}
 {% load static %} 
 {% load widget_tweaks %} 
 <!doctype html>
 <html lang="ja">
-<head>
-    {% block extrastyle %}
-        <link rel="stylesheet" href="../static/css/friends_profile.css">
-    {% endblock extrastyle %}
-</head>
+  {% block extrastyle %}
+  
+  <link rel="stylesheet" href="../static/css/friends_profile.css">
+  
+  {% endblock extrastyle %}
 
-<body>
-    {% block header %}
-
-        <div class="header-icon"><a href=""><img src="{{user.icon.url}}" alt="" ></a></div>
-        <div class='user-name'>{{user.username}}</div>
-
-    {% endblock header %}
-
+  
+{% block header %}
+    {% if user.icon %}
+    <div class="header-icon"><a href=""><img src="{{user.icon.url}}" alt="" ></a></div>
+    {% endif %}
+    <div class='user-name'>{{user.username}}</div>
+{% endblock header %}
 
     {% block main %}
         <div class="main-wraper">

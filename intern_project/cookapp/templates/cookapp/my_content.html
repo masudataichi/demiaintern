@@ -14,12 +14,14 @@
 {% block header %}
 
         <div class='user'>
+            <a href="{% url 'home' %}" class='user' style="text-decoration:none;" >
                 <div class="user-icon">
                     {% if user.icon %}
                     <img src={{user.icon.url}} alt="サンプル" style=border-radius:50px; width="40" height="40">
                     {% endif %}
                 </div>
                 <div class="user-name">{{user.username}}</div>
+            </a>
         </div>
         <div class="options">
             <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'svg/グループ 319.svg' %}"/></a></p>
@@ -72,7 +74,9 @@
         {% for thread in thread %}
         <div class="threadform">
             <div class='thread1-display'>
+                {% if thread.threadconnection_user.icon %}
                 <img src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
+                {% endif %}
                 <p class='thread1-doc'>{{ thread.threadconnection_user.username }}:</p>
                 <p class='thread1-thread'>{{thread.thread}}</p>
             </div>
@@ -82,7 +86,7 @@
             </button>
             <form method="post" class="replyform" id='clicked'>
                 <div class='replyform-content'>
-                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button>
+                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='delete\Icon' src="{% static 'svg/パス 335.svg' %}" /></button>
                     <div class='replyform-thread'>{{form1.threadlist}}</div>
                 </div>
                 {% csrf_token %}
@@ -92,7 +96,9 @@
                 {% for threadlist in threadlist %}
                 {% if threadlist.threadlistconnection_thread == thread %}
                 <div class="thread2_content">
+                    {% if threadlist.threadlistconnection_user.icon %}
                     <img src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='20px' width='20px'/>
+                    {% endif %}
                     {{threadlist.threadlistconnection_user.username}}:
                     {{threadlist.threadlist}}
                 </div>

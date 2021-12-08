@@ -11,8 +11,7 @@
 
 {% endblock extrastyle %}
 
-<body>
-    {% block header %}
+{% block header %}
     
         <div class="title-and-arrow">
             <a href="{% url 'home' %}"><img class='arrow-img' src="{% static 'svg/←(黒).svg' %}" /></a>
@@ -41,5 +40,3 @@
     {% endblock main %}
 
 </body>
-
-</html>

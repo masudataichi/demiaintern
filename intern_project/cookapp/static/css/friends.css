@@ -15,7 +15,7 @@ header{
 .friends-image{
     width:40px;
     height:40px;
-    margin-top:5px;
+    margin-top:2px;
 }
 .tabs{
     display:flex;
@@ -25,14 +25,15 @@ header{
 .boxDisplay{
     display:block;
     border-radius:10px;
-    box-shadow:2px 2px 5px #929292; 
-
+    box-shadow:2px 2px 5px #00000029; 
+    border:none;
 }
 .boxNone{
     display:none;
 }
 form{
     height:30px;
+    display:flex;
 }
 body{
     font-family:'源泉丸ゴシック';
@@ -45,7 +46,7 @@ body{
     margin-left:-35px;
 }
 .submit-icon{
-    margin-bottom:-9px;
+    margin-bottom:-15px;
 }
 #id_word{
     margin-top:10px;
@@ -55,19 +56,68 @@ body{
     margin-left:20px;
     border-radius:5px;
 }
-.contents{
-    width:95%;
-    margin:auto;
-    box-shadow:1px 1px 5px #929292;
-    height:90%;
-    border-radius:5px;
-    margin-top:5px;
+#all{
+    position:relative;
+    margin-right:100px;
+}
+#like{
+    position:relative;
+    margin-right:100px;
+}
+#all-img1,#all-img2,#background1{
+    position:absolute;
+}
+#like-img1,#like-img2,#background2{
+    position:absolute;
+}
+#all-img1,#all-img2{
+    margin-left:36.5px;
+    z-index:2;
+    margin-top:10px;
+}
+#like-img1,#like-img2{
+    margin-left:36.5px;
+    z-index:2;
+    margin-top:10px;
+}
+#background1,#background2{
+    z-index:1;
+}
+.imgDisplay{
+    display:block;
+}
+.imgNone{
+    display:none;
 }
 .Link-img{
     margin:3px;
 }
-footer{
-    width:90%;
-    margin:auto;
-    margin-top:40px;
+
+.content-all_inner{
+    padding:10px 10px 10px 15px;
 }
+.content-like_inner{
+    padding:10px 10px 10px 15px;
+}
+footer {
+    position: fixed;
+    bottom: 10px;
+    width: 376px;
+}
+
+.footer-container {
+    display: flex;
+    margin: 0 auto;
+    width: 93.5%;
+    background-color:#fff;
+    border-radius: 8% / 50%;
+    position: relative;
+    z-index: 10;
+    -webkit-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    -moz-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    -ms-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+}
+
+.footer-button {
+    width: 25%;
