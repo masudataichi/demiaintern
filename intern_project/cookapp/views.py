@@ -188,8 +188,8 @@ def friends_content(request,id):
     content.time = content.time + 1
     content.save()
     threadlist = Thread.objects.filter(threadconnection_image = content)
-    if request.method == 'POST':
-        content = Submission.objects.get(id = id)
+
+
     thread = Thread.objects.filter(threadconnection_image = content)
     threadlist = Threadlist.objects.all()
     form1 = ThreadlistForm()
@@ -202,6 +202,7 @@ def friends_content(request,id):
                 form.threadconnection_image = content
                 form.threadconnection_user = request.user
                 form.save()
+                return redirect('friends_content', content.id)
         elif 'th' in request.POST:
                 print(type(request.POST['th']))
                 number = int(request.POST['th'])
@@ -212,13 +213,16 @@ def friends_content(request,id):
                     form2.threadlistconnection_thread = thread[number]
                     form2.threadlistconnection_user = request.user
                     form2.save()
+                    return redirect('friends_content', content.id)
         if 'like' in request.POST:
             user = request.user
             if Like.objects.filter(user=user,submission=content).exists():
                 like= Like.objects.get(user=user,submission=content)
                 like.delete()
+                return redirect('friends_content', content.id)
             else:
                 Like.objects.create(user=user,submission = content)
+                return redirect('friends_content', content.id)
                 
     if content.category == 11:
         content.category = '和食'

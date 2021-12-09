@@ -13,7 +13,7 @@
 
 {% block header %}
             <div class="header-container">
-                <a class = "Link" href="{% url 'friends_profile' content.submissionconnection.id %}" class='friends-image'><img src="{% static 'svg/← (2).svg' %}" class='header-image'/></a>
+                <a class = "Link" class='friends-image' id="before_page" onclick="window.history.back(); return false;"><img src="{% static 'svg/← (2).svg' %}" class='header-image'/></a>
                 {% if user.icon %}
                 <div class="header-icon"><a href=""><img src="{{content.submissionconnection.icon.url}}" style='border-radius:50px;' width="30" height="30"></a></div>
                 {% endif %}

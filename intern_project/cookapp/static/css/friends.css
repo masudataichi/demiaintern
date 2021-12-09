@@ -99,25 +99,59 @@ body{
 .content-like_inner{
     padding:10px 10px 10px 15px;
 }
+
 footer {
     position: fixed;
     bottom: 10px;
     width: 376px;
 }
 
-.footer-container {
-    display: flex;
-    margin: 0 auto;
-    width: 93.5%;
-    background-color:#fff;
-    border-radius: 8% / 50%;
-    position: relative;
-    z-index: 10;
-    -webkit-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
-    -moz-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
-    -ms-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
-    filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
-}
-
 .footer-button {
     width: 25%;
+}
+
+
+/* 友達の投稿がない時 */
+.friends_blank  {
+    position: relative;
+    left: -28px;
+    top: 8px;
+    z-index: 1;
+}
+
+.blank-message-1 {
+    position: absolute;
+    z-index: 5;
+    top: 70px;
+    left: 95px;
+}
+
+.blank-message-2 {
+    position: absolute;
+    z-index: 5;
+    top: 100px;
+    left: 90px;
+}
+
+
+/* お気に入りがないとき */
+.like-message-1 {
+    position: absolute;
+    z-index: 5;
+    top: 70px;
+    left: 70px;
+}
+
+.like-message-2 {
+    position: absolute;
+    z-index: 6;
+    top: 140px;
+    left: 20px;
+}
+
+.like-message-3 {
+    position: absolute;
+    z-index: 6;
+    bottom: 70px;
+    right: 55px;
+}

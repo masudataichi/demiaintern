@@ -522,10 +522,8 @@ main {
     border-radius: 20px;
     margin-top: 24px;
     padding: 24px 19px;
-    -webkit-filter:drop-shadow(1px 3px 5px #DECEB7(0, 0, 0, 0.2));
-    -moz-filter:drop-shadow(1px 3px 5px #DECEB7(0, 0, 0, 0.2));
-    -ms-filter:drop-shadow(1px 3px 5px #DECEB7(0, 0, 0, 0.2));
-    filter:drop-shadow(1px 3px 5px #DECEB7(0, 0, 0, 0.2));
+    filter:drop-shadow(0px 2px 6px #DECEB7);
+
 }
 
 .url {
