@@ -40,7 +40,7 @@
             <div class="image_date">{{content.date}}</div>
             <div class="image_place"><img id="image-display_origin3" src="{% static 'svg/グループ 271.svg' %}"/>{{content.place}}</div>
             <div class="image_category">
-                <p>{{content.category}}</p>
+                <p class='image_category_doc'>{{content.category}}</p>
             </div>
         </div>
         <div class="image-detail_2">
@@ -75,7 +75,7 @@
         <div class="threadform">
             <div class='thread1-display'>
                 {% if thread.threadconnection_user.icon %}
-                <img src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
+                <img class='thread1-img' src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
                 {% endif %}
                 <p class='thread1-doc'>{{ thread.threadconnection_user.username }}:</p>
                 <p class='thread1-thread'>{{thread.thread}}</p>
@@ -97,10 +97,10 @@
                 {% if threadlist.threadlistconnection_thread == thread %}
                 <div class="thread2_content">
                     {% if threadlist.threadlistconnection_user.icon %}
-                    <img src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='20px' width='20px'/>
+                    <img class='thread2-img' src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='20px' width='20px'/>
                     {% endif %}
-                    {{threadlist.threadlistconnection_user.username}}:
-                    {{threadlist.threadlist}}
+                    <div class='thread2-doc'>{{threadlist.threadlistconnection_user.username}}:</div>
+                    <div class='thread2-thread'>{{threadlist.threadlist}}</div>
                 </div>
                 {% endif %}
                 {% endfor %}
