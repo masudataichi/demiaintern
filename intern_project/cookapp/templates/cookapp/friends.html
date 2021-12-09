@@ -1,14 +1,20 @@
+{% extends "cookapp/base.html" %}
 {% load static %}
 <!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/friends.css' %}" />
-    <script type="text/javascript" src="{% static 'javascript/friends.js' %}"></script>
+
+    {% block extrastyle %}
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/friends.css' %}" />
+        <script type="text/javascript" src="{% static 'javascript/friends.js' %}"></script>
+
+    {% endblock extrastyle %}
 </head>
-<body>
-    <header>
+    {% block header %}
+      
+    
         <div class='header-form'>
         {% csrf_token %}
             <form method = "post" enctype = "multipart/form-data" >
@@ -105,24 +111,13 @@
                         {% if l.submission.image %}
                             {% if l.submission.public_private == 11 %}
                                 <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} style='border-radius:10px;' alt="サンプル" width="80" height="80"></a>
-                            {% endif %}
-                        {% endif %} 
-                    {% endfor %}
-                {% endif %}
+
+    </div>   
+    {% endblock header %}
+    {% block main %}
+    {% endif %}
             </div>
         </div>
-    <footer>
-        <div class="footer-container">
-                <div class="footer-button" ><a href="{% url 'home' %}"><img src="{% static '../static/svg/home_orange.svg' %}" alt="" id="button1"></a></div>
-                <div class="footer-button" ><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt="" id="button2"></a></div>
-                <div class="footer-button" ><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt="" id="button3"></a></div>
-                <div class="footer-button" ><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt="" id="button4"></a></div>
-        </div>
-    </footer>
     </main>
 </body>
-
-
-</footer>
-
-</body>
+    {% endblock main %}
