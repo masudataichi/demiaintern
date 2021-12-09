@@ -36,6 +36,7 @@ from django.db.models import Q
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import EmailAuthenticationForm
+from django.contrib.staticfiles.storage import staticfiles_storage
 
 # Create your views here.
 def top(request):
@@ -64,6 +65,7 @@ class SignupView(CreateView):
     def form_valid(self,form):
         user = form.save(commit = False)
         user.userID = get_random_string(15)
+        user.icon = 'ジバニャン.jpg'
         user.save()
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
@@ -374,8 +376,8 @@ def setting(request):
 
 class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = User
+    form_class = SignupForm
     template_name = 'cookapp/user_update.html'
-    fields = ['username','email','icon']
     success_url = reverse_lazy('setting_complete')
 @login_required
 def user_delete(request):

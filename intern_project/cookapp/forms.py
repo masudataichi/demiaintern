@@ -20,9 +20,9 @@ class SubmissionForm(forms.ModelForm):
         fields = ['image','category','public_private','date','place','comment']
         
         MONTHS = { 
-            1: '/ 1 /', 2: '/ 2 /', 3: '/ 3 /', 4: '/ 4 /',
-            5: '/ 5 /', 6: '/ 6 /', 7: '/ 7 /', 8: '/ 8 /',
-            9: '/ 9 /', 10: '/ 10 /', 11: '/ 11 /', 1/2: '/ 12 /'
+            1: ' 1 ', 2: ' 2 ', 3: ' 3 ', 4: ' 4 ',
+            5: ' 5 ', 6: ' 6 ', 7: ' 7 ', 8: ' 8 ',
+            9: ' 9 ', 10: ' 10 ', 11: ' 11 ', 12: ' 12 '
         }
 
         #追記（臼杵）
@@ -45,10 +45,34 @@ class SearchForm(forms.Form):
 
 
 class SignupForm(UserCreationForm):
-
     class Meta:
         model = User
         fields = ['username','email','password1','password2','icon']
+
+    error_messages = {
+        'password_mismatch': ('入力されたパスワードが一致していません。'),
+        'email_error':('そのメールアドレスは既に使用されています。'),
+        'username_error':('そのユーザーネームは既に使用されています。')
+    }
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        User.objects.filter(email=email, is_active=False).delete()
+        if User.objects.filter(email=email).count() != 0:
+            raise forms.ValidationError(
+                "このメールアドレスは既に使用されています。"
+                )
+        return email
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        User.objects.filter(username=username, is_active=False).delete()
+        if User.objects.filter(username=username).count() != 0:
+            raise forms.ValidationError(
+                "このユーザー名は既に使用されています。"
+                )
+        return username
+
 
 class ThreadForm(forms.ModelForm):
     class Meta:
@@ -67,6 +91,10 @@ class FriendsForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['userID']
+
+        widgets = {
+            'userID':forms.TextInput(attrs={'placeholder': '友達のIDを入力してください'})
+        }
 
 class PasswordForm(PasswordChangeForm):
     new_password1 = forms.CharField(

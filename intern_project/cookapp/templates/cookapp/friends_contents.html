@@ -1,11 +1,16 @@
+{% extends 'cookapp/base.html' %}
 {% load static %}
 {% load widget_tweaks %}
 <!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="utf-8">
+{% block extrastyle %}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/friends_content.css' %}" />
+  
+  {% endblock extrastyle %}
+
+
 </head>
 <header>
     {% block header %}
@@ -19,6 +24,15 @@
     {% endblock header %}
 </header>
 <body>
+
+
+
+
+
+    
+{% block main %}
+
+
     <div class="content-image">
         <img src={{content.image.url}} alt="サンプル" style='border-radius:30px;' width="350" height="350"/>
         <div class='like-ikons'>
@@ -26,11 +40,11 @@
             {% csrf_token %}
             {% if like %}
                 <button type="submit" class='like-button' name='like'>
-                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2.svg' %}"/>
+                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2 (1).svg' %}"/>
                 </button>    
             {% else %}
                 <button type="submit" class='like-button' name='like'>
-                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2 (1).svg' %}"/>
+                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2.svg' %}"/>
                 </button>  
             {% endif %}
             </form>    
@@ -40,7 +54,7 @@
         <div class="content-detail1">
             <div class='content-date'>{{content.date}}</div>
             <div class="content-place"><img id="image-display_origin3" src="{% static 'svg/グループ 271.svg' %}"/>{{content.place}}</div>
-            <div class="content-category"><p>{{content.category}}</p></div>
+            <div class="content-category"><p class='content-category_doc'>{{content.category}}</p></div>
         </div>
         <div class="content-detail2">
             {{content.comment}}
@@ -69,12 +83,12 @@
         <div class="threadform">
             <div class='thread1-display'>
                 {% if thread.threadconnection_user.icon %}
-                <img src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
+                <img class='thread1-img' src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
                 {% endif %}
                 <p class='thread1-doc'>{{ thread.threadconnection_user.username }}:</p>
                 <p class='thread1-thread'>{{thread.thread}}</p>
             </div>
-            <button class='reply-trigger' id='unclicked'>
+            <button class='reply-trigger' id='unclicked' >
                 <p id='doc' class='unclicked-doc'>返信する</p>
                 <img class='form-image3' id='img' src="{% static 'svg/グループ 352.svg' %}" />
             </button>
@@ -91,24 +105,21 @@
                 {% if threadlist.threadlistconnection_thread == thread %}
                 <div class="thread2_content">
                     {% if threadlist.threadlistconnection_user.icon %}
-                    <img src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='20px' width='20px'/>
+                    <img class='thread2-img' src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='20px' width='20px'/>
                     {% endif %}
-                    {{threadlist.threadlistconnection_user.username}}:
-                    {{threadlist.threadlist}}
+                    <div class="thread2-doc">{{threadlist.threadlistconnection_user.username}}:</div>
+                    <div class="thread2-thread">{{threadlist.threadlist}}</div>
                 </div>
                 {% endif %}
                 {% endfor %}
             </div>
         {% endfor %}
     </div>
+
+{% endblock main %}
+
+
+{% block script %}
     <script type="text/javascript" src="{% static 'javascript/friends_content.js' %}"></script>
-</body>
-    <footer>
-        <div class="footer-container">
-                <div class="footer-button"><a href="{% url 'home' %}"><img src="{% static '../static/svg/home.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt=""></a></div>
-                <div class="footer-button"><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt=""></a></div>
-        </div>
-    </footer>
+{% endblock script %}
 </html>

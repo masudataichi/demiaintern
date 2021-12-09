@@ -499,9 +499,10 @@ form {
     width: 95%;
     background-color: #e4e4e4;
     border-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: none;
     height: 1.7rem;
+    padding-left: 10px;
 
 }
 
@@ -538,4 +539,13 @@ footer {
 
 .footer-image {
     z-index: 8;
+}
+
+
+/* error message */
+
+.form-error {
+  width: 90%;
+  color: red;
+  margin-top: 10px;
 }
