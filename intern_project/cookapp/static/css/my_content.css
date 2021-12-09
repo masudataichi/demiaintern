@@ -160,13 +160,19 @@ header{
 .form-image{
     padding-bottom:20px;
 }
+.form-image1{
+    padding-bottom:20px;
+}
+.form-image1.active{
+    margin-top:2px;
+}
 #id_thread{
-    margin-left:4px;
+    margin-left:15px;
+    width:100%;
     border-top:none;
     border-left:none;
     border-right:none;
     border-bottom:1px solid #e2e1e1;
-
 }
 .thread1-display{
     display:flex;

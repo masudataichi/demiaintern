@@ -133,6 +133,7 @@ body{
 }
 .form-image1{
     transform:rotate(45deg);
+    margin-bottom:5px;
 }
 .form-image1.active{
     transform:rotate(90deg);
@@ -157,11 +158,12 @@ body{
     border:none;
 }
 #id_thread{
-    margin-left:4px;
+    margin-left:15px;
     border-top:none;
     border-left:none;
     border-right:none;
     border-bottom:1px solid #e2e1e1;
+    width:100%;
 
 }
 .replyform{
