@@ -14,13 +14,14 @@
 {% block header %}
     
         <div class="title-and-arrow">
-            <a href="{% url 'home' %}"><img class='arrow-img' src="{% static 'svg/←(黒).svg' %}" /></a>
+            <a href="{{request.META.HTTP_REFERER}}"><img class='arrow-img' src="{% static 'svg/←(黒).svg' %}" /></a>
             <h1 class='title'>友だち</h1>
         </div>
         <div class="number-of-friends">{{number}}人</div>
     {% endblock header %}
 
 {% block main %}
+
 
     {% if friendslist %}
         {% for f in friendslist %}

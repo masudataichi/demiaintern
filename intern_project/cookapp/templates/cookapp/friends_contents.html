@@ -7,21 +7,31 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/friends_content.css' %}" />
+  
+  {% endblock extrastyle %}
 
 
-{% endblock extrastyle %}
+</head>
+<header>
+    {% block header %}
+        <div class="header-container">
+            <a class = "Link" href="{{request.META.HTTP_REFERER}}" class='friends-image'><img src="{% static 'svg/← (2).svg' %}" class='header-image'/></a>
+    {% if content.submissionconnection.icon %}
+            <div class="header-icon"><a href=""><img src="{{content.submissionconnection.icon.url}}" style='border-radius:50px;' width="30" height="30"></a></div>
+    {% endif %}
+            <div class="header-name" >{{content.submissionconnection.username}}<div>
+        </div>
+    {% endblock header %}
+</header>
+<body>
 
-{% block header %}
-            <div class="header-container">
-                <a class = "Link" class='friends-image' id="before_page" onclick="window.history.back(); return false;"><img src="{% static 'svg/← (2).svg' %}" class='header-image'/></a>
-                {% if user.icon %}
-                <div class="header-icon"><a href=""><img src="{{content.submissionconnection.icon.url}}" style='border-radius:50px;' width="30" height="30"></a></div>
-                {% endif %}
-                <div class="header-name" >{{content.submissionconnection.username}}<div>
-            </div>
-{% endblock header %}
-    
+
+
+
+
+
 {% block main %}
+
 
     <div class="content-image">
         <img src={{content.image.url}} alt="サンプル" style='border-radius:30px;' width="350" height="350"/>

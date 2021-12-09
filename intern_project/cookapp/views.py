@@ -1,5 +1,6 @@
 
 
+
 from django.db import models
 
 from django.forms.utils import pretty_name
@@ -478,6 +479,7 @@ def friends_add_after(request, userID):
 @login_required
 def setting_complete(request):
     return render(request, 'cookapp/setting_complete.html')
+
 
 
 
