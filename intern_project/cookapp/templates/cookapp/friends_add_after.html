@@ -20,20 +20,21 @@
 
 {% block main %}
 
+    
     <div class="friend_add_field">
         {% if friends.icon %}
-        <p class="friendimage"><img src={{friends.icon.url}} alt="サンプル" style="border-radius:50%; height:100px; width:100px;"></p>
+        <div class="friendimage"><img src={{friends.icon.url}} alt="サンプル" style="border-radius:50%; height:180px; width:180px;"></div>
         {% endif %}
-        <p class="friendID">{{friends.userID}}</p>
+        <div class="friendID">{{friends.username}}</div>
         <form method="post" enctype="multipart/form-data" class="addfriend">
             {% csrf_token %}
             <button type="submit" class="submit">追加する</button>
         </form>
     </div>
     <div class="myfield">
-        <h2 class="myfield_title">あなたのID</h2>
-        <p class="myfield_ID">{{myuserID}}</p>
-        <p class="myfield_doc">友達の検索ボックスに、大文字と小文字を区別して正確に入力して下さい</p>
+        <div class="myfield_title">あなたのID</div>
+        <div class="myfield_ID">{{myuserID}}</div>
+        <div class="myfield_doc">友達の検索ボックスに、大文字と小文字を区別して正確に入力して下さい</div>
     </div>
     
 {% endblock main %}

@@ -15,12 +15,13 @@
 
    {% block main %}
 
-        <form action="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="buttons-wrapper">
                 <p class="message"><a href="{% url 'setting' %}">アカウントを削除しますか？</a></p>
                 <div class="button-flex">
                     <div class="button-cancel" id=""><a href="{% url 'setting' %}">キャンセル</a></div>
-                    <div class="button-delete"><input type="button" value="削除"></div>
+                    <div class="button-delete"><button type="submit" >削除</div>
                 </div>
             </div>
         </form>
