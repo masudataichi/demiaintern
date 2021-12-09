@@ -405,7 +405,7 @@ def friends_add_before(request):
     }
     if request.method == 'POST':
         form = FriendsForm(request.POST)
-        if request.user != request.POST['userID']:
+        if request.user.userID != request.POST['userID']:
             if form.is_valid():
                 form = form.save(commit=False)
                 if User.objects.filter(userID = form.userID).exists():
