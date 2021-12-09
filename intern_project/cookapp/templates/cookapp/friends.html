@@ -32,96 +32,94 @@
             </ul>
         </div>
     </header>
-    <div id='content-all'>
-        <div class='content-all_inner'>
-            {% if place %}
-        {% for p in place %} 
-            {% if p.image %}
-                <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
-            {% endif %} 
-        {% endfor %}    
-    {% endif %}
-
-    {% if category %}
-        {% for c in category %} 
-            {% if c.image %}
-                <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
-            {% endif %} 
-        {% endfor %}    
-    {% endif %}
-
-        {% if friendslist %}
-        {% for f in friendslist %}
-            {% if submission_exclude %}
-                {% for s in submission_exclude %}   
-                    {% if f.users == s.submissionconnection %} 
-                        {% if s.public_private == 11 %}
-                            <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a> 
-                        {% endif %}         
-                    {% endif %} 
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-        </div>
-    </div>
-    <div id='content-like'>
-        <div class='content-like_inner'>
-            {% if place %}
-        {% for p in place %} 
-            {% if p.image %}
-                {% if like %}
-                    {% for l in like %} 
-                        {% if l.submission == p %}
-                            {% if l.submission.public_private == 11 %}
-                                <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル"style='border-radius:10px;' width="80" height="80"></a>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                {% endif %} 
-            {% endif %}
-        {% endfor %}    
-    {% endif %}
-
-    {% if category %}
-        {% for c in category %} 
-            {% if c.image %}
-               {% if like %}
-                    {% for l in like %} 
-                        {% if l.submission == c %}
-                            {% if l.submission.public_private == 11 %}
-                                <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                {% endif %} 
-            {% endif %} 
-        {% endfor %}    
-    {% endif %}
-
-
-    {% if like %}
-        {% for l in like %}    
-            {% if l.submission.image %}
-                {% if l.submission.public_private == 11 %}
-                    <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} style='border-radius:10px;' alt="サンプル" width="80" height="80"></a>
+    <main>
+        <div id='content-all'>
+            <div class='content-all_inner'>
+                {% if place %}
+                    {% for p in place %} 
+                        {% if p.image %}
+                            <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                        {% endif %} 
+                    {% endfor %}    
                 {% endif %}
-            {% endif %} 
-        {% endfor %}
-    {% endif %}
+    
+                {% if category %}
+                    {% for c in category %} 
+                        {% if c.image %}
+                            <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                        {% endif %} 
+                    {% endfor %}    
+                {% endif %}
+    
+                    {% if friendslist %}
+                    {% for f in friendslist %}
+                        {% if submission_exclude %}
+                            {% for s in submission_exclude %}   
+                                {% if f.users == s.submissionconnection %} 
+                                    {% if s.public_private == 11 %}
+                                        <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a> 
+                                    {% endif %}         
+                                {% endif %} 
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
-    </div>
-
+        <div id='content-like'>
+            <div class='content-like_inner'>
+                {% if place %}
+                    {% for p in place %} 
+                        {% if p.image %}
+                            {% if like %}
+                                {% for l in like %} 
+                                    {% if l.submission == p %}
+                                        {% if l.submission.public_private == 11 %}
+                                            <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル"style='border-radius:10px;' width="80" height="80"></a>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %} 
+                        {% endif %}
+                    {% endfor %}    
+                {% endif %}
+    
+                {% if category %}
+                    {% for c in category %} 
+                        {% if c.image %}
+                        {% if like %}
+                                {% for l in like %} 
+                                    {% if l.submission == c %}
+                                        {% if l.submission.public_private == 11 %}
+                                            <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %} 
+                        {% endif %} 
+                    {% endfor %}    
+                {% endif %}
+    
+                {% if like %}
+                    {% for l in like %}    
+                        {% if l.submission.image %}
+                            {% if l.submission.public_private == 11 %}
+                                <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} style='border-radius:10px;' alt="サンプル" width="80" height="80"></a>
+                            {% endif %}
+                        {% endif %} 
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
     <footer>
-        <!------------- ここが引き継がれる -------------------------------->
         <div class="footer-container">
                 <div class="footer-button" ><a href="{% url 'home' %}"><img src="{% static '../static/svg/home_orange.svg' %}" alt="" id="button1"></a></div>
                 <div class="footer-button" ><a href="{% url 'friends' %}"><img src="{% static '../static/svg/friends.svg' %}" alt="" id="button2"></a></div>
                 <div class="footer-button" ><a href="{% url 'submission' %}"><img src="{% static '../static/svg/submission.svg' %}" alt="" id="button3"></a></div>
                 <div class="footer-button" ><a href="{% url 'friends_add_before' %}"><img src="{% static '../static/svg/friend_add_before.svg' %}" alt="" id="button4"></a></div>
         </div>
-        <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
     </footer>
+    </main>
 </body>
 
 

@@ -26,11 +26,11 @@
             {% csrf_token %}
             {% if like %}
                 <button type="submit" class='like-button' name='like'>
-                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2.svg' %}"/>
+                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2 (1).svg' %}"/>
                 </button>    
             {% else %}
                 <button type="submit" class='like-button' name='like'>
-                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2 (1).svg' %}"/>
+                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2.svg' %}"/>
                 </button>  
             {% endif %}
             </form>    
@@ -40,7 +40,7 @@
         <div class="content-detail1">
             <div class='content-date'>{{content.date}}</div>
             <div class="content-place"><img id="image-display_origin3" src="{% static 'svg/グループ 271.svg' %}"/>{{content.place}}</div>
-            <div class="content-category"><p>{{content.category}}</p></div>
+            <div class="content-category"><p class='content-category_doc'>{{content.category}}</p></div>
         </div>
         <div class="content-detail2">
             {{content.comment}}
@@ -69,12 +69,12 @@
         <div class="threadform">
             <div class='thread1-display'>
                 {% if thread.threadconnection_user.icon %}
-                <img src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
+                <img class='thread1-img' src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
                 {% endif %}
                 <p class='thread1-doc'>{{ thread.threadconnection_user.username }}:</p>
                 <p class='thread1-thread'>{{thread.thread}}</p>
             </div>
-            <button class='reply-trigger' id='unclicked'>
+            <button class='reply-trigger' id='unclicked' >
                 <p id='doc' class='unclicked-doc'>返信する</p>
                 <img class='form-image3' id='img' src="{% static 'svg/グループ 352.svg' %}" />
             </button>
@@ -91,10 +91,10 @@
                 {% if threadlist.threadlistconnection_thread == thread %}
                 <div class="thread2_content">
                     {% if threadlist.threadlistconnection_user.icon %}
-                    <img src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='20px' width='20px'/>
+                    <img class='thread2-img' src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='20px' width='20px'/>
                     {% endif %}
-                    {{threadlist.threadlistconnection_user.username}}:
-                    {{threadlist.threadlist}}
+                    <div class="thread2-doc">{{threadlist.threadlistconnection_user.username}}:</div>
+                    <div class="thread2-thread">{{threadlist.threadlist}}</div>
                 </div>
                 {% endif %}
                 {% endfor %}

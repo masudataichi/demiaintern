@@ -68,6 +68,10 @@ class FriendsForm(forms.ModelForm):
         model = User
         fields = ['userID']
 
+        widgets = {
+            'userID':forms.TextInput(attrs={'placeholder': '友達のIDを入力してください'})
+        }
+
 class PasswordForm(PasswordChangeForm):
     new_password1 = forms.CharField(
         label=("新しいパスワード"),
