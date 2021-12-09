@@ -17,7 +17,7 @@
     <div class="user">
         <div class='user-icon'>
             {% if user.icon %}
-            <img src={{user.icon.url}} alt="サンプル" style='border-radius:50px;' width="40" height="40">
+            <img src="../media/{{user.icon}}" alt="サンプル" style='border-radius:50px;' width="40" height="40">
             {% endif %}
         </div>
         <div class='user-name'>{{user.username}}</div>
