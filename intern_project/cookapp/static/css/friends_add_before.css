@@ -10,6 +10,13 @@ body{
 .title{
     width:80%;
     margin:auto;
+    margin-top:20px;
+    font-size:30px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+.main-container{
+    height:200px;
 }
 
 .h1{
@@ -20,9 +27,9 @@ body{
 }
 .form_field{
     background-color:#ffffff;
-    box-shadow:0px 10px 6px #00000029;
+    box-shadow:0px 3px 10px #00000029;
     border:1px groove #00000029;
-    height: 40%;
+    height: 70%;
     width:80%;
     border-radius:20px;
     display:flex;
@@ -38,6 +45,7 @@ form{
 .table_title{
     color:#ea730c;
     font-weight:bold;
+    margin-bottom:20px;
 }
 
 button{
@@ -54,7 +62,7 @@ h2{
     border-top:none;
     border-left:none;
     border-right:none;
-    border-bottom:2px groove #9e9e9e;
+    border-bottom:0.2px solid #929292;
 }
 .searchfield{
     width:90%;
@@ -63,10 +71,10 @@ h2{
     border-radius:20px;
     margin-top: 40px;
     background-color:#ffffff;
-    box-shadow: 0px 10px 6px #00000029;
+    box-shadow: 0px 3px 10px #00000029;
     border:1px groove #00000029;
     margin-bottom:20px;
-    height: 20%;
+    height: 70%;
     width:80%;
     display:flex;
     justify-content:center;
@@ -77,6 +85,7 @@ h2{
 .myID_title{
     color:#ea730c;
     font-weight:bold;
+    margin-bottom:20px;
 }
 .myID_contents{
     width:90%;

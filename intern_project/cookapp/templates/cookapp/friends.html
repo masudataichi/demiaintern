@@ -55,14 +55,15 @@
                 {% endfor %}    
             {% endif %}
     
-    {% if category %}
-        {% for c in category %} 
-            {% if c.image %}
-                <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
-            {% endif %} 
-        {% endfor %}    
-    {% endif %}
+                {% if category %}
+                    {% for c in category %} 
+                        {% if c.image %}
+                            <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                        {% endif %} 
+                    {% endfor %}    
+                {% endif %}
     
+
     {% if friendslist %}
     {% for f in friendslist %}
         {% if submission_exclude %}
@@ -105,39 +106,44 @@
                                     <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル"style='border-radius:10px;' width="80" height="80"></a>
                                 {% endif %}
                             {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                {% endif %} 
-            {% endif %}
-        {% endfor %}    
-        {% endif %}
 
-    {% if category %}
-        {% for c in category %} 
-            {% if c.image %}
-               {% if like %}
-                   {% for l in like %} 
-                        {% if l.submission == c %}
-                            {% if l.submission.public_private == 11 %}
-                                {% if c.image %}
-                                    <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
-                                {% endif %}
-                            {% endif %}
                         {% endif %}
                     {% endfor %}
-                {% endif %} 
-            {% endif %} 
-        {% endfor %}    
-    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <div id='content-like'>
+            <div class='content-like_inner'>
+                {% if place %}
+                    {% for p in place %} 
+                        {% if p.image %}
+                            {% if like %}
+                                {% for l in like %} 
+                                    {% if l.submission == p %}
+                                        {% if l.submission.public_private == 11 %}
+                                            <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル"style='border-radius:10px;' width="80" height="80"></a>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %} 
+                        {% endif %}
+                    {% endfor %}    
+                {% endif %}
     
-    
-    {% if like %}
-        {% for l in like %}    
-            {% if l.submission.image %}
-                {% if l.submission.public_private == 11 %}
-                    {% if l.submission.image %}
-                        <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="80" height="80"></a>
-                    {% endif %}
+                {% if category %}
+                    {% for c in category %} 
+                        {% if c.image %}
+                        {% if like %}
+                                {% for l in like %} 
+                                    {% if l.submission == c %}
+                                        {% if l.submission.public_private == 11 %}
+                                            <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %} 
+                        {% endif %} 
+                    {% endfor %}    
                 {% endif %}
             {% endif %} 
         {% endfor %}
@@ -153,6 +159,6 @@
     {% endif %}
     
     
-    </div>
-        
+    </div>   
+             
     {% endblock main %}

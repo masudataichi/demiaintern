@@ -13,17 +13,16 @@ class User(AbstractUser):
     userID = models.CharField(max_length = 15, null = True)
 
     username = models.CharField(
-        verbose_name='名前(20文字まで)',
+        verbose_name='ユーザーネーム',
         max_length=20,
-        unique=False,
-        validators=[username_validator],
-        error_messages={
-            'unique':("A user with that username already exists."),
-        },
+        validators=[username_validator]
         
     )
 
-    email = models.EmailField(max_length=254, null=True, unique=True , verbose_name='メールアドレス') #追記　エガワ　verbose_name
+    email = models.EmailField(
+        max_length=254,
+        null=True, 
+        verbose_name='メールアドレス') #追記　エガワ　verbose_name
   
 
 
