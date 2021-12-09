@@ -75,7 +75,9 @@
             {% if f.users == s.submissionconnection %} 
                 {% if s.public_private == 11 %}
                     {% if s.public_private == 11 %}
-                            <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a> 
+                        {% if s.image %}
+                            <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                        {% endif %}
                     {% endif %}
                 {% endif %}         
             {% endfor %}
@@ -93,7 +95,9 @@
                     {% for l in like %} 
                         {% if l.submission == p %}
                             {% if l.submission.public_private == 11 %}
-                                <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル"style='border-radius:10px;' width="80" height="80"></a>
+                                {% if p.image %}
+                                    <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} alt="サンプル"style='border-radius:10px;' width="80" height="80"></a>
+                                {% endif %} 
                             {% endif %}
                         {% endif %}
                     {% endfor %}
@@ -109,7 +113,9 @@
                    {% for l in like %} 
                         {% if l.submission == c %}
                             {% if l.submission.public_private == 11 %}
-                                <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                                {% if c.image %}
+                                    <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
+                                {% endif %}
                             {% endif %}
                         {% endif %}
                     {% endfor %}
@@ -123,7 +129,9 @@
         {% for l in like %}    
             {% if l.submission.image %}
                 {% if l.submission.public_private == 11 %}
-                    <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="80" height="80"></a>
+                    {% if l.submission.image %}
+                        <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="80" height="80"></a>
+                    {% endif %}
                 {% endif %}
             {% endif %} 
         {% endfor %}
