@@ -463,10 +463,7 @@ body {
   font-weight: 100;
   border-radius: 14px;
   padding: 7px 15px;
-  -webkit-filter:drop-shadow(1px 3px 5px #DECEB7);
-  -moz-filter:drop-shadow(1px 3px 5px #DECEB7);
-  -ms-filter:drop-shadow(1px 3px 5px #DECEB7);
-  filter:drop-shadow(1px 3px 5px #DECEB7);
+  filter:drop-shadow(0px 2px 6px #DECEB7);
 }
 
 main {
@@ -487,10 +484,7 @@ main {
   width: 325px;
   height: 325px;
   border-radius: 20px;
-  -webkit-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
-  -moz-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
-  -ms-filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
-  filter:drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+  filter:drop-shadow(0px 3px 10px #00000029);
 }
 
 .public-private {
@@ -510,6 +504,28 @@ main {
   position: relative;
 }
 
+#id_date_year {
+  width: 70px;
+  background-color: #f8f8f8;
+}
+
+#id_date_year ::after {
+  content: '/';
+}
+
+#id_date_month {
+  width: 70px;
+  background-color: #f8f8f8;
+}
+
+#id_date_month ::after{
+  content: '/';
+}
+
+#id_date_date {
+  width: 70px;
+  background-color: #f8f8f8;
+}
 
 .form-width {
   width: 100%;

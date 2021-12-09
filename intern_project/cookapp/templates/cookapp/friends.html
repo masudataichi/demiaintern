@@ -44,6 +44,7 @@
     {% block main %}
       
     <div id='content-all'> 
+    
 
         <div class='content-all_inner'>
             {% if place %}
@@ -78,9 +79,19 @@
             {% endfor %}
         {% endif %}
     {% endfor %}
+
+      <!-- 友達の投稿がない時 -->
+    {% else %}
+
+        <div class="blank-message-1">友達の投稿が表示されます</div>
+        <div class="friends_blank"><img src="{% static 'svg/グループ 607.svg' %}" alt="" ></div>
+        <div class="blank-message-2"><img src="{% static 'svg/友達追加から友達追加.svg' %}" alt="" ></div>
+
+
     {% endif %}
         </div>
-    </div>
+    </div>   
+      
     <div id='content-like'>
         <div class='content-like_inner'>
         {% if place %}
@@ -130,7 +141,18 @@
                 {% endif %}
             {% endif %} 
         {% endfor %}
+        <!-- お気に入りの投稿がない時 -->
+    {% else %}
+
+        <div class="like-message-1">お気に入りの投稿が表示されます</div>
+        <div class="friends_blank"><img src="{% static 'svg/グループ 607.svg' %}" alt="" ></div>
+        <div class="like-message-2"><img src="{% static 'svg/グループ 612.svg' %}" alt="" ></div>
+        <div class="like-message-3"><img src="{% static 'svg/グループ 131.svg' %}" alt="" ></div>
+
+        
     {% endif %}
+    
+    
     </div>
         
     {% endblock main %}
