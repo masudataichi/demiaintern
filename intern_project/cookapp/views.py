@@ -65,7 +65,6 @@ class SignupView(CreateView):
     def form_valid(self,form):
         user = form.save(commit = False)
         user.userID = get_random_string(15)
-        user.icon = 'ジバニャン.jpg'
         user.save()
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
