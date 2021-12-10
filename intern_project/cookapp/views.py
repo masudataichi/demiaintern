@@ -107,44 +107,49 @@ def friends(request):
     params ={
         'form':SearchForm,
     }
-    if request.method == 'POST':
-        word = request.POST['word']
-        if word == '和食':
-            word = 11
-        if word == '洋食':
-            word = 12
-        if word == '中華':
-            word = 13
-        if word == 'アジア':
-            word = 14
-        if word == 'カレー':
-            word = 15
-        if word == '焼肉':
-            word = 16
-        if word == '鍋':
-            word = 17
-        if word == '麺類':
-            word = 18
-        if word == '軽食':
-            word = 19
-        if word == 'スイーツ':
-            word = 20
-        if word == '飲食':
-            word = 21
-        if word == 'その他':
-            word = 22
-        print(word)
-        place = Submission.objects.filter(place__icontains=word)
-        category = Submission.objects.filter(category__icontains=word)
-        print(category)
-        params ={
-            'form':SearchForm,
-            'category':category,
-            'place':place,
-        }
-        return render(request, 'cookapp/friends.html', params)
+
     if Friends.objects.filter(current_user = request.user).exists():
         friendslist = Friends.objects.filter(current_user = request.user)
+        if Like.objects.filter(user = user).exists():
+                like = Like.objects.filter(user = user)
+        if request.method == 'POST':
+            word = request.POST['word']
+            if word == '和食':
+                word = 11
+            if word == '洋食':
+                word = 12
+            if word == '中華':
+                word = 13
+            if word == 'アジア':
+                word = 14
+            if word == 'カレー':
+                word = 15
+            if word == '焼肉':
+                word = 16
+            if word == '鍋':
+                word = 17
+            if word == '麺類':
+                word = 18
+            if word == '軽食':
+                word = 19
+            if word == 'スイーツ':
+                word = 20
+            if word == '飲食':
+                word = 21
+            if word == 'その他':
+                word = 22
+   
+            place = Submission.objects.filter(place__icontains=word)
+            category = Submission.objects.filter(category__icontains=word)
+  
+            params ={
+                'form':SearchForm,
+                'category':category,
+                'place':place,
+                'friendslist':friendslist,
+                'like':like,
+            }
+            return render(request, 'cookapp/friends.html', params)
         if Submission.objects.exclude(submissionconnection = user).exists():
             submission_exclude = Submission.objects.exclude(submissionconnection = user)
             params ={
