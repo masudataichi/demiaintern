@@ -8,7 +8,7 @@ from django.contrib.auth.validators import UnicodeUsernameValidator
 
 class User(AbstractUser):
     #アイコン画像
-    icon = models.ImageField(blank=True, null=True,default='グループ481.png')
+    icon = models.ImageField(blank=True, null=True,default='グループ 481.png')
     username_validator = UnicodeUsernameValidator()
     userID = models.CharField(max_length = 15, null = True)
 
