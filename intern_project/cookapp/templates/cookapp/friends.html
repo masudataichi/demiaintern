@@ -3,18 +3,13 @@
 <!doctype html>
 <html lang="ja">
 <head>
-
     {% block extrastyle %}
-      
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/friends.css' %}" />
         <script type="text/javascript" src="{% static 'javascript/friends.js' %}"></script>
-
     {% endblock extrastyle %}
 </head>
     {% block header %}
-      
-    
         <div class='header-form'>
             <form method = "post" enctype = "multipart/form-data" >
                 {% csrf_token %}
@@ -40,12 +35,8 @@
     </div>   
     {% endblock header %}
 
-     
     {% block main %}
-      
     <div id='content-all'> 
-    
-
         <div class='content-all_inner'>
     {% if friendslist %}
     {% for f in friendslist %}
@@ -72,8 +63,6 @@
                         {% endif %}
                     {% endfor %}    
                 {% endif %}
-    
-
 
         {% if submission_exclude %}
             {% for s in submission_exclude %}   
@@ -97,9 +86,11 @@
 
 
     {% endif %}
+
         </div>
     </div>   
       
+
         <div id='content-like'>
             <div class='content-like_inner'>
                 {% if like %}
@@ -120,12 +111,10 @@
                         {% endif %}
                     {% endfor %}    
                 {% endif %}
-    
                 {% if category %}
                     {% for c in category %} 
                         {% if c.image %}
-                            
-                                
+
                                     {% if l.submission == c %}
                                         {% if l.submission.public_private == 11 %}
                                             <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} alt="サンプル" style='border-radius:10px;' width="80" height="80"></a>
@@ -136,6 +125,7 @@
                         {% endif %} 
                     {% endfor %}    
                 {% endif %}
+
                 {% endif %}
 
         <!-- お気に入りの投稿がない時 -->
@@ -151,10 +141,12 @@
                 {% endfor %} 
                 {% else %}
 
+
                 <div class="like-message-1">お気に入りの投稿が表示されます</div>
                 <div class="friends_blank"><img src="{% static 'svg/グループ 607.svg' %}" alt="" ></div>
                 <div class="like-message-2"><img src="{% static 'svg/グループ 612.svg' %}" alt="" ></div>
                 <div class="like-message-3"><img src="{% static 'svg/グループ 131.svg' %}" alt="" ></div>
+
 
         
                 {% endif %}
@@ -163,3 +155,4 @@
         </div>   <!--content-likeの閉じタグ-->
              
     {% endblock main %}
+
