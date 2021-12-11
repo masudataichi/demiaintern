@@ -431,7 +431,7 @@ html {
 /* font指定 */
 @font-face {
     font-family: '源泉丸ゴシック';
-    src: url(../gensenfont/ttc/GenSenRounded-M.ttc) format('woff');
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
 
 body {
