@@ -158,12 +158,12 @@ def friends(request):
                 'friendslist': friendslist,
             }       
             if Like.objects.filter(user = user).exists():
-                like = Like.objects.filter(user = user)
+                like1 = Like.objects.filter(user = user)
                 submission_exclude = Submission.objects.exclude(submissionconnection = user)
                 params ={
                     'submission_exclude':submission_exclude,
                     'user':user,
-                    'like':like,
+                    'like1':like,
                     'form':SearchForm,
                     'friendslist': friendslist,
                 }

@@ -127,18 +127,22 @@
                 {% endif %}
 
                 {% endif %}
+                {% endfor %}
+                
 
         <!-- お気に入りの投稿がない時 -->
-               
-                        {% if users %}
+                {% if like1 %}
+                {% for l in like1 %}
+                        
 
                         {% if l.submission.image %}
                         {% if l.submission.public_private == 11 %}
                             <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} alt="サンプル" width="80" height="80"></a>
                         {% endif %}
                         {% endif %} 
-                        {% endif %}
+                        
                 {% endfor %} 
+                {% endif %} 
                 {% else %}
 
 
@@ -150,6 +154,7 @@
 
         
                 {% endif %}
+             
     
             </div><!--content-like-innerの閉じタグ-->
         </div>   <!--content-likeの閉じタグ-->
