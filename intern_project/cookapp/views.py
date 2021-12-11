@@ -163,6 +163,7 @@ def friends(request):
                 params ={
                     'submission_exclude':submission_exclude,
                     'user':user,
+                    'like':like,
                     'like1':like,
                     'form':SearchForm,
                     'friendslist': friendslist,
