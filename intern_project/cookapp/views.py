@@ -15,7 +15,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from .models import Submission, User, Thread, Friends, Threadlist, Like
-from .forms import PasswordForm, SubmissionForm, FriendsForm, ThreadlistForm, SearchForm
+from .forms import PasswordForm, SubmissionForm, FriendsForm, ThreadlistForm, SearchForm, UpdateForm
 
 from django.views.generic import CreateView,UpdateView,DeleteView
 from django.contrib import messages
@@ -385,7 +385,7 @@ def setting(request):
 
 class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = User
-    form_class = SignupForm
+    form_class = UpdateForm
     template_name = 'cookapp/user_update.html'
     success_url = reverse_lazy('setting_complete')
 
