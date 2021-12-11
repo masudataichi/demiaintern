@@ -383,6 +383,7 @@ class UserUpdateView(LoginRequiredMixin,UpdateView):
     form_class = SignupForm
     template_name = 'cookapp/user_update.html'
     success_url = reverse_lazy('setting_complete')
+
 @login_required
 def user_delete(request):
     return render(request,'cookapp/user_delete.html')
@@ -401,6 +402,8 @@ class PasswordView(LoginRequiredMixin,PasswordChangeView):
     success_url = 'setting'
     template_name = 'cookapp/password_change.html'
     form_class = PasswordForm
+
+   
 @login_required
 def friends_add_before(request):
     myuserID = request.user.userID
