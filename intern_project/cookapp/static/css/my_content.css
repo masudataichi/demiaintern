@@ -271,13 +271,15 @@ footer{
     width:350px;
     margin:auto;
     margin-top:40px;
-=======
+}
+
+
 @font-face{
     font-family:'源泉丸ゴシック';
     src: url(../gensenfont/ttc/GenSenRounded-M.ttc) format('woff');
 }
 body{
-    font-family:'源泉丸ゴシック';
+    font-family:'源泉丸ゴシック' ,"游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
     width:375px;
     height:812px;
 }
