@@ -2,10 +2,14 @@
     font-family:'源泉丸ゴシック';
     src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
+html{
+    height:812px;
+}
 body{
     font-family:'源泉丸ゴシック';
     width:375px;
-    height:812px;
+    height:100%;
+    overflow-y:scroll;
 }
 .header-container{
     display:flex;
@@ -52,7 +56,6 @@ body{
 .content-content{
     border-radius:20px;
     box-shadow:0px 3px 10px #00000029;
-    border:1px groove #00000029;
     width:350px;
     height:200px;
     margin:auto;
@@ -61,7 +64,7 @@ body{
 }
 .content-detail1{
     display:flex;
-    margin-top:10px;
+    padding-top:15px;
     justify-content:space-around;
 }
 .content-detail2{
@@ -93,20 +96,20 @@ body{
     width:350px;
     height:50px;
     box-shadow:0px 3px 10px #00000029;
-    border:1px groove #00000029;
     margin:auto;
     z-index:1000;
 }
 .form-unclicked_table{
-    margin-top:17px;
     margin-left:10px;
 }
 .form-document{
     padding-left:10px;
+    padding-top:17px;
 }
 #action{
     background:#ffffff;
     border:none;
+    padding-top:19px;
 }
 .action.active{
     margin-top:10px;
@@ -116,7 +119,6 @@ body{
     width:350px;
     height:100px;
     box-shadow:0px 3px 10px #00000029;
-    border:1px groove #00000029;
     margin:auto;
     margin-top:-52px;
     display:none;
@@ -137,7 +139,7 @@ body{
 }
 .form-image1.active{
     transform:rotate(90deg);
-    margin-top:10px;
+    margin-top:-30px;
 }
 .form-content{
     display:flex;
