@@ -441,7 +441,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    font-family: 源泉丸ゴシック;
+    font-family: 源泉丸ゴシック, "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
     position: relative;
 }
 
