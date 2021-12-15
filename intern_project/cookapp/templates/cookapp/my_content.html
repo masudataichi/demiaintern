@@ -3,16 +3,12 @@
 {% load widget_tweaks %}
 <!doctype html>
 {% block extrastyle %}
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/my_content.css' %}" />
     <title>my_contents</title>
-
 {% endblock extrastyle %}
 <body>
-
 {% block header %}
-
         <div class='user'>
             <a href="{% url 'home' %}" class='user' style="text-decoration:none;" >
                 <div class="user-icon">
@@ -27,11 +23,8 @@
             <p><a href="{% url 'my_content_delete' content.id %}"><img id="image-display_origin" src="{% static 'svg/グループ 319.svg' %}"/></a></p>
             <p><a href="{% url 'my_content_update' content.id %}"><img id="image-display_origin" src="{% static 'svg/グループ 325.svg' %}"/></a></p>
         </div>
-    
 {% endblock header %}
-
 {% block main %}
-
     <div class=image-image>
         <img src={{content.image.url}} alt="サンプル" width="350" height="350" class="image">
     </div>
@@ -55,13 +48,10 @@
               </th>
         </table>
     </div>
-
     {% for threadlist in threadlist %}
     {{threadlist.threadconnection_user.username}}
     {{threadlist.thread}}
     {% endfor %}
-
-
     <form method="post" enctype="multipart/form-data" class="form" id='form'>
         {% csrf_token %}
         <div class="form-content">
@@ -107,13 +97,8 @@
                 {% endfor %}
             </div>
     </div>
-
 {% endblock main %}
-
-
 {% block script %}
-
     <script type="text/javascript" src="{% static 'javascript/my_content.js' %}"></script>
-
 {% endblock script %}
 </html>

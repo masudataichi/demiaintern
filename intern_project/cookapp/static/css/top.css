@@ -2,14 +2,20 @@
     font-family:'源泉丸ゴシック';
     src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
+
 body{
     font-family:'源泉丸ゴシック',"游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
     width:375px;
     height:812px;
-    background-color:#ea730c;
+    overflow:hidden;
+    position:relative;
 }
 .elements{
-    margin-top:200px;
+    width:375px;
+    height:812px;
+    background-color:#ea730c;
+    position:absolute;
+    overflow:hidden;
 }
 .logo{
     height:300px;
@@ -20,11 +26,13 @@ body{
     text-align:center;
     width:300px;
     height:300px;
+    margin-top:200px;
 }
 .buttons{
     margin:auto;
     width:200px;
     height:100px;
+    margin-top:200px;
 }
 .register{
     position:relative;
@@ -78,8 +86,4 @@ body{
     font-weight:bold;
     font-size:15px;
     padding:10px;
-}
-html{
-    width:375px;
-    height:812px;
 }

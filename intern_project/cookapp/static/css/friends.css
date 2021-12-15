@@ -41,22 +41,28 @@ body{
     height:812px;
 }
 .submit{
-    background-color:transparent;
+    background-color:#ffffff;
     border:none;
-    margin-left:-35px;
+    margin-left:-1px;
+    height:25px;
+    width:25px;
+    margin-top:10px;
+    border-radius:0px 5px 5px 0px;
 }
 .submit-icon{
-    margin-bottom:-15px;
+    margin-top:-4px;
+    margin-left:-2px;
 }
 #id_word{
     margin-top:10px;
-    width:300px;
+    width:275px;
     border:none;
     height:25px;
     margin-left:20px;
-    border-radius:5px;
+    border-radius:5px 0px 0px 5px;
     background-color:#ffffff;
 }
+
 #all{
     position:relative;
     margin-right:100px;
@@ -86,6 +92,7 @@ body{
 }
 .imgDisplay{
     display:block;
+    margin-top:1px;
 }
 .imgNone{
     display:none;

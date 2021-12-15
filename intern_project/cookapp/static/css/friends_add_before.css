@@ -11,7 +11,7 @@ body{
     width:80%;
     margin:auto;
     margin-top:20px;
-    font-size:30px;
+    font-size:26px;
     font-weight:bold;
     margin-bottom:20px;
 }
@@ -21,16 +21,18 @@ body{
 
 .h1{
     margin-top:20px;
-    font-size:30px;
+    font-size:26px;
     font-weight:bold;
-    margin-bottom:20px;
+    margin-bottom:60px;
 }
-
+.submit{
+    margin-top:10px;
+}
 .form_field{
     background-color:#ffffff;
     filter:drop-shadow(0px 3px 10px #00000029);
     height: 70%;
-    width:80%;
+    width:300px;
     border-radius:20px;
     display:flex;
     justify-content:center;
@@ -38,26 +40,33 @@ body{
     margin:auto;
     margin-bottom:20px;
 }
+.userID_content{
+    font-size:14px;
+    color:#757575;
+}
 form{
     width:90%;
     display:flex;
 }
 .table_title{
     color:#ea730c;
-    font-weight:bold;
     margin-bottom:20px;
+    font-size:16px;
 }
 
 button{
     background-color:#ffffff;
     border:none;
-
 }
 h2{
     padding-top:4px;
 }
+.img{
+    padding-top:25px;
+    margin-left:-5px;
+}
 #id_userID{
-    width:100%;
+    width:250px;
     height:20px;
     border-top:none;
     border-left:none;
@@ -74,7 +83,7 @@ h2{
     filter:drop-shadow(0px 3px 10px #00000029);
     margin-bottom:20px;
     height: 70%;
-    width:80%;
+    width:300px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -83,14 +92,10 @@ h2{
 }
 .myID_title{
     color:#ea730c;
-    font-weight:bold;
     margin-bottom:20px;
 }
 .myID_contents{
     width:90%;
-}
-.myID_id{
-    font-weight:bold;
 }
 .myID_doc{
     padding-top:10px;

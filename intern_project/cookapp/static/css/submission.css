@@ -2,12 +2,17 @@
     font-family:'源泉丸ゴシック';
     src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
+html{
+    overflow:hidden;
+    position:relative;
+}
 body{
     background-color:#ffffff;
     font-family:'源泉丸ゴシック', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
     width:375px;
     height:812px;
     font-variant-east-asian: normal;
+    position:absolute;
 }
 .header{
     display:flex;
@@ -17,7 +22,7 @@ body{
     margin-bottom:30px;
 }
 .header h1{
-    font-size:30px;
+    font-size:26px;
     font-weight:bold;
 }
 .add_button{
@@ -31,7 +36,7 @@ body{
     filter:drop-shadow(0px 2px 6px #DECEB7);
 }
 .add-doc{
-    padding-left:5.5px;
+    padding-left:8px;
 }
 .add_button button{
     background-color:#ea730c;
@@ -40,13 +45,14 @@ body{
     border-radius:20px;
     border:2px solid #ea730c;
     color:#ffffff;
-    font-weight:bold;
+    font-size:14px;
 }
 .forms{
     width:300px;
     margin:auto;
 }
 .image-field{
+    margin-top:100px;
     height:300px;
     width:300px;
     background-color: #f8f8f8;
@@ -57,7 +63,7 @@ body{
     justify-content:center;
     align-items:center;
     position: relative;
-    border:none;
+    border:0px none;
 }
 .image_document{
     position: absolute;
@@ -66,9 +72,13 @@ body{
 }
 .image-display{
     position:absolute;
+    border-radius:30px;
     width:300px;
     height:300px;
-    border:none;
+    border: 0px none;
+}
+#image-display_origin{
+    margin-bottom:6px;
 }
 #image-display_update{
     position:absolute;
@@ -79,8 +89,8 @@ body{
     top:0;
     left:0;
     border-radius:30px;
-    border:none;
-
+    border-style: none;
+    z-index:1001;
 }
 #id_image{
     position: absolute;
@@ -88,11 +98,11 @@ body{
     width: 300px;
     height: 300px;
     opacity: 0;
-    z-index: 1002;
-    border:none;
+    border:0px none;
+    z-index:1002
 }
 #id_public_private{
-    margin-bottom:5px;
+    margin-bottom:24px;
     margin-top:5px;
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
@@ -103,14 +113,14 @@ body{
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
     margin-top:5px;
-    margin-bottom:5px;
+    margin-bottom:24px;
     border-radius:5px;
 }
 #id_date_month{
     width:50px;
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
-    margin-bottom:5px;
+    margin-bottom:24px;
     margin-top:5px;
     border-radius:5px;
 }
@@ -118,12 +128,12 @@ body{
     width:50px;
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
-    margin-bottom:5px;
+    margin-bottom:24px;
     margin-top:5px;
     border-radius:5px;
 }
 #id_category{
-    margin-bottom:5px;
+    margin-bottom:24px;
     margin-top:5px;
     background-color:#f8f8f8;
     border:2px solid #f8f8f8;
@@ -133,7 +143,7 @@ body{
     width:300px;
     background-color: #f8f8f8;
     border: 2px solid #f8f8f8;
-    margin-bottom:5px;
+    margin-bottom:10px;
     margin-top:5px;
     border-radius:5px;
     padding:5px;
@@ -151,6 +161,7 @@ body{
     margin-top:5px;
     border-radius:5px;
     padding:5px;
+    margin-bottom:100px;
 }
 footer{
     width:90%;

@@ -30,7 +30,6 @@ class SubmissionForm(forms.ModelForm):
             'comment': forms.Textarea(attrs={'rows':7, 'cols':15}),
             'date': forms.SelectDateWidget(years=[x for x in range(2021, 2030)], months=MONTHS), #追記　エガワ
             'place': forms.TextInput(attrs={'placeholder': '場所を入力'}),
-
         }
 
 
@@ -97,7 +96,6 @@ class UpdateForm(UserChangeForm):
         return username
 
 
-
 class ThreadForm(forms.ModelForm):
     class Meta:
         model = Thread
@@ -106,6 +104,7 @@ class ThreadForm(forms.ModelForm):
         widgets = {
             'thread':forms.Textarea(attrs={'rows':2, 'cols':45 }),
         }
+
 class ThreadlistForm(forms.ModelForm):
     class Meta:
         model = Threadlist
@@ -117,7 +116,7 @@ class FriendsForm(forms.ModelForm):
         fields = ['userID']
 
         widgets = {
-            'userID':forms.TextInput(attrs={'placeholder': '友達のIDを入力してください'})
+            'userID':forms.TextInput(attrs={'placeholder': '友達のIDを入力してください', 'class':'userID_content'})
         }
 
 class PasswordForm(PasswordChangeForm):
@@ -139,6 +138,7 @@ class EmailAuthenticationForm(forms.Form):
         'invalid_login': "Eメールアドレス　または　パスワードに誤りがあります。",
         'inactive': _("This account is inactive."),
     }
+    
     def __init__(self, request=None, *args, **kwargs):
         self.request = request
         self.user_cache = None
@@ -147,6 +147,7 @@ class EmailAuthenticationForm(forms.Form):
         self.email_field = UserModel._meta.get_field("email")
         if self.fields['email'].label is None:
             self.fields['email'].label = capfirst(self.email_field.verbose_name)
+
     def clean(self):
         email = self.cleaned_data.get('email')
         password = self.cleaned_data.get('password')
@@ -160,6 +161,7 @@ class EmailAuthenticationForm(forms.Form):
             else:
                 self.confirm_login_allowed(self.user_cache)
         return self.cleaned_data
+
     def confirm_login_allowed(self, user):
         if not user.is_active:
             raise forms.ValidationError(self.error_messeges['inactive'], code='inactive')
