@@ -447,7 +447,7 @@ body {
 .header-container {
     width: 93.5%;
     margin: 0 auto;
-    margin-top: 34px;
+    padding-top: 34px;
     font-size: 26px;
     display: flex;
     vertical-align:top;
