@@ -1,7 +1,7 @@
 
 @font-face{
     font-family:'源泉丸ゴシック';
-    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+    src: url(../../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
 body{
     font-family:'源泉丸ゴシック';
@@ -262,7 +262,7 @@ body{
 =======
 @font-face{
     font-family:'源泉丸ゴシック';
-    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+    src: url(../../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
 html{
     height:812px;
