@@ -1,0 +1,3 @@
+[submodule "intern_project/gensen-font"]
+	path = intern_project/gensen-font
+	url = https://github.com/ButTaiwan/gensen-font.git
