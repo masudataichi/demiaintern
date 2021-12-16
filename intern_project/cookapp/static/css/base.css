@@ -441,15 +441,7 @@ body {
     padding: 0%;
     font-family: 源泉丸ゴシック, "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
 }
-main {
-    position: relative;
-    overflow-y:scroll;
-    height:685px;
-}
-.main-container {
-    width: 93.5%;
-    margin: 0 auto;
-}
+
 footer {
     position: fixed;
     bottom: 10px;

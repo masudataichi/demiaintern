@@ -14,19 +14,22 @@
 </head>   
 <body>
    {% block main %}
+
+   <div class="main-container">
    
    <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
-       <div class="buttons-wrapper">
-           <p class="message">削除しますか？</p>
-           <div class="button-flex">
-               <div class="button-cancel" id="" onclick="window.history.back(); return false;">キャンセル</div>
-               <div class="button-delete"><input type="submit" value="削除"></div>
+        <div class="buttons-wrapper">
+            <p class="message">削除しますか？</p>
+            <div class="button-flex">
+                <div class="button-cancel" id="" onclick="window.history.back(); return false;">キャンセル</div>
+                <div class="button-delete"><input type="submit" value="削除"></div>
+                </div>
             </div>
-        </div>
-    </form>
-   
+        </form>
+    </div>
+
    {% endblock main %}
 </body>
 
