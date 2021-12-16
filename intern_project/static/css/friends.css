@@ -1,0 +1,165 @@
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+header{
+    height:100px;
+    background:#ea730c;
+    height:10%;
+    border-radius:0 0 30px 0;
+}
+.header-form{
+    display:flex;
+    justify-content:space-between;
+}
+.friends-image{
+    width:40px;
+    height:40px;
+    margin-top:2px;
+}
+.tabs{
+    display:flex;
+    justify-content:space-around;
+    width:100%;
+}
+.boxDisplay{
+    display:block;
+    border-radius:10px;
+    box-shadow:2px 2px 5px #00000029; 
+    border:none;
+}
+.boxNone{
+    display:none;
+}
+form{
+    height:30px;
+    display:flex;
+}
+body{
+    font-family:'源泉丸ゴシック', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
+    width:375px;
+    height:812px;
+}
+.submit{
+    background-color:#ffffff;
+    border:none;
+    margin-left:-1px;
+    height:25px;
+    width:25px;
+    margin-top:10px;
+    border-radius:0px 5px 5px 0px;
+}
+.submit-icon{
+    margin-top:-4px;
+    margin-left:-2px;
+}
+#id_word{
+    margin-top:10px;
+    width:275px;
+    border:none;
+    height:25px;
+    margin-left:20px;
+    border-radius:5px 0px 0px 5px;
+    background-color:#ffffff;
+}
+
+#all{
+    position:relative;
+    margin-right:100px;
+}
+#like{
+    position:relative;
+    margin-right:100px;
+}
+#all-img1,#all-img2,#background1{
+    position:absolute;
+}
+#like-img1,#like-img2,#background2{
+    position:absolute;
+}
+#all-img1,#all-img2{
+    margin-left:36.5px;
+    z-index:2;
+    margin-top:10px;
+}
+#like-img1,#like-img2{
+    margin-left:36.5px;
+    z-index:2;
+    margin-top:10px;
+}
+#background1,#background2{
+    z-index:1;
+}
+.imgDisplay{
+    display:block;
+    margin-top:1px;
+}
+.imgNone{
+    display:none;
+}
+.Link-img{
+    margin:3px;
+}
+
+.content-all_inner{
+    padding:10px 10px 10px 15px;
+}
+.content-like_inner{
+    padding:10px 10px 10px 15px;
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    width: 376px;
+}
+
+.footer-button {
+    width: 25%;
+}
+
+
+/* 友達の投稿がない時 */
+.friends_blank  {
+    position: relative;
+    left: -28px;
+    top: 8px;
+    z-index: 1;
+}
+
+.blank-message-1 {
+    position: absolute;
+    z-index: 5;
+    top: 70px;
+    left: 95px;
+}
+
+.blank-message-2 {
+    position: absolute;
+    z-index: 5;
+    top: 100px;
+    left: 90px;
+}
+
+
+/* お気に入りがないとき */
+.like-message-1 {
+    position: absolute;
+    z-index: 5;
+    top: 70px;
+    left: 70px;
+}
+
+.like-message-2 {
+    position: absolute;
+    z-index: 6;
+    top: 140px;
+    left: 20px;
+}
+
+.like-message-3 {
+    position: absolute;
+    z-index: 6;
+    bottom: 70px;
+    right: 55px;
+}
