@@ -429,17 +429,14 @@ html {
 }
 
 /* font指定 */
-@font-face {
-    font-family: '源泉丸ゴシック';
-    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
-}
+
 
 body {
     width: 376px;
     height: 812px;
     position: relative;
     margin: 0;
-    font-family: 源泉丸ゴシック, "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
+    font-family: 'Kosugi Maru', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
 }
 
 .container {

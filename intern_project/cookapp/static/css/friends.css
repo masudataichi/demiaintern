@@ -125,15 +125,16 @@ footer {
 /* 友達の投稿がない時 */
 .friends_blank  {
     position: relative;
-    left: -28px;
-    top: 8px;
+    width: 348px;
+    height: 348px;
+    left: -15px;
     z-index: 1;
 }
 
 .blank-message-1 {
     position: absolute;
     z-index: 5;
-    top: 70px;
+    top: 150px;
     left: 95px;
 }
 
@@ -148,7 +149,7 @@ footer {
 .like-message-1 {
     position: absolute;
     z-index: 5;
-    top: 70px;
+    top: 120px;
     left: 70px;
 }
 
@@ -162,6 +163,6 @@ footer {
 .like-message-3 {
     position: absolute;
     z-index: 6;
-    bottom: 70px;
+    top: 270px;
     right: 55px;
 }

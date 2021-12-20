@@ -18,7 +18,7 @@
 {% endblock header %}
 
     {% block main %}
-        <div class="main-wraper">
+        <div class="main-container">
             <div class="random-image">
                 {% if randomcontent %}
                 <a class ="" href="{% url 'friends_content' randomcontent.id %}"><img src="../media/{{randomcontent.image}}" alt="サンプル" width="84px" height="84px" class=""></a>
