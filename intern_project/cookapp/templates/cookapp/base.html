@@ -11,23 +11,16 @@
     <meta charset="utf-8" name="viewport" content="width=device-width">
 </head>
 <body>
-
     <header>
-
         {% block header %}
         {% endblock header %}
-
     </header>
-
     <main>
-
         <div class="main-container">
             {% block main %}
             {% endblock  %}
         </div>
-
     </main>
-
     <footer>
         <!------------- ここが引き継がれる -------------------------------->
         <div class="footer-container">
@@ -38,7 +31,6 @@
         </div>
         <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
     </footer>
-
 <script src="../static/javascript/base.js"></script>
 {% block script %}
 {% endblock script %}

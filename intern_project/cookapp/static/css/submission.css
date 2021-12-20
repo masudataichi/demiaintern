@@ -12,6 +12,7 @@ body{
     width:375px;
     height:812px;
     position:absolute;
+    overflow:scroll;
 }
 .header{
     display:flex;
