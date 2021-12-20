@@ -12,8 +12,6 @@
     {% endblock  %}
 </head>
 <body>
-    {% block header %}
-    {% endblock header %}
     {% block main %}
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -59,7 +57,7 @@
                 </div>
             </div>
         </form>
-    {% endblock main %}
+    {% endblock %}
    {% block script %}
    <script type="text/javascript" src="{% static 'javascript/submission.js' %}"></script>
    {% endblock script %}
