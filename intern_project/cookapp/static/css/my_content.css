@@ -212,6 +212,9 @@ header{
     margin-top:20px;
     background:#ffffff;
 }
+.thread-whole{
+    padding-bottom:75px;
+}
 .replyform{
     width:350px;
     border-bottom:1px solid #00000029;
