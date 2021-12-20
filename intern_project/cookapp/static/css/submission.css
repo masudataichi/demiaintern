@@ -13,6 +13,7 @@ body{
     height:812px;
     font-variant-east-asian: normal;
     position:absolute;
+    overflow:scroll;
 }
 .header{
     display:flex;

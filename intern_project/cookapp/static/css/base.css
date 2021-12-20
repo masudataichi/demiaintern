@@ -433,19 +433,13 @@ html {
     src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
 body {
-    width: 376px;
-    height: 812px;
-    transform: translateZ(0);
-    top: 0%;
-    margin: 0;
-    padding: 0%;
-    font-family: 源泉丸ゴシック, "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
+    font-family: 源泉丸ゴシック;
 }
-
 footer {
     position: fixed;
     bottom: 10px;
     width: 376px;
+    z-index:20;
 }
 .footer-container {
     display: flex;
@@ -457,7 +451,6 @@ footer {
     z-index: 10;
     filter:drop-shadow(0px 6px 20px #00000024);
 }
-
 .footer-button {
     width: 25%;
 }
