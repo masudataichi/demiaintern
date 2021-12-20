@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="58" viewBox="0 0 88 58">
+  <g id="submission" transform="translate(-0.333)">
+    <rect id="長方形_44" data-name="長方形 44" width="88" height="58" transform="translate(0.333)" fill="none"/>
+    <g id="アートワーク_15" data-name="アートワーク 15" transform="translate(44.333 29)">
+      <g id="グループ_385" data-name="グループ 385" transform="translate(-12 -12)">
+        <g id="長方形_230" data-name="長方形 230" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.642">
+          <rect width="24" height="24" rx="3.741" stroke="none"/>
+          <rect x="0.821" y="0.821" width="22.358" height="22.358" rx="2.92" fill="none"/>
+        </g>
+        <line id="線_747" data-name="線 747" x2="13.958" transform="translate(5.021 12)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.642"/>
+        <line id="線_748" data-name="線 748" y1="13.958" transform="translate(12 5.021)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.642"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -25,6 +25,7 @@
 
     {% block main %}
         
+    <div class="main-container">
         <div class="">アカウント情報の変更</div>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -43,6 +44,7 @@
             </div>
             <div class="update-button"><button type="submit">更新</button></div>
         </form>
+    </div>
         
     {% endblock main %}
 

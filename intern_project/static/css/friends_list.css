@@ -1,0 +1,51 @@
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+.content{
+    width:374px;
+    height:812px;
+}
+header{
+    font-family:'源泉丸ゴシック';
+    width:350px;
+    height:60px;
+    display:flex;
+    justify-content:space-between;
+    margin:auto;
+}
+.number-of-friends{
+    margin-top:13px;
+}
+body{
+    font-family:'源泉丸ゴシック';
+    width:375px;
+    height:812px;
+    color:#212121;
+}
+.title-and-arrow{
+    display:flex;
+}
+.title{
+    margin-top:9px;
+    font-size:25px;
+}
+.friends{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.friend{
+    margin-top:10px;
+    margin-bottom:10px;
+    display:flex;
+    margin-left:20px;
+}
+.friend p{
+    margin-top:8px;
+    margin-left:5px;
+}
+footer{
+    width:90%;
+    margin:auto;
+    margin-top:340px;
+}

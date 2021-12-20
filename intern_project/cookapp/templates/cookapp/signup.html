@@ -31,7 +31,7 @@
                 <div class="container signup-form">
                     <div class="container form-font">メールアドレス<span class="required-mark">*</span></div>
                     <div class="container ">{{form.email|add_class:"form-label"}}
-                        {{form.email.errors}}
+                    <div class="container form-error">{{form.email.errors}}</div>
                     </div>
                 </div>
                 <div class="container signup-form">
@@ -41,11 +41,10 @@
                 <div class="container signup-form">
                     <div class="container form-font">パスワード（確認）<span class="required-mark">*</span></div>
                     <div class="container ">{{form.password2|add_class:"form-label"}}
-                        {{form.password2.errors}}
+                    <div class="container form-error">{{form.password2.errors}}</div>
                     </div>
                 </div>
                 <div class="container"><span class="container required-mark">*必須</span></div>
-                <div class="container form-error">{{ form.errors }}</div>
                 <div class="container button"><button type = "submit" >登録</button></div>  
             </form>
         </div>
