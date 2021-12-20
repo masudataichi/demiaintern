@@ -1,0 +1,32 @@
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+body{
+    font-family:'源泉丸ゴシック', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
+    width:375px;
+    height:812px;
+}
+.top{
+    margin-top:20px;
+    margin-left:20px;
+}
+.main{
+    text-align:center;
+    margin:auto;
+}
+.complete_image{
+    height:100px;
+    width:100px;
+    margin-top:100px;
+}
+.complete_doc{
+    margin-top:15px;
+    color:#212121;
+}
+footer{
+     width:300px;
+     margin:auto;
+     margin-top:40px;
+}
+

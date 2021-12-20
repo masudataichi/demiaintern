@@ -11,6 +11,7 @@ body{
     font-family:'源泉丸ゴシック';
     width:375px;
     height:812px;
+    overflow:scroll;
 }
 header{
     width:100%;
@@ -19,8 +20,9 @@ header{
     border-radius:0 0 30px 0;
     display:flex;
     justify-content:space-between;
-    position:fixed;
-    top:0;
+}
+.main-container{
+    margin-top:-40px;
 }
 .user{
     display:flex;

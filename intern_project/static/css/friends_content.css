@@ -1,0 +1,524 @@
+
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+body{
+    font-family:'源泉丸ゴシック';
+    width:375px;
+    height:812px;
+}
+.header-container{
+    display:flex;
+    background-color: #ea730c;
+    height:80px;
+    border-radius:0 0 40px 0;
+}
+.header-image{
+    height:40px;
+    width:40px;
+    margin-top:5px;
+}
+.header-icon{
+    margin-top:10px;
+}
+.header-name{
+    margin-top:19px;
+    margin-left:5px;
+    color:#ffffff;
+}
+.content-image{
+    margin:auto;
+    margin-top:-30px;
+    width:350px;
+    height:350px;
+    box-shadow:0px 3px 10px #00000029;
+    border-radius:30px;
+}
+#like-ikon{
+    margin-left:270px;
+    margin-top:-10px;
+}
+.like-form{
+    margin-top:-50px;
+    height:70px;
+}
+.like-button{
+    background-color:transparent;
+    border:none;
+    height:60px;
+    width:60px;
+    border-radius:50px;
+}
+.content-content{
+    border-radius:20px;
+    box-shadow:0px 3px 10px #00000029;
+    border:1px groove #00000029;
+    width:350px;
+    height:200px;
+    margin:auto;
+    margin-bottom:20px;
+    margin-top:30px;
+}
+.content-detail1{
+    display:flex;
+    margin-top:10px;
+    justify-content:space-around;
+}
+.content-detail2{
+    margin-top:40px;
+    margin-left:23px;
+}
+.content-category{
+    background-color:#ea730c;
+    color:#ffffff;
+    height:12px;
+    width:40px;
+    text-align:center;
+    border-radius:10px;
+}
+.content-date{
+    font-size:12px;
+}
+.content-place{
+    font-size:12px;
+}
+.content-category p{
+    font-size:10px;
+}
+.content-category_doc{
+    padding-top:1px;
+}
+.form-unclicked{
+    border-radius:20px;
+    width:350px;
+    height:50px;
+    box-shadow:0px 3px 10px #00000029;
+    border:1px groove #00000029;
+    margin:auto;
+    z-index:1000;
+}
+.form-unclicked_table{
+    margin-top:17px;
+    margin-left:10px;
+}
+.form-document{
+    padding-left:10px;
+}
+#action{
+    background:#ffffff;
+    border:none;
+}
+.action.active{
+    margin-top:10px;
+}
+.form{
+    border-radius:20px;
+    width:350px;
+    height:100px;
+    box-shadow:0px 3px 10px #00000029;
+    border:1px groove #00000029;
+    margin:auto;
+    margin-top:-52px;
+    display:none;
+}
+.form.active{
+    display:block;
+}
+.form-unclicked.active{
+    border:none;
+    box-shadow:none;
+}
+.form-document.active{
+    display:none;
+}
+.form-image1{
+    transform:rotate(45deg);
+    margin-bottom:5px;
+}
+.form-image1.active{
+    transform:rotate(90deg);
+    margin-top:10px;
+}
+.form-content{
+    display:flex;
+}
+.form-table{
+    width:90%;
+    margin:auto;
+    padding-top:50px;
+
+}
+.form-button{
+    width:30px;
+    height:30px;
+    margin-top:10px;
+}
+.button{
+    background-color:transparent;
+    border:none;
+}
+#id_thread{
+    margin-left:15px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid #e2e1e1;
+    width:100%;
+
+}
+.replyform{
+    width:350px;
+    border-bottom:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+    display:none;
+    border-radius:0 0 20px 20px;
+}
+.replyform.active{
+    display:block;
+}
+.threadform{
+    border-radius:20px;
+    width:350px;
+    border:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+}
+.thread1-display{
+    display:flex;
+}
+.thread1-img{
+    margin:5px;
+}
+.thread1-doc{
+    margin-top:10px;
+}
+.thread1-thread{
+    margin-top:10px;
+    margin-left:3px;
+}
+.replybutton{
+    margin-left:310px;
+    background:#ffffff;
+    border:none;
+}
+.replyform-thread{
+    width:90%;
+    margin:auto;
+    margin-bottom:10px;
+}
+#id_threadlist{
+    width:100%;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid #e2e1e1;
+}
+.thread2_content{
+    width:90%;
+    margin:auto;
+    border-bottom:1px solid #929292;
+    display:flex;
+}
+.thread2-img{
+    margin:2px;
+}
+.thread2-doc{
+    margin-top:3px;
+}
+.thread2-thread{
+    margin-top:4px;
+    margin-left:2px;
+}
+.reply-trigger{
+    background-color:#ffffff;
+    border:none;
+    margin-left:280px;
+    margin-bottom:10px;
+}
+.unclicked-doc{
+    display:block;
+}
+.unclicked-doc.active{
+    display:none;
+}
+.form-image3{
+    display:none;
+}
+.form-image3.active{
+    display:block;
+}
+.reply-trigger p{
+    color:#929292;
+}
+ footer{
+
+    width:350px;
+    margin:auto;
+    margin-top:40px;
+}
+
+=======
+@font-face{
+    font-family:'源泉丸ゴシック';
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+}
+html{
+    height:812px;
+}
+body{
+    font-family:'源泉丸ゴシック', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
+    width:375px;
+    height:100%;
+    overflow-y:scroll;
+}
+.header-container{
+    display:flex;
+    background-color: #ea730c;
+    height:80px;
+    border-radius:0 0 40px 0;
+}
+.header-image{
+    height:40px;
+    width:40px;
+    margin-top:5px;
+}
+.header-icon{
+    margin-top:10px;
+}
+.header-name{
+    margin-top:19px;
+    margin-left:5px;
+    color:#ffffff;
+}
+.content-image{
+    margin:auto;
+    margin-top:-30px;
+    width:350px;
+    height:350px;
+    box-shadow:0px 3px 10px #00000029;
+    border-radius:30px;
+}
+#like-ikon{
+    margin-left:270px;
+    margin-top:-10px;
+}
+.like-form{
+    margin-top:-50px;
+    height:70px;
+}
+.like-button{
+    background-color:transparent;
+    border:none;
+    height:60px;
+    width:60px;
+    border-radius:50px;
+}
+.content-content{
+    border-radius:20px;
+    box-shadow:0px 3px 10px #00000029;
+    width:350px;
+    height:200px;
+    margin:auto;
+    margin-bottom:20px;
+    margin-top:30px;
+}
+.content-detail1{
+    display:flex;
+    padding-top:15px;
+    justify-content:space-around;
+}
+.content-detail2{
+    margin-top:40px;
+    margin-left:23px;
+}
+.content-category{
+    background-color:#ea730c;
+    color:#ffffff;
+    height:12px;
+    width:40px;
+    text-align:center;
+    border-radius:10px;
+}
+.content-date{
+    font-size:12px;
+}
+.content-place{
+    font-size:12px;
+}
+.content-category p{
+    font-size:10px;
+}
+.content-category_doc{
+    padding-top:1px;
+}
+.form-unclicked{
+    border-radius:20px;
+    width:350px;
+    height:50px;
+    box-shadow:0px 3px 10px #00000029;
+    margin:auto;
+    z-index:1000;
+}
+.form-unclicked_table{
+    margin-left:10px;
+}
+.form-document{
+    padding-left:10px;
+    padding-top:17px;
+}
+#action{
+    background:#ffffff;
+    border:none;
+    padding-top:19px;
+}
+.action.active{
+    margin-top:10px;
+}
+.form{
+    border-radius:20px;
+    width:350px;
+    height:100px;
+    box-shadow:0px 3px 10px #00000029;
+    margin:auto;
+    margin-top:-52px;
+    display:none;
+}
+.form.active{
+    display:block;
+}
+.form-unclicked.active{
+    border:none;
+    box-shadow:none;
+}
+.form-document.active{
+    display:none;
+}
+.form-image1{
+    transform:rotate(45deg);
+    margin-bottom:5px;
+}
+.form-image1.active{
+    transform:rotate(90deg);
+    margin-top:-30px;
+}
+.form-content{
+    display:flex;
+}
+.form-table{
+    width:90%;
+    margin:auto;
+    padding-top:50px;
+
+}
+.form-button{
+    width:30px;
+    height:30px;
+    margin-top:10px;
+}
+.button{
+    background-color:transparent;
+    border:none;
+}
+#id_thread{
+    margin-left:15px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid #e2e1e1;
+    width:100%;
+
+}
+.replyform{
+    width:350px;
+    border-bottom:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+    display:none;
+    border-radius:0 0 20px 20px;
+}
+.replyform.active{
+    display:block;
+}
+.threadform{
+    border-radius:20px;
+    width:350px;
+    border:1px solid #00000029;
+    margin:auto;
+    margin-top:20px;
+}
+.thread1-display{
+    display:flex;
+}
+.thread1-img{
+    margin:5px;
+}
+.thread1-doc{
+    margin-top:10px;
+}
+.thread1-thread{
+    margin-top:10px;
+    margin-left:3px;
+}
+.replybutton{
+    margin-left:310px;
+    background:#ffffff;
+    border:none;
+}
+.replyform-thread{
+    width:90%;
+    margin:auto;
+    margin-bottom:10px;
+}
+#id_threadlist{
+    width:100%;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid #e2e1e1;
+}
+.thread2_content{
+    width:90%;
+    margin:auto;
+    border-bottom:1px solid #929292;
+    display:flex;
+}
+.thread2-img{
+    margin:2px;
+}
+.thread2-doc{
+    margin-top:3px;
+}
+.thread2-thread{
+    margin-top:4px;
+    margin-left:2px;
+}
+.reply-trigger{
+    background-color:#ffffff;
+    border:none;
+    margin-left:280px;
+    margin-bottom:10px;
+}
+.unclicked-doc{
+    display:block;
+}
+.unclicked-doc.active{
+    display:none;
+}
+.form-image3{
+    display:none;
+}
+.form-image3.active{
+    display:block;
+}
+.reply-trigger p{
+    color:#929292;
+}
+ footer{
+
+    width:350px;
+    margin:auto;
+    margin-top:40px;
+}
+

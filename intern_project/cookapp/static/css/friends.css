@@ -17,6 +17,9 @@ header{
     height:40px;
     margin-top:2px;
 }
+.content_all_inner{
+    text-align:center;
+}
 .tabs{
     display:flex;
     justify-content:space-around;
@@ -140,7 +143,6 @@ footer {
     top: 100px;
     left: 90px;
 }
-
 
 /* お気に入りがないとき */
 .like-message-1 {
