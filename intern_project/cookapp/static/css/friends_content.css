@@ -139,7 +139,7 @@ body{
 }
 .form-image1.active{
     transform:rotate(90deg);
-    margin-top:-30px;
+    margin-top:-50px;
 }
 .form-content{
     display:flex;
@@ -167,6 +167,9 @@ body{
     border-bottom:1px solid #e2e1e1;
     width:100%;
 
+}
+.form-image{
+    margin-bottom:20px;
 }
 .replyform{
     width:350px;
@@ -246,9 +249,11 @@ body{
 }
 .form-image3{
     display:none;
+    margin-left:-265px;
 }
 .form-image3.active{
     display:block;
+    margin-bottom:-150px;
 }
 .reply-trigger p{
     color:#929292;

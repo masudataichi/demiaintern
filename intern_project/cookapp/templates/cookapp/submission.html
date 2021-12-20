@@ -24,13 +24,13 @@
                     <button type="submit"><p class='add-doc'>追加</p></button>
                     </div>
                 </div>
-                <div class="image-field" id='image-field'>
+                <div class="image-field" id='image-field' style='border:none'>
                     <div class="image_document">
                             <img id="image-display_origin" src="{% static 'svg/グループ 3.svg' %}" />
                             <p id='doc'>写真を選択</p>
                         </div>
-                        <img id="image-display_update" border='0'>
-                        <div class="image-display">
+                        <img id="image-display_update"  style="border:none;">
+                        <div class="image-display" style='border:none'>
                             {{ form.image }}
                     </div>
                 </div>

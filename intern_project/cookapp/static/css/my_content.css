@@ -237,6 +237,8 @@ header{
 }
 .form-image3{
     display:none;
+    margin-left:-265px;
+    margin-bottom:-150px;
 }
 .form-image3.active{
     display:block;
