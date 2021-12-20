@@ -1,6 +1,6 @@
 @font-face{
     font-family:'源泉丸ゴシック';
-    src: url(../../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
+    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
 header{
     font-family:'源泉丸ゴシック', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
