@@ -507,31 +507,17 @@ main {
 #id_date_year {
   width: 60px;
   background-color: #f8f8f8;
+  position: relative;
 }
 
-#id_date_year::after {
-  content: '/';
-}
+
 
 #id_date_month {
   width: 60px;
   background-color: #f8f8f8;
 }
 
-#id_date_month::after{
-  content: '/';
-  display: block;
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: #cccccc;
-}
-
 #id_date_day {
   width: 60px;
   background-color: #f8f8f8;
-}
-
-.form-width {
-  width: 100%;
 }

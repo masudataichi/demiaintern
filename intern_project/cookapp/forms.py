@@ -25,6 +25,7 @@ class SubmissionForm(forms.ModelForm):
             9: ' 9 ', 10: ' 10 ', 11: ' 11 ', 12: ' 12 '
         }
 
+
         #追記（臼杵）
         widgets = {
             'comment': forms.Textarea(attrs={'rows':7, 'cols':15}),

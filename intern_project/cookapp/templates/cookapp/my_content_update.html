@@ -33,7 +33,7 @@
             </div>
             <div class="public-private">{{ form.public_private }}</div>
             <div class="category fields">{{ form.category|add_class:'form-width' }}</div>
-            <div class="date fields">{{ form.date }}<span>/</span></div>
+            <div class="date fields">{{ form.date|add_class:"form-date" }}</div>
             <div class="place fields">{{ form.place }}</div>
             <div class="comment fields">{{ form.comment|add_class:'form-width' }}</div>
             <div class="update-button"><button type="submit">更新</button></div>

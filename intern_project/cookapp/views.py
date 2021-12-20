@@ -171,6 +171,7 @@ def friends(request):
                 return render(request, 'cookapp/friends.html',params)
             return render(request, 'cookapp/friends.html',params)
     return render(request, 'cookapp/friends.html', params)
+    
 @login_required
 def SubmissionView(request):
     params = {
@@ -188,6 +189,7 @@ def SubmissionView(request):
         return redirect('home')
 
     return render(request, 'cookapp/submission.html', params)
+
 @login_required
 def friends_content(request,id):
     content = Submission.objects.get(id = id)
