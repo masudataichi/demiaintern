@@ -15,7 +15,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from .models import Submission, User, Thread, Friends, Threadlist, Like
-from .forms import PasswordForm, SubmissionForm, FriendsForm, ThreadlistForm, SearchForm
+from .forms import PasswordForm, SubmissionForm, FriendsForm, ThreadlistForm, SearchForm, UpdateForm
 
 from django.views.generic import CreateView,UpdateView,DeleteView
 from django.contrib import messages
@@ -158,18 +158,20 @@ def friends(request):
                 'friendslist': friendslist,
             }       
             if Like.objects.filter(user = user).exists():
-                like = Like.objects.filter(user = user)
+                like1 = Like.objects.filter(user = user)
                 submission_exclude = Submission.objects.exclude(submissionconnection = user)
                 params ={
                     'submission_exclude':submission_exclude,
                     'user':user,
                     'like':like,
+                    'like1':like,
                     'form':SearchForm,
                     'friendslist': friendslist,
                 }
                 return render(request, 'cookapp/friends.html',params)
             return render(request, 'cookapp/friends.html',params)
     return render(request, 'cookapp/friends.html', params)
+    
 @login_required
 def SubmissionView(request):
     params = {
@@ -187,6 +189,7 @@ def SubmissionView(request):
         return redirect('home')
 
     return render(request, 'cookapp/submission.html', params)
+
 @login_required
 def friends_content(request,id):
     content = Submission.objects.get(id = id)
@@ -384,9 +387,10 @@ def setting(request):
 
 class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = User
-    form_class = SignupForm
+    form_class = UpdateForm
     template_name = 'cookapp/user_update.html'
     success_url = reverse_lazy('setting_complete')
+
 @login_required
 def user_delete(request):
     return render(request,'cookapp/user_delete.html')
@@ -405,6 +409,8 @@ class PasswordView(LoginRequiredMixin,PasswordChangeView):
     success_url = 'setting'
     template_name = 'cookapp/password_change.html'
     form_class = PasswordForm
+
+   
 @login_required
 def friends_add_before(request):
     myuserID = request.user.userID

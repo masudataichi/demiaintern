@@ -428,18 +428,16 @@ html {
     margin: 0px;
 }
 /* font指定 */
-@font-face {
-    font-family: '源泉丸ゴシック';
-    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
-}
 body {
-    font-family: 源泉丸ゴシック;
+    font-family:"Kosugi Maru", "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
+    font-variant-east-asian:  jis04 ;
+  
 }
+
 footer {
     position: fixed;
     bottom: 10px;
     width: 376px;
-    z-index:20;
 }
 .footer-container {
     display: flex;
@@ -451,7 +449,28 @@ footer {
     z-index: 10;
     filter:drop-shadow(0px 6px 20px #00000024);
 }
+
 .footer-button {
     width: 25%;
 }
 
+select {
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: pre;
+  -webkit-rtl-ordering: logical;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  cursor: default;
+  margin: 0em;
+}

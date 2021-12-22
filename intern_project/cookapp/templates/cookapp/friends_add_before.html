@@ -18,7 +18,7 @@
     {% endblock header %}
     {% block main %}
         <div class="form_field">
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" class='searchform'>
             {% csrf_token %}
             <div class="searchfield">
                 <h2 class="table_title">ID検索</h2>

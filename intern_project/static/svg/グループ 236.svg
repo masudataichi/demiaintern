@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31">
+  <g id="グループ_236" data-name="グループ 236" transform="translate(-304 -215)">
+    <g id="グループ_235" data-name="グループ 235" transform="translate(311.382 223.5)">
+      <g id="楕円形_58" data-name="楕円形 58" transform="translate(1.65) rotate(9)" fill="#fff" stroke="#ea730c" stroke-width="1">
+        <ellipse cx="5.273" cy="5.273" rx="5.273" ry="5.273" stroke="none"/>
+        <ellipse cx="5.273" cy="5.273" rx="4.773" ry="4.773" fill="none"/>
+      </g>
+      <line id="線_464" data-name="線 464" x2="6.327" y2="5.273" transform="translate(9.403 10.036) rotate(9)" fill="none" stroke="#ea730c" stroke-width="1"/>
+    </g>
+    <rect id="長方形_163" data-name="長方形 163" width="31" height="31" transform="translate(304 215)" fill="none"/>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+[submodule "intern_project/gensen-font"]
+	path = intern_project/gensen-font
+	url = https://github.com/ButTaiwan/gensen-font.git
+[submodule "intern_project/cookapp/static/gensen-font"]
+	path = intern_project/cookapp/static/gensen-font
+	url = https://github.com/ButTaiwan/gensen-font.git

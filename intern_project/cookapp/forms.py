@@ -4,7 +4,7 @@ from django.db.models import fields
 from .models import Friends, Submission, Thread, Threadlist
 from django.forms import ModelForm
 
-from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm,PasswordChangeForm
 from .models import User
 from django.contrib.auth import authenticate, get_user_model
 from django.utils.text import capfirst
@@ -24,6 +24,7 @@ class SubmissionForm(forms.ModelForm):
             5: ' 5 ', 6: ' 6 ', 7: ' 7 ', 8: ' 8 ',
             9: ' 9 ', 10: ' 10 ', 11: ' 11 ', 12: ' 12 '
         }
+
 
         #追記（臼杵）
         widgets = {
@@ -71,6 +72,30 @@ class SignupForm(UserCreationForm):
                 "このユーザー名は既に使用されています。"
                 )
         return username
+
+class UpdateForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ['username','email','icon']
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        User.objects.filter(email=email, is_active=False).delete()
+        if User.objects.exclude(pk=self.instance.id).filter(email=email).count() != 0:
+            raise forms.ValidationError(
+                "このメールアドレスは既に使用されています。"
+                )
+        return email
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        User.objects.filter(username=username, is_active=False).delete()
+        if User.objects.exclude(pk=self.instance.id).filter(username=username).count() != 0:
+            raise forms.ValidationError(
+                "このユーザー名は既に使用されています。"
+                )
+        return username
+
 
 class ThreadForm(forms.ModelForm):
     class Meta:

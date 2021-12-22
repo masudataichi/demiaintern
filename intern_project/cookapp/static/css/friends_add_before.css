@@ -3,7 +3,7 @@
     src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
 body{
-    font-family:'源泉丸ゴシック';
+    font-family:'源泉丸ゴシック', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
     width:375px;
     height:812px;
 }
@@ -48,6 +48,9 @@ form{
     width:90%;
     display:flex;
 }
+.searchform{
+    margin:40px;
+}
 .table_title{
     color:#ea730c;
     margin-bottom:20px;
@@ -62,11 +65,11 @@ h2{
     padding-top:4px;
 }
 .img{
-    padding-top:25px;
-    margin-left:-5px;
+    padding-top:32px;
+    margin-left:3px;
 }
 #id_userID{
-    width:250px;
+    width:270px;
     height:20px;
     border-top:none;
     border-left:none;
@@ -96,6 +99,8 @@ h2{
 }
 .myID_contents{
     width:90%;
+    margin-top:30px;
+    margin-bottom:30px;
 }
 .myID_doc{
     padding-top:10px;

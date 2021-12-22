@@ -6,8 +6,11 @@
     {% block extrastyle %}
     
     {% endblock extrastyle %} 
-
+    
     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
     <meta charset="utf-8" name="viewport" content="width=device-width">
 </head>
 <body>
@@ -16,10 +19,8 @@
         {% endblock header %}
     </header>
     <main>
-        <div class="main-container">
             {% block main %}
             {% endblock  %}
-        </div>
     </main>
     <footer>
         <!------------- ここが引き継がれる -------------------------------->

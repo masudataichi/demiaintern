@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="87" height="58" viewBox="0 0 87 58">
+  <g id="friend_add_before" transform="translate(-7)">
+    <rect id="長方形_43" data-name="長方形 43" width="87" height="58" transform="translate(7)" fill="none"/>
+    <g id="アートワーク_23" data-name="アートワーク 23" transform="translate(50.034 29.5)">
+      <g id="グループ_377" data-name="グループ 377" transform="translate(-12.034 -12.5)">
+        <g id="楕円形_91" data-name="楕円形 91" transform="translate(4.67)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.706">
+          <ellipse cx="6.204" cy="6.204" rx="6.204" ry="6.204" stroke="none"/>
+          <ellipse cx="6.204" cy="6.204" rx="5.351" ry="5.351" fill="none"/>
+        </g>
+        <path id="パス_275" data-name="パス 275" d="M17.08,214.245v1.285H15.938a8.983,8.983,0,0,0-5.064-1.557,9.279,9.279,0,0,0-9.168,9.366H0a10.986,10.986,0,0,1,10.874-11.072,10.688,10.688,0,0,1,6.043,1.865Z" transform="translate(0 -198.339)" fill="#ea730c"/>
+        <path id="パス_276" data-name="パス 276" d="M305.118,309.984h-1.706a9.638,9.638,0,0,0-.142-1.657c0-.016,0-.033,0-.049V305h.684q.065.13.126.262A11.141,11.141,0,0,1,305.118,309.984Z" transform="translate(-283.37 -284.984)" fill="#ea730c"/>
+        <line id="線_720" data-name="線 720" x1="0.684" transform="translate(19.901 20.013)" fill="none"/>
+        <line id="線_721" data-name="線 721" x2="11.155" transform="translate(12.913 18.537)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.733"/>
+        <line id="線_722" data-name="線 722" y1="11.155" transform="translate(18.49 12.959)" fill="none" stroke="#ea730c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.709"/>
+      </g>
+    </g>
+  </g>
+</svg>

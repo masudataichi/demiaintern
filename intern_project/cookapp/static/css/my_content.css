@@ -1,17 +1,11 @@
 @font-face{
     font-family:'源泉丸ゴシック';
-    src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
-}
-html{
-    overflow:hidden;
-    position:relative;
+    src: url(../gensenfont/ttc/GenSenRounded-M.ttc) format('woff');
 }
 body{
-    position:absolute;
-    font-family:'源泉丸ゴシック';
+    font-family:'源泉丸ゴシック' ,"游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
     width:375px;
     height:812px;
-    overflow:scroll;
 }
 header{
     width:100%;
@@ -20,9 +14,6 @@ header{
     border-radius:0 0 30px 0;
     display:flex;
     justify-content:space-between;
-}
-.main-container{
-    margin-top:-40px;
 }
 .user{
     display:flex;
@@ -42,22 +33,25 @@ header{
 }
 .image{
     border-radius:20px;
+    margin-bottom:20px;
+    margin-top:-40px;
 }
 .image-image{
     width:350px;
-    height:350px;
+    height:310px;
     margin:auto;
     box-shadow:0px 3px 10px #00000029;
     border-radius:30px;
+    margin-bottom:30px;
 }
 .form-unclicked{
     border-radius:20px;
     width:350px;
     height:50px;
     box-shadow:0px 3px 10px #00000029;
+    border:1px groove #00000029;
     margin:auto;
     z-index:1000;
-    background-color:#ffffff;
 }
 .form-unclicked_table{
     margin-top:17px;
@@ -71,13 +65,13 @@ header{
     width:350px;
     height:100px;
     box-shadow:0px 3px 10px #00000029;
+    border:1px groove #00000029;
     margin:auto;
     margin-top:-52px;
     display:none;
 }
 .form.active{
     display:block;
-    background:#ffffff;
 }
 .form-unclicked.active{
     border:none;
@@ -87,7 +81,7 @@ header{
     display:none;
 }
 #action{
-    background:#ffffff;
+    background:transparent;
     border:none;
 }
 .action.active{
@@ -95,7 +89,6 @@ header{
 }
 .form-image1{
     transform:rotate(45deg);
-    padding-top:20px;
 }
 .form-image1.active{
     transform:rotate(90deg);
@@ -104,15 +97,15 @@ header{
 .image-details{
     border-radius:20px;
     box-shadow:0px 3px 10px #00000029;
+    border:1px groove #00000029;
     width:350px;
     height:200px;
     margin:auto;
-    margin-top:30px;
-    background-color:#ffffff;
+    margin-bottom:20px;
 }
 .image-detail_1{
     display:flex;
-    padding-top:10px;
+    margin-top:10px;
     justify-content:space-around;
 }
 .image_date{
@@ -135,9 +128,10 @@ header{
     width:45px;
     text-align:center;
     border-radius:10px;
+
 }
 .image_category_doc{
-    margin-top:2px;
+    padding-top:2px;
     font-size:10px;
 }
 .form-content{
@@ -152,9 +146,6 @@ header{
     margin:auto;
     padding-top:50px;
 
-}
-.form-document{
-    padding-top:18px;
 }
 .form-button{
     width:30px;
@@ -175,6 +166,9 @@ header{
 .form-image1.active{
     margin-top:2px;
 }
+.thread-whole{
+    padding-bottom:75px;
+}
 #id_thread{
     margin-left:15px;
     width:100%;
@@ -190,11 +184,11 @@ header{
     margin:5px;
 }
 .thread1-doc{
-    margin-top:10px;
+    margin-top:12px;
 }
 .thread1-thread{
     margin-top:40px;
-    margin-left:-78px;
+    margin-left:-79px;
 }
 .my-thread{
     border-radius:20px;
@@ -207,19 +201,16 @@ header{
 .threadform{
     border-radius:20px;
     width:350px;
+    border:1px solid #00000029;
     margin:auto;
     margin-top:20px;
-    background:#ffffff;
-    box-shadow:0px 3px 10px #00000029;
-}
-.thread-whole{
-    padding-bottom:75px;
 }
 .replyform{
     width:350px;
     margin:auto;
     margin-top:20px;
     display:none;
+    border-radius:0 0 20px 20px;
 }
 .replyform.active{
     display:block;
@@ -227,7 +218,7 @@ header{
 .reply-trigger{
     background-color:#ffffff;
     border:none;
-    margin-left:280px;
+    margin-left:275px;
     margin-bottom:10px;
 }
 .unclicked-doc{
@@ -238,8 +229,6 @@ header{
 }
 .form-image3{
     display:none;
-    margin-left:-265px;
-    margin-bottom:-150px;
 }
 .form-image3.active{
     display:block;

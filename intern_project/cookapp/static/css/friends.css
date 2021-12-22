@@ -36,7 +36,7 @@ form{
     display:flex;
 }
 body{
-    font-family:'源泉丸ゴシック';
+    font-family:'源泉丸ゴシック', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
     width:375px;
     height:812px;
 }
@@ -86,7 +86,7 @@ body{
     margin-top:10px;
 }
 #like-img1,#like-img2{
-    margin-left:36.5px;
+    margin-left:36px;
     z-index:2;
     margin-top:10px;
 }
@@ -122,15 +122,16 @@ footer {
 /* 友達の投稿がない時 */
 .friends_blank  {
     position: relative;
-    left: -28px;
-    top: 8px;
+    width: 348px;
+    height: 348px;
+    left: -15px;
     z-index: 1;
 }
 
 .blank-message-1 {
     position: absolute;
     z-index: 5;
-    top: 70px;
+    top: 150px;
     left: 95px;
 }
 
@@ -145,7 +146,7 @@ footer {
 .like-message-1 {
     position: absolute;
     z-index: 5;
-    top: 70px;
+    top: 120px;
     left: 70px;
 }
 
@@ -159,6 +160,6 @@ footer {
 .like-message-3 {
     position: absolute;
     z-index: 6;
-    bottom: 70px;
+    top: 270px;
     right: 55px;
 }
