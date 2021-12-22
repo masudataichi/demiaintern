@@ -3,7 +3,6 @@
     src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
 html{
-    overflow:hidden;
     position:relative;
 }
 body{
@@ -164,7 +163,7 @@ body{
     margin-top:5px;
     border-radius:5px;
     padding:5px;
-    margin-bottom:100px;
+    margin-bottom:150px;
 }
 footer{
     width:90%;
