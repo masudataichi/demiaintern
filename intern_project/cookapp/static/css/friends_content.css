@@ -173,11 +173,9 @@ body{
 }
 .replyform{
     width:350px;
-    border-bottom:1px solid #00000029;
     margin:auto;
     margin-top:20px;
     display:none;
-    border-radius:0 0 20px 20px;
 }
 .replyform.active{
     display:block;
@@ -189,9 +187,9 @@ body{
 .threadform{
     border-radius:20px;
     width:350px;
-    border:1px solid #00000029;
     margin:auto;
     margin-top:20px;
+    box-shadow:0px 3px 10px #00000029;
 }
 .thread1-display{
     display:flex;
@@ -200,11 +198,11 @@ body{
     margin:5px;
 }
 .thread1-doc{
-    margin-top:10px;
+    margin-top:12px;
 }
 .thread1-thread{
-    margin-top:10px;
-    margin-left:3px;
+    margin-top:40px;
+    margin-left:-79px;
 }
 .replybutton{
     margin-left:310px;
@@ -224,20 +222,20 @@ body{
     border-bottom:1px solid #e2e1e1;
 }
 .thread2_content{
-    width:90%;
+    width:100%;
     margin:auto;
-    border-bottom:1px solid #929292;
     display:flex;
 }
 .thread2-img{
-    margin:2px;
+    margin:5px;
 }
 .thread2-doc{
-    margin-top:3px;
+    margin-top:12px;
 }
 .thread2-thread{
-    margin-top:4px;
-    margin-left:2px;
+    margin-top:40px;
+    margin-left:-79px;
+    margin-bottom:5px;
 }
 .reply-trigger{
     background-color:#ffffff;

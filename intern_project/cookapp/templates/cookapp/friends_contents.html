@@ -73,7 +73,7 @@
                 {% if thread.threadconnection_user.icon %}
                 <img class='thread1-img' src='{{ thread.threadconnection_user.icon.url }}' style='border-radius:50px;' height='30px' width='30px'/>
                 {% endif %}
-                <p class='thread1-doc'>{{ thread.threadconnection_user.username }}:</p>
+                <p class='thread1-doc'>{{ thread.threadconnection_user.username }}</p>
                 <p class='thread1-thread'>{{thread.thread}}</p>
             </div>
             <button class='reply-trigger' id='unclicked' >
@@ -87,20 +87,20 @@
                 </div>
                 {% csrf_token %}
             </form>
-        </div>
             <div class="thread2">
                 {% for threadlist in threadlist %}
                 {% if threadlist.threadlistconnection_thread == thread %}
                 <div class="thread2_content">
                     {% if threadlist.threadlistconnection_user.icon %}
-                    <img class='thread2-img' src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='20px' width='20px'/>
+                    <img class='thread2-img' src='{{threadlist.threadlistconnection_user.icon.url}}' style='border-radius:50px;' height='30px' width='30px'/>
                     {% endif %}
-                    <div class="thread2-doc">{{threadlist.threadlistconnection_user.username}}:</div>
+                    <div class="thread2-doc">{{threadlist.threadlistconnection_user.username}}</div>
                     <div class="thread2-thread">{{threadlist.threadlist}}</div>
                 </div>
                 {% endif %}
                 {% endfor %}
             </div>
+        </div>
         {% endfor %}
     </div>
 {% endblock main %}
