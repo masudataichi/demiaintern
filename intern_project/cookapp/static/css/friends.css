@@ -17,9 +17,6 @@ header{
     height:40px;
     margin-top:2px;
 }
-.content_all_inner{
-    text-align:center;
-}
 .tabs{
     display:flex;
     justify-content:space-around;
@@ -42,6 +39,9 @@ body{
     font-family:'源泉丸ゴシック', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
     width:375px;
     height:812px;
+}
+.img{
+    margin-bottom:4px;
 }
 .submit{
     background-color:#ffffff;
@@ -86,7 +86,7 @@ body{
     margin-top:10px;
 }
 #like-img1,#like-img2{
-    margin-left:36.5px;
+    margin-left:36px;
     z-index:2;
     margin-top:10px;
 }
@@ -100,15 +100,12 @@ body{
 .imgNone{
     display:none;
 }
-.Link-img{
-    margin:3px;
-}
 
 .content-all_inner{
-    padding:10px 10px 10px 15px;
+    padding:10px 10px 10px 20px;
 }
 .content-like_inner{
-    padding:10px 10px 10px 15px;
+    padding:10px 10px 10px 20px;
 }
 
 footer {
