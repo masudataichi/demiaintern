@@ -203,6 +203,8 @@ body{
 .thread1-thread{
     margin-top:40px;
     margin-left:-79px;
+    width:80%;
+    word-break: break-all;
 }
 .replybutton{
     margin-left:310px;
@@ -220,6 +222,7 @@ body{
     border-left:none;
     border-right:none;
     border-bottom:1px solid #e2e1e1;
+    margin-bottom:10px;
 }
 .thread2_content{
     width:100%;
@@ -236,6 +239,8 @@ body{
     margin-top:40px;
     margin-left:-79px;
     margin-bottom:5px;
+    width:80%;
+    word-break: break-all;
 }
 .reply-trigger{
     background-color:#ffffff;
