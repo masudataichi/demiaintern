@@ -2,8 +2,6 @@
 window.addEventListener('DOMContentLoaded', function(){
     document.getElementById('id_image').addEventListener('change',function(e){
         var input = document.getElementById('id_image').files[0];
-        console.log(input);
-        input.width = 300;
         var reader = new FileReader();
         reader.addEventListener('load', function(e){
             document.getElementById('image-display_update').src = reader.result;
