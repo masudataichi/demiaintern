@@ -222,7 +222,7 @@ header{
     display:block;
 }
 .reply-trigger{
-    background-color:#ffffff;
+    background-color:transparent;
     border:none;
     margin:auto;
     padding-bottom:10px;
