@@ -82,7 +82,7 @@
             </button>
             <form method="post" class="replyform" id='clicked'>
                 <div class='replyform-content'>
-                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button>
+                    <button class='replybutton' type="submit" name="th" value={{forloop.counter0}}><img class='form-image2' id='deleteIcon' src="{% static 'svg/パス 335.svg' %}" /></button>
                     <div class='replyform-thread'>{{form1.threadlist}}</div>
                 </div>
                 {% csrf_token %}
