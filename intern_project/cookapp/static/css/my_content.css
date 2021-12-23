@@ -224,11 +224,16 @@ header{
 .reply-trigger{
     background-color:#ffffff;
     border:none;
-    margin-left:275px;
-    margin-bottom:10px;
+    margin:auto;
+    padding-bottom:10px;
+    padding-top:10px;
+    width:95%;
+    display:flex;
+    justify-content:space-between;
 }
 .unclicked-doc{
     display:block;
+    margin-left:260px;
 }
 .unclicked-doc.active{
     display:none;
@@ -238,7 +243,8 @@ header{
 }
 .form-image3.active{
     display:block;
-    margin-left:-260px;
+    margin-right:60px;
+
 }
 .reply-trigger p{
     color:#929292;
