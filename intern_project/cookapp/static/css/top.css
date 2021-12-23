@@ -9,6 +9,7 @@ body{
     height:812px;
     overflow:hidden;
     position:relative;
+    overflow:scroll;
 }
 .elements{
     width:375px;
