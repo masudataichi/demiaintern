@@ -30,7 +30,7 @@
             {% if randomcontent %}
                 <a class ="Link" href="{% url 'my_content' randomcontent.id %}"><img src={{randomcontent.image.url}} alt="画像" width="350" height="350" class="linkimage1"></a>
                 {% for content in content %}
-                    <a class ="Link" href="{% url 'my_content' content.id %}"><img src={{content.image.url}} alt="サンプル" width="80" height="80" class="linkimage2"></a>
+                    <a class ="Link" href="{% url 'my_content' content.id %}"><img src={{content.image.url}} alt="サンプル" width="79" height="79" class="linkimage2"></a>
                 {% endfor %}
             {% else %}
                 <div class="blank-image" style="border-radius: 30px;"><img src="{% static 'svg/投稿がないときのイメージ.svg' %}" alt="" width="348px" height="348px" ></div>
