@@ -49,7 +49,7 @@ header{
     width:350px;
     height:50px;
     box-shadow:0px 3px 10px #00000029;
-    border:1px groove #00000029;
+    border:0px groove #00000029;
     margin:auto;
     z-index:1000;
 }
@@ -59,6 +59,7 @@ header{
 }
 .form-document{
     padding-left:10px;
+    margin-top:17px;
 }
 .form{
     border-radius:20px;
@@ -97,7 +98,6 @@ header{
 .image-details{
     border-radius:20px;
     box-shadow:0px 3px 10px #00000029;
-    border:1px groove #00000029;
     width:350px;
     height:200px;
     margin:auto;
@@ -110,9 +110,11 @@ header{
 }
 .image_date{
     font-size:12px;
+    margin-top:10px;
 }
 .image_place{
     font-size:12px;
+    margin-top:10px;
 }
 #image-display_origin3{
     height:10px;
@@ -128,6 +130,7 @@ header{
     width:45px;
     text-align:center;
     border-radius:10px;
+    margin-top:10px;
 
 }
 .image_category_doc{
@@ -162,6 +165,7 @@ header{
 }
 .form-image1{
     padding-bottom:20px;
+    margin-top:17px;
 }
 .form-image1.active{
     margin-top:2px;
@@ -185,10 +189,13 @@ header{
 }
 .thread1-doc{
     margin-top:12px;
+    margin-bottom:10px;
 }
 .thread1-thread{
     margin-top:40px;
     margin-left:-79px;
+    width:80%;
+    word-break: break-all;
 }
 .my-thread{
     border-radius:20px;
@@ -201,7 +208,7 @@ header{
 .threadform{
     border-radius:20px;
     width:350px;
-    border:1px solid #00000029;
+    box-shadow:0px 3px 10px #00000029;
     margin:auto;
     margin-top:20px;
 }
@@ -232,6 +239,7 @@ header{
 }
 .form-image3.active{
     display:block;
+    margin-left:-260px;
 }
 .reply-trigger p{
     color:#929292;
@@ -252,6 +260,7 @@ header{
     border-left:none;
     border-right:none;
     border-bottom:1px solid #e2e1e1;
+    margin-bottom:10px;
 }
 .thread2_content{
     width:100%;
@@ -268,6 +277,8 @@ header{
     margin-top:40px;
     margin-left:-79px;
     margin-bottom:5px;
+    width:80%;
+    word-break: break-all;
 }
 footer{
     width:350px;
