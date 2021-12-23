@@ -32,9 +32,10 @@
                 <input type="file" name="{{ form.image.html_name }}" accept="image/*" id="{{ form.image.id_for_label }}" style="display: none;">
             </div>
             <div class="public-private">{{ form.public_private }}</div>
-            <div class="category fields">{{ form.category|add_class:'form-width' }}</div>
             <div class="date fields">{{ form.date|add_class:"form-date" }}</div>
+            <div class="category fields">{{ form.category|add_class:'form-width' }}</div>
             <div class="place fields">{{ form.place }}</div>
+            <div class="" style="color:#757575; font-size: 12px;">例）大阪府・東京都など都道府県、または家</div>
             <div class="comment fields">{{ form.comment|add_class:'form-width' }}</div>
             <div class="update-button"><button type="submit">更新</button></div>
         </form>
