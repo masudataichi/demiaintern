@@ -122,6 +122,8 @@ header{
 .image-detail_2{
     margin-top:40px;
     margin-left:23px;
+    width:80%;
+    word-break: break-all;
 }
 .image_category{
     background-color:#ea730c;
@@ -181,19 +183,16 @@ header{
     border-right:none;
     border-bottom:1px solid #e2e1e1;
 }
-.thread1-display{
-    display:flex;
-}
 .thread1-img{
     margin:5px;
 }
 .thread1-doc{
-    margin-top:12px;
-    margin-bottom:10px;
+    margin-top:-28px;
+    margin-left:40px;
 }
 .thread1-thread{
-    margin-top:40px;
-    margin-left:-79px;
+    margin-top:20px;
+    margin-left:40px;
     width:80%;
     word-break: break-all;
 }
@@ -265,18 +264,18 @@ header{
 .thread2_content{
     width:100%;
     margin:auto;
-    display:flex;
 }
 .thread2-img{
     margin:5px;
 }
 .thread2-doc{
-    margin-top:12px;
+    margin-top:-28px;
+    margin-left:40px;
 }
 .thread2-thread{
-    margin-top:40px;
-    margin-left:-79px;
-    margin-bottom:5px;
+    margin-top:20px;
+    margin-left:40px;
+    padding-bottom:10px;
     width:80%;
     word-break: break-all;
 }
