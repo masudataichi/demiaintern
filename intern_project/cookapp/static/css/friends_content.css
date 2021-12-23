@@ -38,9 +38,18 @@ body{
     box-shadow:0px 3px 10px #00000029;
     border-radius:30px;
 }
-#like-ikon{
-    margin-left:270px;
+#like-ikon1{
     margin-top:-5px;
+    z-index:2;
+    height:100px;
+    width:100px;
+
+}
+#like-ikon2{
+    margin-top:-5px;
+    z-index:2;
+    height:100px;
+    width:100px;
 }
 .like-form{
     margin-top:-50px;
@@ -49,9 +58,9 @@ body{
 .like-button{
     background-color:transparent;
     border:none;
-    height:60px;
-    width:60px;
     border-radius:50px;
+    margin-left:270px;
+
 }
 .content-content{
     border-radius:20px;

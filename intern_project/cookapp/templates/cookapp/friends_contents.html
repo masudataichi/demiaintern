@@ -28,11 +28,11 @@
             {% csrf_token %}
             {% if like %}
                 <button type="submit" class='like-button' name='like'>
-                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2 (1).svg' %}"/>
+                    <img id="like-ikon1" src="{% static 'svg/コンポーネント 14 – 2 (1).svg' %}"/>
                 </button>    
             {% else %}
                 <button type="submit" class='like-button' name='like'>
-                    <img id="like-ikon" src="{% static 'svg/コンポーネント 14 – 2.svg' %}"/>
+                    <img id="like-ikon2" src="{% static 'svg/コンポーネント 14 – 2.svg' %}"/>
                 </button>  
             {% endif %}
             </form>    
