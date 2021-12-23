@@ -150,7 +150,6 @@ body{
 }
 .form-image1.active{
     transform:rotate(90deg);
-    margin-top:-50px;
 }
 .form-content{
     display:flex;
@@ -180,7 +179,7 @@ body{
 
 }
 .form-image{
-    margin-bottom:20px;
+    margin-top:10px;
 }
 .replyform{
     width:350px;
