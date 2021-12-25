@@ -45,7 +45,7 @@
                     {% if p.image %}
                     {% if p.submissionconnection == f.users %}
                     {% if p.public_private == 11 %}
-                        <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}}  class='img'alt="サンプル" style='border-radius:10px;' width="77" height="77"></a>
+                        <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}}  class='img'alt="サンプル" style='border-radius:8px;' width="77" height="77"></a>
                     {% endif %} 
                     {% endif %} 
                     {% endif %} 
@@ -57,7 +57,7 @@
                         {% if c.image %}
                         {% if c.submissionconnection == f.users %}
                         {% if c.public_private == 11 %}
-                            <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} class='img' alt="サンプル" style='border-radius:10px;' width="77" height="77"></a>
+                            <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} class='img' alt="サンプル" style='border-radius:8px;' width="77" height="77"></a>
                         {% endif %} 
                         {% endif %} 
                         {% endif %}
@@ -69,7 +69,7 @@
             {% if f.users == s.submissionconnection %} 
                 {% if s.public_private == 11 %}
                         {% if s.image %}
-                            <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} class='img' alt="サンプル" style='border-radius:10px;' width="77" height="77"></a> 
+                            <a class ="Link" href="{% url 'friends_content' s.id %}"><img src={{s.image.url}} class='img' alt="サンプル" style='border-radius:8px;' width="77" height="77"></a> 
                         {% endif %}
                 {% endif %}      
             {% endif %}   
@@ -103,7 +103,7 @@
                                 
                                     {% if l.submission == p %}
                                         {% if l.submission.public_private == 11 %}
-                                            <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} class='img' alt="サンプル"style='border-radius:10px;' width="77" height="77"></a>
+                                            <a class ="Link" href="{% url 'friends_content' p.id %}"><img class='Link-img' src={{p.image.url}} class='img' alt="サンプル"style='border-radius:8px;' width="77" height="77"></a>
                                         {% endif %}
                                     {% endif %}
                                 
@@ -117,7 +117,7 @@
 
                                     {% if l.submission == c %}
                                         {% if l.submission.public_private == 11 %}
-                                            <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} class='img' alt="サンプル" style='border-radius:10px;' width="77" height="77"></a>
+                                            <a class ="Link" href="{% url 'friends_content' c.id %}"><img src={{c.image.url}} class='img' alt="サンプル" style='border-radius:8px;' width="77" height="77"></a>
                                         {% endif %}
                                     {% endif %}
                                
@@ -138,7 +138,7 @@
 
                         {% if l.submission.image %}
                         {% if l.submission.public_private == 11 %}
-                            <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} class='img' alt="サンプル" style='border-radius:10px;' width="77" height="77"></a>
+                            <a class ="Link" href="{% url 'friends_content' l.submission.id %}"><img src={{l.submission.image.url}} class='img' alt="サンプル" style='border-radius:8px;' width="77" height="77"></a>
                         {% endif %}
                         {% endif %} 
                         

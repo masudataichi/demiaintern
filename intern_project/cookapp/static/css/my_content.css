@@ -32,12 +32,13 @@ header{
     display:flex;
 }
 .image{
-    border-radius:20px;
+    border-radius:28px;
     margin-bottom:20px;
     margin-top:-40px;
+    object-fit:cover;
 }
 .image-image{
-    width:350px;
+    width:348px;
     height:310px;
     margin:auto;
     box-shadow:0px 3px 10px #00000029;
@@ -46,7 +47,7 @@ header{
 }
 .form-unclicked{
     border-radius:20px;
-    width:350px;
+    width:348px;
     height:50px;
     box-shadow:0px 3px 10px #00000029;
     border:0px groove #00000029;
@@ -63,7 +64,7 @@ header{
 }
 .form{
     border-radius:20px;
-    width:350px;
+    width:348px;
     height:100px;
     box-shadow:0px 3px 10px #00000029;
     border:1px groove #00000029;
