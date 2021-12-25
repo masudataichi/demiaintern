@@ -3,12 +3,12 @@
     src: url(../gensen-font/ttc/GenSenRounded-M.ttc) format('woff');
 }
 .content{
-    width:374px;
+    width:100%;
     height:812px;
 }
 header{
     font-family:'源泉丸ゴシック';
-    width:350px;
+    width:93.5%;
     height:60px;
     display:flex;
     justify-content:space-between;
@@ -19,7 +19,7 @@ header{
 }
 body{
     font-family:'源泉丸ゴシック';
-    width:375px;
+    width:100%;
     height:812px;
     color:#212121;
 }

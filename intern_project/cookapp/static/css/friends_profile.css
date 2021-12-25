@@ -423,7 +423,6 @@ th {
 
 /* ------------------------------ ここから記入 -------------------------------------------*/
 html {
-    width: 376px;
     height: 812px;
     margin: 0px;
 }
@@ -435,7 +434,7 @@ html {
 }
 
 body {
-    width: 376px;
+    width: 100%;
     height: 812px;
     margin: 0;
     font-family: 源泉丸ゴシック, "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
