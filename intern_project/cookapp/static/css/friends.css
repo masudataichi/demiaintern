@@ -37,7 +37,7 @@ form{
 }
 body{
     font-family:'源泉丸ゴシック', "游ゴシック", "HGSｺﾞｼｯｸM", "HGPｺﾞｼｯｸM", "HG正楷書体PRO", "ヒラギノ丸ゴ ProN", sans-serif;
-    width:375px;
+    width:100%;
     height:812px;
 }
 .img{
@@ -103,17 +103,14 @@ body{
 
 .content-all_inner{
     padding:10px 10px 10px 20px;
+    width:370px;
+    margin:auto;
 }
 .content-like_inner{
     padding:10px 10px 10px 20px;
+    width:370px;
+    margin:auto;
 }
-
-footer {
-    position: fixed;
-    bottom: 10px;
-    width: 376px;
-}
-
 .footer-button {
     width: 25%;
 }

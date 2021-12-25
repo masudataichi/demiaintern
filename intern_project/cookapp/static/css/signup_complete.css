@@ -422,7 +422,6 @@ th {
 
 /* ------------------------------ ここから記入 -------------------------------------------*/
 html {
-    width: 376px;
     height: 812px;
     margin: 0px;
 }
@@ -430,7 +429,7 @@ html {
 /* font指定 */
 
 body {
-    width: 376px;
+    width: 100%;
     height: 812px;
     width: 100%;
     margin: 0;
@@ -448,7 +447,9 @@ body {
 main {
   flex: 1;
 }
-
+.main-wrapper{
+  margin:auto;
+}
 .complete-image,.complete-message {
     margin: 0 auto;
     text-align: center;
@@ -472,17 +473,19 @@ main {
     position: relative;
     z-index: 15;
 }
-
+.button_for{
+  margin:auto;
+}
 button {
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-
+    margin:auto;
     padding: 0.8rem;
     background-color: #ea730c;
     font-size: 20px;
     color: #fff;
-    width: 95%;
+    width: 100%;
     border-radius: 3rem;
     text-align: center;
     box-shadow: 1px 1px 1px #757575;
@@ -498,4 +501,5 @@ footer {
 
 .footer-image {
     z-index: 8;
+    width:100%;
 }

@@ -437,7 +437,7 @@ body {
 footer {
     position: fixed;
     bottom: 10px;
-    width: 376px;
+    width: 100%;
 }
 .footer-container {
     display: flex;
@@ -452,6 +452,8 @@ footer {
 
 .footer-button {
     width: 25%;
+    display:flex;
+    justify-content:space-around;
 }
 
 select {

@@ -13,35 +13,38 @@
 </head>
 
 <body>
-    {% block header %}
+    <div class='container-all'>
+        {% block header %}
 
-         <div class="header-container">
-            <div class=""><a href="" onclick="window.history.back(); return false;"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
-            <div class="">編集</div>
+        <div class="header-container">
+           <div class=""><a href="" onclick="window.history.back(); return false;"><img src="{% static 'svg/←(黒).svg' %}" alt=""></a></div>
+           <div class="">編集</div>
         </div>
 
-    {% endblock header %}
+        {% endblock header %}
 
-    {% block main %}
-    
-    <div class="main-container">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="content-image" >
-                <label for="{{ form.image.id_for_label }}"><img src="{{form.image.value.url}}" id="image_preview"></label>
-                <input type="file" name="{{ form.image.html_name }}" accept="image/*" id="{{ form.image.id_for_label }}" style="display: none;">
-            </div>
-            <div class="public-private">{{ form.public_private }}</div>
-            <div class="date fields">{{ form.date|add_class:"form-date" }}</div>
-            <div class="category fields">{{ form.category|add_class:'form-width' }}</div>
-            <div class="place fields">{{ form.place }}</div>
-            <div class="" style="color:#757575; font-size: 12px;">例）大阪府・東京都など都道府県、または家</div>
-            <div class="comment fields">{{ form.comment|add_class:'form-width' }}</div>
-            <div class="update-button"><button type="submit">更新</button></div>
-        </form>
+        {% block main %}
+   
+        <div class="main-container">
+            <form method="POST" enctype="multipart/form-data" class='form'>
+               {% csrf_token %}
+                <div class="content-image" >
+                   <label for="{{ form.image.id_for_label }}"><img src="{{form.image.value.url}}" id="image_preview"></label>
+                   <input type="file" name="{{ form.image.html_name }}" accept="image/*" id="{{ form.image.id_for_label }}" style="display: none;">
+                </div>
+                <div class="public-private">{{ form.public_private }}</div>
+                <div class="date fields">{{ form.date|add_class:"form-date" }}</div>
+                <div class="category fields">{{ form.category|add_class:'form-width' }}</div>
+                <div class="place fields">{{ form.place }}</div>
+                <div class="" style="color:#757575; font-size: 12px;">例）大阪府・東京都など都道府県、または家</div>
+                <div class="comment fields">{{ form.comment|add_class:'form-width' }}</div>
+                <div class="update-button"><button type="submit">更新</button></div>
+            </form>
+        </div>
+
+        {% endblock main %}
     </div>
 
-    {% endblock main %}
 
     {% block script %}
     <script src="../static/javascript/my_content_update.js"></script>
