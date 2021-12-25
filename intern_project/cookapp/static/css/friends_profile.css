@@ -497,6 +497,7 @@ header {
     position: relative;
     top: -30px;
     object-fit: cover;
+    border-radius:28px;
 }
 
 .images-container {
@@ -512,5 +513,6 @@ header {
 }
 
 img {
-    border-radius: 10%;
+    border-radius: 8px;
+    object-fit:cover;
 }
