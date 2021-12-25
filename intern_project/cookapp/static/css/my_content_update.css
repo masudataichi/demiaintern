@@ -35,7 +35,7 @@ body {
 .update-button {
   position: absolute;
   top: -105px; 
-  right: 75px;
+  right: 0;
   margin-left: auto;
   font-size: 14px;
   background-color: #EA730C;
@@ -71,6 +71,7 @@ main {
   filter:drop-shadow(0px 3px 10px #00000029);
 }
 .form{
+  position: relative;
   width:325px;
 }
 .public-private {
