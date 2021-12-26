@@ -151,7 +151,8 @@ body{
     position: absolute;
     z-index: 6;
     top: 160px;
-    left: 20px;
+    text-align:center;
+
 }
 
 .like-message-3 {
