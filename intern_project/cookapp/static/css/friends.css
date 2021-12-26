@@ -135,8 +135,8 @@ body{
 .blank-message-2 {
     position: absolute;
     z-index: 5;
-    top: 100px;
-    left: 90px;
+    top: 180px;
+    left: 84px;
 }
 
 /* お気に入りがないとき */
@@ -150,7 +150,7 @@ body{
 .like-message-2 {
     position: absolute;
     z-index: 6;
-    top: 140px;
+    top: 160px;
     left: 20px;
 }
 
